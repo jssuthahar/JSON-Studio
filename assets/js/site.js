@@ -331,6 +331,7 @@
           <div class="footer-col">
             <h4>Project</h4>
             <ul>
+              <li><a href="about.html">About JSON Studio</a></li>
               <li><a href="tools.html">All tools</a></li>
               <li><a class="foot-highlight" href="presentation.html">${PRESENT_ICON}Presentation mode</a></li>
               <li><a href="index.html#install">Install the app</a></li>
@@ -343,7 +344,11 @@
         </div>
         <div class="container footer-bottom">
           <span>&copy; ${year} MSDEVBUILD &middot; Suthahar Jegatheesan. All rights reserved.</span>
-          <span>Built as a free, open, client-side tool. No data leaves your browser.</span>
+          <span class="footer-legal">
+            <a href="privacy.html">Privacy &amp; data protection</a>
+            <a href="terms.html">Terms of use</a>
+            <a href="about.html">About</a>
+          </span>
         </div>
       </footer>
     `;

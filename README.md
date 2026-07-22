@@ -233,6 +233,26 @@ gets:
 When adding a tool, add its copy to the SEO catalog too — a tool page without
 that section will not rank for anything.
 
+## Legal pages
+
+Three static pages, written from what the code actually does rather than from a
+template:
+
+- **`privacy.html`** — no accounts, no analytics, no cookies, nothing uploaded;
+  a table of every localStorage key the site uses and how to clear it; and an
+  honest list of the five things that do cause a network request (hosting logs,
+  Google Fonts, Cloudflare's CDN, the opt-in AI panel, and share buttons when
+  clicked). Also covers payload links, the extension's permissions, and rights
+  under GDPR / UK GDPR / India's DPDP Act.
+- **`terms.html`** — free, as-is, no warranty, your data stays your
+  responsibility, acceptable use, MIT-licensed source, governing law.
+- **`about.html`** — who builds it and why; doubles as an authorship signal for
+  search engines.
+
+They are linked from every page's footer, and the tool pages' privacy card links
+straight to the policy. `privacy.html` is also the URL to give the Chrome Web
+Store when publishing the extension.
+
 ## Deploying
 
 This is a static site. The repository includes a `CNAME` for

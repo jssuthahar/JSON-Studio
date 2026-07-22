@@ -10,13 +10,16 @@
   activate, so a stale tool can't linger.
 */
 
-const CACHE = 'json-studio-v6';
+const CACHE = 'json-studio-v7';
 
 const PRECACHE = [
   './',
   'index.html',
   'tools.html',
   'presentation.html',
+  'privacy.html',
+  'terms.html',
+  'about.html',
   'format.html',
   'tool.html',
   'diff.html',

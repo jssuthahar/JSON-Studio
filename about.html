@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About JSON Studio | JSON Studio</title>
+<meta name="description" content="Who builds JSON Studio and why: a free, open-source, client-side JSON toolkit from Suthahar Jegatheesan at MSDEVBUILD, built on the principle that your data should never leave your browser.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://jsonstudio.msdevbuild.com/about.html">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#6d4aff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f0d1a" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="JSON Studio">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="About JSON Studio — JSON Studio">
+<meta property="og:description" content="Who builds JSON Studio and why: a free, open-source, client-side JSON toolkit from Suthahar Jegatheesan at MSDEVBUILD, built on the principle that your data should never leave your browser.">
+<meta property="og:url" content="https://jsonstudio.msdevbuild.com/about.html">
+<meta property="og:image" content="https://jsonstudio.msdevbuild.com/assets/img/og-cover.png">
+<meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jsonstudio.msdevbuild.com/assets/img/og-cover.png">
+<meta name="twitter:title" content="About JSON Studio — JSON Studio">
+<meta name="twitter:description" content="Who builds JSON Studio and why: a free, open-source, client-side JSON toolkit from Suthahar Jegatheesan at MSDEVBUILD, built on the principle that your data should never leave your browser.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "About JSON Studio",
+      "url": "https://jsonstudio.msdevbuild.com/about.html",
+      "description": "Who builds JSON Studio and why: a free, open-source, client-side JSON toolkit from Suthahar Jegatheesan at MSDEVBUILD, built on the principle that your data should never leave your browser.",
+      "dateModified": "2026-07-23",
+      "publisher": { "@type": "Organization", "name": "MSDEVBUILD", "url": "https://www.msdevbuild.com/" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "JSON Studio", "item": "https://jsonstudio.msdevbuild.com/" },
+        { "@type": "ListItem", "position": 2, "name": "About", "item": "https://jsonstudio.msdevbuild.com/about.html" }
+      ]
+    }
+  ]
+}
+</script>
+<script>(function(){try{var t=localStorage.getItem('json-studio-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <section class="legal-head">
+    <div class="container narrow">
+      <div class="kicker">About</div>
+      <h1>About JSON Studio</h1>
+      <p class="lead">Fourteen JSON tools that run entirely in your browser, built and maintained in the open by one person, on the principle that a utility should not require you to hand over your data to use it.</p>
+      <p class="legal-meta">Last updated 23 July 2026</p>
+    </div>
+  </section>
+
+  <section class="section legal-body">
+    <div class="container narrow">
+
+      <h2>Why it exists</h2>
+      <p>Most free JSON tools want your payload on their server first. For a formatter that is absurd, and for anything carrying customer data, credentials or an API response from a production system, it is a genuine problem — the kind that turns "let me just format this quickly" into a policy question.</p>
+      <p>JSON Studio was built the other way round: no backend at all. That single constraint decides everything else. Nothing can leak because nothing is transmitted; there is no account because there is nothing to attach one to; it works offline because it never needed the network; and it is free permanently because there is no server bill to cover.</p>
+
+      <h2>Who builds it</h2>
+      <p>Suthahar Jegatheesan — a Senior Solutions Architect working in Azure, AI and mobile architecture, writing at <a href="https://www.msdevbuild.com/" target="_blank" rel="noopener">MSDEVBUILD</a> and on <a href="https://www.youtube.com/@MSDEVBUILD" target="_blank" rel="noopener">YouTube</a>. The tools came out of the day job: reading raw API responses and configuration files all day gets old, and the good tooling for it either costs money or wants an upload.</p>
+      <p>Find him on <a href="https://my.linkedin.com/in/jssuthahar" target="_blank" rel="noopener">LinkedIn</a> or <a href="https://github.com/jssuthahar" target="_blank" rel="noopener">GitHub</a>.</p>
+
+      <h2>How it is built</h2>
+      <p>Plain HTML, CSS and JavaScript. No framework, no build step, no bundler — you can clone the repository and open <code>index.html</code>, and what you read in the source is exactly what runs in the browser. That is partly taste and partly the point: a privacy claim you can verify by reading the code is worth more than one you have to trust.</p>
+      <p>The only third-party runtime dependencies are D3 on the diagram page and js-yaml on the YAML converter. Everything else — the CSV parser, the JSONPath evaluator, the schema inference, the validator, the code generators — is written from scratch, in part so that no library can quietly change what happens to your data.</p>
+
+      <h2>Principles</h2>
+      <ul>
+        <li><strong>Your data never leaves your browser.</strong> Everything else is negotiable; this is not.</li>
+        <li><strong>No sign-up wall.</strong> Open the page and use the tool.</li>
+        <li><strong>Say what it actually does.</strong> Where a tool infers or approximates, the page says so rather than implying certainty.</li>
+        <li><strong>Work offline.</strong> Install it and the whole toolkit runs with no connection.</li>
+        <li><strong>Stay readable.</strong> Anyone should be able to open the source and follow it.</li>
+      </ul>
+
+      <h2>Contributing</h2>
+      <p>The project is open source and contributions are welcome — a new tool, a fix, or better wording. The contributing guide in the repository covers the layout, the shared toolkit that handles the boilerplate, and the design tokens. If a tool you need is missing, that guide is the fastest route to having it.</p>
+
+      <h2>Contact</h2>
+      <p>Ideas, bug reports and corrections: <a href="https://www.msdevbuild.com/p/contact-suthahar-jegatheesan-js.html" target="_blank" rel="noopener">contact page</a> or a GitHub issue.</p>
+
+      <p class="legal-foot">See also: <a href="privacy.html">Privacy &amp; data protection</a> · <a href="terms.html">Terms of use</a> · <a href="tools.html">All 14 tools</a></p>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

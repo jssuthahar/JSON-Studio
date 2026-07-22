@@ -49,6 +49,9 @@ that prompt and everything else still works.
    640×400 screenshot, a short description and a privacy justification. For the
    privacy section: the extension collects no user data, and the justification
    for `contextMenus` is the right-click menu.
+5. The store also asks for a **privacy policy URL** — use
+   <https://jsonstudio.msdevbuild.com/privacy.html>, which documents the
+   extension's permissions and data handling in its own section.
 
 ## Firefox
 
