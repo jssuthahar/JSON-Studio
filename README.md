@@ -74,6 +74,23 @@ That section is what makes a tool page findable — a page with an app and no
 prose ranks for nothing — and it doubles as the documentation for people who
 land on the tool cold.
 
+## Your work is not lost on refresh
+
+Each tool keeps a **draft** of what you have in it and restores it when you come
+back, and a **Recent** menu holds the last ten documents you ran — with size and
+age, one click to restore. Both live in this browser's localStorage, scoped per
+tool, and never go anywhere. *Clear history* forgets both immediately, and
+cancels any save that was already queued.
+
+## Line numbers
+
+Every editor has a gutter: numbers that track the content and scroll with it,
+click-to-jump-to-line, and the line an error refers to is highlighted and
+scrolled into view. It reads the line number out of the tool's own status
+message, so a parse error at line 42 lights up line 42 without every tool
+having to report it twice. Numbers render as a single element rather than one
+per line, so a 50,000-line document stays cheap.
+
 ## Sharing
 
 Every tool page and the home page carry a share panel: **copy link, email,
@@ -85,10 +102,20 @@ copies a formatted, paste-ready message rather than pretending to open
 something. The clipboard buttons fall back to a selectable field when the
 browser blocks clipboard access.
 
-**Only the page address is shared.** Nothing you have pasted into a tool is
-ever included in a share link, which is the same promise the rest of the site
-makes. `assets/js/share.js` builds every link from the page's canonical URL and
-title, so a new tool page gets working sharing with no configuration.
+**By default only the page address is shared.** The seven channels above never
+include anything you have pasted — `assets/js/share.js` builds those links from
+the page's canonical URL and title alone.
+
+**Copy link with my data** is the deliberate exception: it builds a link that
+carries the current payload, deflate-compressed via the browser's own
+`CompressionStream` (typically 70–85% smaller) and placed in the URL *fragment*.
+Browsers never transmit the fragment, so the data still never reaches a server —
+but anyone holding the link can read it, and the button says so. Oversized
+payloads are refused rather than producing a link that will be truncated.
+
+Opening such a link works whether the tool is already open or not: a
+fragment-only navigation does not reload the page, so the tools listen for
+`hashchange` as well.
 
 ## Presentation mode
 

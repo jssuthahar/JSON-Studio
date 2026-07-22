@@ -186,8 +186,21 @@
       if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') { e.preventDefault(); run(); }
     });
 
-    const handed = hashInput();
-    if (handed) setInput(handed);
+    // Content handed over in the fragment: either the extension's plain
+    // #input=, or a compressed #data= link built by payload-link.js.
+    function takeFromLink() {
+      if (window.JSONStudioLink) {
+        window.JSONStudioLink.readLink().then((text) => { if (text) setInput(text); });
+      } else {
+        const handed = hashInput();
+        if (handed) setInput(handed);
+      }
+    }
+    takeFromLink();
+    // Opening a shared link while this tool is already open only changes the
+    // fragment — the page never reloads, so the payload has to be picked up
+    // here or it would be silently ignored.
+    window.addEventListener('hashchange', takeFromLink);
 
     return { run, setInput, input, output, inStatus, outStatus };
   }

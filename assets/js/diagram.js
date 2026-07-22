@@ -179,6 +179,18 @@
     } catch (e) { setStatus('Parse error: ' + e.message, 'err'); }
   }
 
+  // A payload can arrive in the URL fragment (shared link, or the browser
+  // extension's "send selection here"). Opening such a link while this page is
+  // already open changes only the fragment, so listen for that too.
+  function takeFromLink() {
+    if (!window.JSONStudioLink) return;
+    window.JSONStudioLink.readLink().then((text) => {
+      if (text) { editor.value = text; tryParseAndRender(); }
+    });
+  }
+  takeFromLink();
+  window.addEventListener('hashchange', takeFromLink);
+
   document.getElementById('btn-render').addEventListener('click', tryParseAndRender);
   document.getElementById('btn-sample').addEventListener('click', () => {
     editor.value = JSON.stringify(SAMPLE, null, 2);

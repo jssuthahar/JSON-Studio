@@ -38,6 +38,9 @@ json-studio/
 │   │   ├── tools-hub.js       Search + filtering for tools.html
 │   │   ├── present.js         Presentation mode (all tool pages)
 │   │   ├── share.js           Share panel (link, email, WhatsApp, Teams, Slack…)
+│   │   ├── payload-link.js    Compressed #data= links that carry the payload
+│   │   ├── history.js         Draft autosave + Recent documents
+│   │   ├── gutter.js          Line numbers and error-line highlighting
 │   │   ├── workbench.js       Tool rail + collapsible panels
 │   │   ├── infer.js           Type inference shared by the schema + code tools
 │   │   ├── diagram.js         D3 tree rendering, search, collapse/expand
@@ -138,7 +141,11 @@ already built — reuse it instead of rewriting the plumbing.
    `extension/popup.js`.
 8. If the tool should accept text handed over by the extension, nothing extra
    is needed: `TK.tool()` already reads `#input=` from the URL fragment.
-9. Presentation mode needs nothing either, as long as the page uses the
+9. Drafts, Recent, line numbers and payload links need nothing either — they
+   attach to `#input` (or `#editor`) and to `.code-area`. Load
+   `payload-link.js` *before* `tool-kit.js`, since the tool reads the URL
+   fragment as it initialises.
+10. Presentation mode needs nothing either, as long as the page uses the
    standard structure. `present.js` finds `.pane` elements by itself, treats
    the last one as the result being demonstrated, and builds the Panels menu
    from their `.pane-title` text. Load `present.css` and `present.js` — see any

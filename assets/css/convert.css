@@ -61,3 +61,56 @@
 .pill{display:inline-block;font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--panel-2);color:var(--text-faint);border:1px solid var(--border);}
 .pill.good{background:var(--accent-tint);color:var(--accent);border-color:transparent;}
 .pill.bad{background:rgba(190,18,60,.10);color:var(--bool);border-color:transparent;}
+
+/* ---------------- line-number gutter ---------------- */
+.ca-wrap{position:relative;flex:1;display:flex;min-height:0;min-width:0;
+  --gutter-w:2ch;}
+.ca-wrap .code-area, .ca-wrap #editor{border-radius:0 var(--radius-md) var(--radius-md) 0;border-left:none;}
+.ca-gutter{
+  flex:0 0 auto;width:calc(var(--gutter-w) + 22px);margin:0;overflow:hidden;
+  background:var(--panel-2);border:1px solid var(--border);border-right:none;
+  border-radius:var(--radius-md) 0 0 var(--radius-md);
+  font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.65;
+  padding:14px 8px 14px 10px;text-align:right;color:var(--text-faint);
+  user-select:none;cursor:pointer;white-space:pre;
+}
+.ca-gutter:hover{color:var(--text-dim);}
+.pane:last-child .ca-gutter{background:var(--panel-2);}
+.ca-wrap.no-gutter .ca-gutter{display:none;}
+.ca-wrap.no-gutter .code-area{border-left:1px solid var(--border);border-radius:var(--radius-md);}
+
+/* the line an error points at */
+.ca-mark{position:absolute;left:0;right:0;pointer-events:none;z-index:1;
+  background:rgba(190,18,60,.10);border-left:3px solid var(--bool);}
+html[data-theme="dark"] .ca-mark{background:rgba(255,122,148,.12);}
+
+/* presentation mode scales the type — the gutter has to follow */
+body.presenting .ca-gutter{font-size:calc(12.5px * var(--present-scale, 1.35));padding:16px 8px 16px 10px;}
+body.presenting.focus-mode .ca-gutter{display:none;}
+
+/* ---------------- recent documents ---------------- */
+.hist-menu{position:relative;display:inline-flex;}
+.hist-menu > button{padding:7px 12px;font-size:12.5px;}
+.hist-menu.has-items > button{color:var(--brand);border-color:rgba(109,74,255,.3);}
+.hist-pop{position:absolute;top:calc(100% + 6px);left:0;z-index:40;min-width:290px;max-width:340px;
+  background:var(--panel);border:1px solid var(--border-strong);border-radius:12px;
+  box-shadow:0 18px 40px -14px rgba(20,14,50,.45);padding:6px;display:none;flex-direction:column;gap:1px;}
+.hist-menu.open .hist-pop{display:flex;}
+.hist-head{font-size:10.5px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;
+  color:var(--text-faint);padding:8px 10px 5px;}
+.hist-row{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;
+  padding:8px 10px;border:none;background:transparent;border-radius:8px;text-align:left;cursor:pointer;}
+.hist-row:hover{background:var(--brand-tint);border-color:transparent;}
+.hist-prev{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--text);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;}
+.hist-row:hover .hist-prev{color:var(--brand);}
+.hist-meta{font-size:10.5px;color:var(--text-faint);}
+.hist-clear{width:100%;margin-top:4px;padding:8px 10px;border:none;border-top:1px solid var(--border);
+  background:transparent;border-radius:0 0 8px 8px;font-size:12px;color:var(--text-faint);cursor:pointer;text-align:left;}
+.hist-clear:hover{color:var(--bool);background:transparent;border-color:var(--border);}
+.hist-empty{padding:12px 10px;font-size:12px;color:var(--text-faint);line-height:1.55;}
+
+/* ---------------- share a link that carries the payload ---------------- */
+.share-data{margin-top:12px;padding-top:12px;border-top:1px solid var(--border);}
+.share-data .warn{font-size:11.5px;color:var(--text-faint);line-height:1.55;margin:8px 0 0;}
+.share-data .warn strong{color:var(--bool);font-weight:600;}

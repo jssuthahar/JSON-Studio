@@ -96,6 +96,18 @@
     toClipboard('*' + TITLE + '*\n' + BLURB + '\n' + URL_, root, 'Message copied — paste it into Slack.');
   }
 
+  async function copyPayloadLink(root) {
+    const editor = document.getElementById('input') || document.getElementById('editor');
+    const result = await window.JSONStudioLink.buildLink(editor ? editor.value : '');
+    if (result.error) { flash(root, result.error, 'err'); return; }
+    const detail = result.url.length.toLocaleString() + ' characters' +
+      (result.saved ? ' · compressed ' + result.saved + '%' : '');
+    const note = result.long
+      ? 'Link copied (' + detail + ') — long enough that some chat clients may cut it. Send a file for big payloads.'
+      : 'Link with your data copied · ' + detail + '.';
+    toClipboard(result.url, root, note);
+  }
+
   function render(root) {
     const channels = CHANNELS.slice();
 
@@ -108,6 +120,9 @@
       });
     }
 
+    const canCarry = !!window.JSONStudioLink &&
+      !!(document.getElementById('input') || document.getElementById('editor'));
+
     root.innerHTML = `
       <div class="share-row">
         ${channels.map((c) => c.href
@@ -118,11 +133,19 @@
         ).join('')}
       </div>
       <input class="share-fallback" type="text" readonly hidden aria-label="Link to copy">
-      <p class="share-status" role="status" aria-live="polite"></p>`;
+      <p class="share-status" role="status" aria-live="polite"></p>
+      ${canCarry ? `<div class="share-data">
+        <div class="share-row">
+          <button class="share-btn" type="button" data-id="payload"
+            title="A link that opens this tool with what you have in it right now">${icon('link')}<span>Copy link with my data</span></button>
+        </div>
+        <p class="warn">The payload travels inside the link, after the <code>#</code> — browsers never send that part to a server, so it stays client-side. But <strong>anyone with the link can read it</strong>: don't post one publicly if the data is sensitive.</p>
+      </div>` : ''}`;
 
     root.addEventListener('click', (e) => {
       const btn = e.target.closest('button.share-btn');
       if (!btn) return;
+      if (btn.dataset.id === 'payload') { copyPayloadLink(root); return; }
       const channel = channels.find((c) => c.id === btn.dataset.id);
       if (channel && channel.action) channel.action(root);
     });
