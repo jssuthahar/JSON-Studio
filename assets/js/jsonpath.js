@@ -40,7 +40,19 @@
       const c = src[i];
 
       if (c === '.') {
-        if (src[i + 1] === '.') { tokens.push({ t: 'descend' }); i += 2; continue; }
+        if (src[i + 1] === '.') {
+          // "$..author" is descend-then-name: the name follows the dots directly
+          // rather than after another separator, so read it here.
+          tokens.push({ t: 'descend' });
+          i += 2;
+          if (src[i] === '*') { tokens.push({ t: 'wild' }); i++; }
+          else if (src[i] && /[^.[\]]/.test(src[i])) {
+            let name = '';
+            while (i < src.length && /[^.[\]]/.test(src[i])) name += src[i++];
+            tokens.push({ t: 'key', v: name });
+          }
+          continue;
+        }
         i++;
         if (src[i] === '*') { tokens.push({ t: 'wild' }); i++; continue; }
         let name = '';

@@ -77,6 +77,18 @@ button.ghost:hover{background:var(--panel-2);color:var(--blue);border-color:tran
 #mobile-nav.open{display:flex;}
 #mobile-nav a{padding:10px 8px;font-size:14px;color:var(--text-dim);border-radius:var(--radius-sm);}
 #mobile-nav a:hover{color:var(--blue);background:var(--blue-tint);text-decoration:none;}
+#mobile-nav a.active{color:var(--blue);background:var(--blue-tint);}
+.mobile-nav-head{font-size:11px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-faint);padding:14px 8px 4px;}
+
+/* ---------------- nav dropdown ---------------- */
+.nav-dd{position:relative;}
+.nav-dd-toggle{font-size:13.5px;font-weight:500;color:var(--text-dim);padding:8px 12px;border:1px solid transparent;background:transparent;border-radius:var(--radius-sm);}
+.nav-dd-toggle:hover, .nav-dd.open .nav-dd-toggle, .nav-dd-toggle.active{color:var(--blue);background:var(--blue-tint);border-color:transparent;}
+.nav-dd-menu{position:absolute;top:calc(100% + 6px);left:0;min-width:230px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow);padding:6px;display:none;flex-direction:column;gap:1px;z-index:60;}
+.nav-dd:hover .nav-dd-menu, .nav-dd.open .nav-dd-menu{display:flex;}
+.nav-dd-menu a{font-size:13.5px;color:var(--text-dim);padding:8px 12px;border-radius:6px;white-space:nowrap;}
+.nav-dd-menu a:hover{color:var(--blue);background:var(--blue-tint);text-decoration:none;}
+.nav-dd-menu a.active{color:var(--blue);background:var(--blue-tint);}
 
 /* ---------------- hero ---------------- */
 .hero{padding:64px 0 48px;}
@@ -117,7 +129,8 @@ html[data-theme="dark"] .tool-card .badge.live{background:#123527;color:#3ed6ab;
 
 /* ---------------- footer ---------------- */
 .site-footer{border-top:1px solid var(--border);background:var(--panel);margin-top:40px;}
-.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;padding:44px 0 32px;}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;padding:44px 0 32px;}
+@media(max-width:1000px){ .footer-top{grid-template-columns:1fr 1fr;} }
 @media(max-width:760px){ .footer-top{grid-template-columns:1fr;} }
 .footer-top .about .brandmark{margin-bottom:12px;}
 .footer-top .about p{font-size:13.5px;color:var(--text-dim);line-height:1.6;max-width:340px;margin:0 0 14px;}

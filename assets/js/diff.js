@@ -187,7 +187,7 @@
   }
 
   [inputA, inputB].forEach((el) => el.addEventListener('input', run));
-  ['opt-view', 'opt-arr-index', 'opt-hide-same'].forEach((id) => $(id).addEventListener('change', run));
+  ['opt-view', 'opt-arr-index'].forEach((id) => $(id).addEventListener('change', run));
   $('btn-run').addEventListener('click', run);
 
   $('btn-swap').addEventListener('click', () => {

@@ -4,14 +4,32 @@
   <div id="site-header"></div> and <div id="site-footer"></div>.
   Keeping header/footer here means every page updates from one file
   instead of copy-pasted markup drifting out of sync.
+
+  TOOLS is the single source of truth for the tool list: the nav dropdown,
+  the mobile nav and the footer all read from it. Add a tool here once.
 */
 
 (function () {
+  const TOOLS = [
+    { href: 'tool.html', label: 'JSON to diagram' },
+    { href: 'format.html', label: 'Formatter & validator' },
+    { href: 'diff.html', label: 'JSON diff' },
+    { href: 'jsonpath.html', label: 'JSONPath tester' },
+    { href: 'json-schema.html', label: 'Schema generator' },
+    { href: 'validate.html', label: 'Schema validator' },
+    { href: 'mock.html', label: 'Mock data generator' },
+    { href: 'code.html', label: 'JSON to code' },
+    { href: 'csv.html', label: 'JSON ⇄ CSV' },
+    { href: 'yaml-json.html', label: 'YAML ⇄ JSON' },
+    { href: 'xml.html', label: 'JSON ⇄ XML' },
+    { href: 'jsonl.html', label: 'JSONL ⇄ JSON' },
+    { href: 'sql.html', label: 'JSON to SQL' },
+    { href: 'jwt.html', label: 'JWT decoder' }
+  ];
+
   const NAV_LINKS = [
     { href: 'index.html', label: 'Home' },
-    { href: 'tool.html', label: 'JSON Diagram' },
-    { href: 'yaml-json.html', label: 'YAML ⇄ JSON' },
-    { href: 'json-schema.html', label: 'JSON Schema' },
+    { label: 'Tools', children: TOOLS },
     { href: 'https://www.msdevbuild.com/', label: 'MSDEVBUILD Blog', external: true },
     { href: 'https://github.com/jssuthahar', label: 'GitHub', external: true }
   ];
@@ -27,6 +45,19 @@
     return `<a class="${extraClass || ''}${active}" href="${link.href}"${target}>${link.label}</a>`;
   }
 
+  function navItemHTML(link) {
+    if (!link.children) return linkHTML(link);
+    // Mark the parent active when any tool page underneath it is open.
+    const onTool = link.children.some((c) => c.href === currentFile());
+    return `
+      <div class="nav-dd">
+        <button type="button" class="nav-dd-toggle${onTool ? ' active' : ''}" aria-expanded="false">${link.label} <span aria-hidden="true">▾</span></button>
+        <div class="nav-dd-menu">
+          ${link.children.map((c) => linkHTML(c)).join('')}
+        </div>
+      </div>`;
+  }
+
   function renderHeader() {
     const el = document.getElementById('site-header');
     if (!el) return;
@@ -38,7 +69,7 @@
             <div class="word">JSON <span>Studio</span></div>
           </a>
           <nav class="site-nav">
-            ${NAV_LINKS.map(l => linkHTML(l)).join('')}
+            ${NAV_LINKS.map(navItemHTML).join('')}
           </nav>
           <div class="header-spacer"></div>
           <div class="header-actions">
@@ -47,7 +78,12 @@
           </div>
         </div>
         <div id="mobile-nav">
-          ${NAV_LINKS.map(l => linkHTML(l)).join('')}
+          <a href="index.html">Home</a>
+          <div class="mobile-nav-head">Tools</div>
+          ${TOOLS.map((t) => linkHTML(t)).join('')}
+          <div class="mobile-nav-head">Elsewhere</div>
+          <a href="https://www.msdevbuild.com/" target="_blank" rel="noopener">MSDEVBUILD Blog</a>
+          <a href="https://github.com/jssuthahar" target="_blank" rel="noopener">GitHub</a>
         </div>
       </header>
     `;
@@ -55,6 +91,23 @@
     const navToggle = document.getElementById('nav-toggle');
     const mobileNav = document.getElementById('mobile-nav');
     navToggle.addEventListener('click', () => mobileNav.classList.toggle('open'));
+
+    // Dropdowns open on click as well as hover, so they work on touch devices
+    // that never fire a hover state.
+    const dropdowns = [...el.querySelectorAll('.nav-dd')];
+    dropdowns.forEach((dd) => {
+      const toggle = dd.querySelector('.nav-dd-toggle');
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const open = dd.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+        dropdowns.filter((o) => o !== dd).forEach((o) => o.classList.remove('open'));
+      });
+    });
+    document.addEventListener('click', () => dropdowns.forEach((dd) => dd.classList.remove('open')));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') dropdowns.forEach((dd) => dd.classList.remove('open'));
+    });
 
     const themeToggle = document.getElementById('theme-toggle');
     const applyThemeLabel = () => {
@@ -78,6 +131,8 @@
     const el = document.getElementById('site-footer');
     if (!el) return;
     const year = new Date().getFullYear();
+    const half = Math.ceil(TOOLS.length / 2);
+    const col = (list) => list.map((t) => `<li><a href="${t.href}">${t.label}</a></li>`).join('');
     el.innerHTML = `
       <footer class="site-footer">
         <div class="container footer-top">
@@ -94,20 +149,20 @@
             </div>
           </div>
           <div class="footer-col">
-            <h4>Navigate</h4>
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="tool.html">JSON Diagram tool</a></li>
-              <li><a href="yaml-json.html">YAML ⇄ JSON converter</a></li>
-              <li><a href="json-schema.html">JSON Schema generator</a></li>
-              <li><a href="CONTRIBUTING.md">Contributing guide</a></li>
-              <li><a href="https://www.msdevbuild.com/" target="_blank" rel="noopener">MSDEVBUILD Blog</a></li>
-            </ul>
+            <h4>Tools</h4>
+            <ul>${col(TOOLS.slice(0, half))}</ul>
+          </div>
+          <div class="footer-col">
+            <h4>More tools</h4>
+            <ul>${col(TOOLS.slice(half))}</ul>
           </div>
           <div class="footer-col">
             <h4>Project</h4>
             <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="CONTRIBUTING.md">Contributing guide</a></li>
               <li><a href="https://github.com/jssuthahar" target="_blank" rel="noopener">Source on GitHub</a></li>
+              <li><a href="https://www.msdevbuild.com/" target="_blank" rel="noopener">MSDEVBUILD Blog</a></li>
               <li><a href="https://www.msdevbuild.com/p/about-me.html" target="_blank" rel="noopener">About Suthahar</a></li>
               <li><a href="https://www.msdevbuild.com/p/contact-suthahar-jegatheesan-js.html" target="_blank" rel="noopener">Contact</a></li>
             </ul>
