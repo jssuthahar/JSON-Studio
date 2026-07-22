@@ -85,6 +85,7 @@
 <body>
 
 <div id="site-header"></div>
+<span id="top"></span>
 
 <main class="convert-shell">
   <div class="convert-head">
@@ -92,6 +93,13 @@
       <div class="kicker">Decoder</div>
       <h1>JWT decoder</h1>
       <p>Paste a token to read its header and claims, with expiry and validity windows worked out for you. Your token never leaves this page — which matters more here than anywhere else on this site, because a JWT <em>is</em> a live credential.</p>
+
+      <nav class="th-jump">
+        <a href="#about">What it does</a>
+        <a href="#how">How to use it</a>
+        <a href="#faq">FAQ</a>
+        <a href="#share">Share</a>
+      </nav>
 
       <div class="opt-bar">
         <div class="opt" style="flex:1;min-width:260px;">
@@ -147,21 +155,53 @@
 
 
 
-<section class="tool-seo">
+
+
+<section class="tool-home" id="about">
   <div class="container">
+    <header class="th-head">
+      <div class="kicker">JWT decoder</div>
+      <h2>About the JWT decoder</h2>
+      <p>A JWT is a credential. Pasting one into a website that decodes it server-side hands someone a session, which is why this decoder runs entirely in the page: the token is split and base64url-decoded locally, and if you supply the signing secret, the HMAC signature is verified with the browser's own WebCrypto. Expiry and not-before claims are worked out for you in plain language.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="#top">Use the tool ↑</a>
+        <a class="btn-secondary" href="presentation.html">Present it →</a>
+      </div>
+    </header>
+
+    <div class="th-features">
+      <div class="th-feature">
+        <div class="fi">01</div>
+        <h3>Header and claims</h3>
+        <p>Both halves decoded and pretty-printed, with UTF-8 claims intact.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">02</div>
+        <h3>Expiry in plain language</h3>
+        <p>exp, iat and nbf are shown as real dates plus "in 42 minutes" or "3 days ago".</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">03</div>
+        <h3>Real HS256 verification</h3>
+        <p>Supply the secret and the signature is checked with WebCrypto, in the page.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">04</div>
+        <h3>Never transmitted</h3>
+        <p>A JWT is a live credential. This one is decoded locally and goes nowhere near a server.</p>
+      </div>
+    </div>
+
     <div class="seo-grid">
       <div class="seo-main">
-        <h2>About the JWT decoder</h2>
-        <p>A JWT is a credential. Pasting one into a website that decodes it server-side hands someone a session, which is why this decoder runs entirely in the page: the token is split and base64url-decoded locally, and if you supply the signing secret, the HMAC signature is verified with the browser's own WebCrypto. Expiry and not-before claims are worked out for you in plain language.</p>
-
-        <h3>How to use it</h3>
+        <h3 id="how">How to use it</h3>
         <ol class="seo-steps">
           <li>Paste the token (a "Bearer " prefix is fine — it gets stripped).</li>
           <li>Read the header and claims; timestamps are annotated with how long ago or how far ahead they are.</li>
           <li>Optionally paste the signing secret to verify an HS256, HS384 or HS512 signature.</li>
         </ol>
 
-        <h3>Questions</h3>
+        <h3 id="faq">Questions</h3>
         <div class="faq">
           <details>
             <summary>Is my token sent anywhere?</summary>
@@ -179,6 +219,11 @@
       </div>
 
       <aside class="seo-side">
+        <div class="seo-card" id="share">
+          <h3>Share this tool</h3>
+          <p>Send it to a colleague — the link only, never anything you have pasted in.</p>
+          <div data-share data-share-title="JWT decoder — JSON Studio"></div>
+        </div>
         <div class="seo-card">
           <h3>Present this tool</h3>
           <p>Demoing to a client or a class? Press <kbd>Shift</kbd><kbd>P</kbd> for full-screen presentation mode — chrome hidden, type scaled up, laser pointer included.</p>
@@ -209,5 +254,6 @@
 <script src="assets/js/jwt.js"></script>
 <script src="assets/js/present.js"></script>
 <script src="assets/js/workbench.js"></script>
+<script src="assets/js/share.js"></script>
 </body>
 </html>

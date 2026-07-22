@@ -62,6 +62,34 @@ visible panel can't be collapsed, so you can never end up with a blank page.
 Collapse state is remembered **per tool**, since what you want differs: on the
 diagram page you rarely need the JSON pane, on the diff page you always do.
 
+## Every tool has a home page
+
+Below the app itself, each tool page carries a landing section: an
+introduction, four feature cards, numbered usage instructions, three FAQs,
+related tools and a share panel. Jump links in the tool's header ("What it
+does · How to use it · FAQ · Share") get you there, and a button brings you
+back up to the tool.
+
+That section is what makes a tool page findable — a page with an app and no
+prose ranks for nothing — and it doubles as the documentation for people who
+land on the tool cold.
+
+## Sharing
+
+Every tool page and the home page carry a share panel: **copy link, email,
+WhatsApp, Microsoft Teams, Slack, LinkedIn and X**, plus the native share sheet
+on phones and tablets.
+
+Slack has no public share URL — it requires an installed app — so that button
+copies a formatted, paste-ready message rather than pretending to open
+something. The clipboard buttons fall back to a selectable field when the
+browser blocks clipboard access.
+
+**Only the page address is shared.** Nothing you have pasted into a tool is
+ever included in a share link, which is the same promise the rest of the site
+makes. `assets/js/share.js` builds every link from the page's canonical URL and
+title, so a new tool page gets working sharing with no configuration.
+
 ## Presentation mode
 
 Every tool can be presented. Hit **Present** in the header (or <kbd>Shift</kbd>

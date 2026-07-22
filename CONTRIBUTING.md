@@ -37,6 +37,7 @@ json-studio/
 │   │   ├── tool-kit.js        Shared tool plumbing (window.TK)
 │   │   ├── tools-hub.js       Search + filtering for tools.html
 │   │   ├── present.js         Presentation mode (all tool pages)
+│   │   ├── share.js           Share panel (link, email, WhatsApp, Teams, Slack…)
 │   │   ├── workbench.js       Tool rail + collapsible panels
 │   │   ├── infer.js           Type inference shared by the schema + code tools
 │   │   ├── diagram.js         D3 tree rendering, search, collapse/expand
@@ -123,9 +124,13 @@ already built — reuse it instead of rewriting the plumbing.
    `validate.js`) wire their own listeners but still use the `TK.*` helpers.
 5. Add the page to the `TOOLS` array in `assets/js/site.js` — that one array
    feeds the nav dropdown, the mobile nav, the footer and the ⌘K palette.
-6. Write its SEO copy — the explainer, three how-to steps, three FAQs and
-   three related tools that appear below the app shell. A tool page without
-   that section will not rank for anything.
+6. Write its landing copy — the explainer, four feature cards, three how-to
+   steps, three FAQs and three related tools that appear below the app shell.
+   A tool page without that section will not rank for anything, and gives a
+   first-time visitor nothing to read.
+   Sharing needs no work: include `assets/js/share.js` and drop a
+   `<div data-share></div>` where you want the buttons. Every link is built
+   from the page's canonical URL — never include page content in a share link.
 7. Add a card for it in `index.html` and `tools.html` (give the card a
    `data-keys` attribute with search synonyms — that is what makes searching
    "kubernetes" find the YAML tool), add it to `sitemap.xml`, add its page and

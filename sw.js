@@ -10,7 +10,7 @@
   activate, so a stale tool can't linger.
 */
 
-const CACHE = 'json-studio-v4';
+const CACHE = 'json-studio-v5';
 
 const PRECACHE = [
   './',
@@ -41,6 +41,7 @@ const PRECACHE = [
   'assets/js/tool-kit.js',
   'assets/js/infer.js',
   'assets/js/tools-hub.js',
+  'assets/js/share.js',
   'assets/js/present.js',
   'assets/js/workbench.js',
   'assets/js/diagram.js',

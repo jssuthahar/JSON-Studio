@@ -365,3 +365,38 @@ body.palette-open{overflow:hidden;}
 .pp-bar i{width:1px;height:16px;background:var(--border);display:inline-block;}
 .pp-bar .on{background:var(--brand);color:#fff;padding:4px 10px;border-radius:999px;font-weight:600;}
 .pp-bar .laser{color:#ff453a;font-weight:600;}
+
+/* ---------------- share ---------------- */
+.share-row{display:flex;flex-wrap:wrap;gap:7px;}
+.share-btn{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:9px;
+  border:1px solid var(--border);background:var(--panel);color:var(--text-dim);
+  font-family:inherit;font-size:12.5px;font-weight:500;cursor:pointer;text-decoration:none;transition:all .14s;}
+.share-btn:hover{border-color:var(--brand);color:var(--brand);background:var(--brand-tint);text-decoration:none;}
+.share-btn svg{width:15px;height:15px;flex-shrink:0;}
+.share-status{margin:10px 0 0;font-size:12px;color:var(--text-faint);min-height:16px;}
+.share-status.ok{color:var(--accent);}
+.share-fallback{width:100%;margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:11.5px;}
+
+/* ---------------- tool landing ---------------- */
+.tool-home{border-top:1px solid var(--border);background:var(--page-bg);padding:60px 0 68px;}
+.th-head{max-width:760px;margin-bottom:34px;}
+.th-head .kicker{font-size:12px;font-weight:700;color:var(--brand);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;}
+.th-head h2{font-size:clamp(22px,3vw,29px);font-weight:700;letter-spacing:-0.02em;margin:0 0 12px;}
+.th-head p{font-size:15px;line-height:1.75;color:var(--text-dim);margin:0 0 20px;}
+.th-head .cta-row{margin-top:4px;}
+
+.th-features{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:44px;}
+@media(min-width:680px){ .th-features{grid-template-columns:repeat(2,1fr);} }
+@media(min-width:1020px){ .th-features{grid-template-columns:repeat(4,1fr);} }
+.th-feature{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:20px;}
+.th-feature .fi{width:30px;height:30px;border-radius:9px;background:var(--brand-tint);color:var(--brand);
+  display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;margin-bottom:12px;
+  font-family:'JetBrains Mono',monospace;}
+.th-feature h3{margin:0 0 6px;font-size:14.5px;font-weight:650;letter-spacing:-0.01em;}
+.th-feature p{margin:0;font-size:13px;line-height:1.65;color:var(--text-dim);}
+
+/* jump links in the tool hero */
+.th-jump{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px;}
+.th-jump a{font-size:12.5px;font-weight:500;color:var(--text-dim);padding:5px 11px;border-radius:999px;
+  border:1px solid var(--border);background:var(--panel);}
+.th-jump a:hover{color:var(--brand);border-color:var(--brand);background:var(--brand-tint);text-decoration:none;}

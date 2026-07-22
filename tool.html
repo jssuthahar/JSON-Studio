@@ -62,7 +62,15 @@
 <body>
 
 <div id="site-header"></div>
+<span id="top"></span>
 
+<div class="container" style="padding-top:14px;padding-bottom:2px;">
+      <nav class="th-jump">
+        <a href="#about">What it does</a>
+        <a href="#how">How to use it</a>
+        <a href="#faq">FAQ</a>
+        <a href="#share">Share</a>
+      </nav></div>
 <main class="tool-shell">
   <div class="tool-left">
     <div class="tool-controls">
@@ -114,21 +122,53 @@
 
 
 
-<section class="tool-seo">
+
+
+<section class="tool-home" id="about">
   <div class="container">
+    <header class="th-head">
+      <div class="kicker">JSON to diagram</div>
+      <h2>About the JSON diagram viewer</h2>
+      <p>Reading a deeply nested payload as text is a poor use of a human. This tool lays JSON out as a node-link tree you can pan, zoom, collapse and search, so the shape of the data is visible at a glance. It is the fastest way to explain an API response to someone else — and with presentation mode it goes full screen for exactly that.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="#top">Use the tool ↑</a>
+        <a class="btn-secondary" href="presentation.html">Present it →</a>
+      </div>
+    </header>
+
+    <div class="th-features">
+      <div class="th-feature">
+        <div class="fi">01</div>
+        <h3>Interactive node graph</h3>
+        <p>Pan, zoom and collapse branches to explore a payload by shape rather than by scrolling.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">02</div>
+        <h3>Search that reveals</h3>
+        <p>Type a key or value and matching nodes highlight, with their parent branches opened for you.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">03</div>
+        <h3>PNG and SVG export</h3>
+        <p>SVG stays sharp in slides and print; PNG is ready to paste into a ticket or a chat.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">04</div>
+        <h3>Made for presenting</h3>
+        <p>Full-screen presentation mode with zoom, fit, pan and a laser pointer, one keystroke away.</p>
+      </div>
+    </div>
+
     <div class="seo-grid">
       <div class="seo-main">
-        <h2>About the JSON diagram viewer</h2>
-        <p>Reading a deeply nested payload as text is a poor use of a human. This tool lays JSON out as a node-link tree you can pan, zoom, collapse and search, so the shape of the data is visible at a glance. It is the fastest way to explain an API response to someone else — and with presentation mode it goes full screen for exactly that.</p>
-
-        <h3>How to use it</h3>
+        <h3 id="how">How to use it</h3>
         <ol class="seo-steps">
           <li>Paste JSON, upload a file, or load the sample.</li>
           <li>Click Render, then collapse or expand branches to explore. Search highlights matches and opens the branches that contain them.</li>
           <li>Export the diagram as PNG or SVG, or press Present to show it full screen.</li>
         </ol>
 
-        <h3>Questions</h3>
+        <h3 id="faq">Questions</h3>
         <div class="faq">
           <details>
             <summary>Can I use this to present JSON in a meeting?</summary>
@@ -146,6 +186,11 @@
       </div>
 
       <aside class="seo-side">
+        <div class="seo-card" id="share">
+          <h3>Share this tool</h3>
+          <p>Send it to a colleague — the link only, never anything you have pasted in.</p>
+          <div data-share data-share-title="JSON to diagram — JSON Studio"></div>
+        </div>
         <div class="seo-card">
           <h3>Present this tool</h3>
           <p>Demoing to a client or a class? Press <kbd>Shift</kbd><kbd>P</kbd> for full-screen presentation mode — chrome hidden, type scaled up, laser pointer included.</p>
@@ -177,5 +222,6 @@
 <script src="assets/js/ai-assist.js"></script>
 <script src="assets/js/present.js"></script>
 <script src="assets/js/workbench.js"></script>
+<script src="assets/js/share.js"></script>
 </body>
 </html>

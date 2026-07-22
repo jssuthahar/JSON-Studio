@@ -85,6 +85,7 @@
 <body>
 
 <div id="site-header"></div>
+<span id="top"></span>
 
 <main class="convert-shell">
   <div class="convert-head">
@@ -92,6 +93,13 @@
       <div class="kicker">Query</div>
       <h1>JSONPath tester</h1>
       <p>Write a JSONPath expression and watch the matches update as you type — wildcards, slices, recursive descent and filter expressions all supported.</p>
+
+      <nav class="th-jump">
+        <a href="#about">What it does</a>
+        <a href="#how">How to use it</a>
+        <a href="#faq">FAQ</a>
+        <a href="#share">Share</a>
+      </nav>
 
       <div class="opt-bar">
         <div class="opt" style="flex:1;min-width:280px;">
@@ -143,21 +151,53 @@
 
 
 
-<section class="tool-seo">
+
+
+<section class="tool-home" id="about">
   <div class="container">
+    <header class="th-head">
+      <div class="kicker">JSONPath tester</div>
+      <h2>About the JSONPath tester</h2>
+      <p>JSONPath is to JSON what XPath is to XML: a compact way to reach into a document and pull out the parts you want. This tester evaluates an expression against your payload as you type, so you can build a path incrementally instead of guessing. Notably, filter expressions are parsed rather than handed to eval() — a pasted expression can never execute code in your browser.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="#top">Use the tool ↑</a>
+        <a class="btn-secondary" href="presentation.html">Present it →</a>
+      </div>
+    </header>
+
+    <div class="th-features">
+      <div class="th-feature">
+        <div class="fi">01</div>
+        <h3>Live results</h3>
+        <p>Matches update as you type, so a path can be built up piece by piece instead of guessed.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">02</div>
+        <h3>Full expression support</h3>
+        <p>Wildcards, slices, unions, recursive descent and filters with comparisons and boolean operators.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">03</div>
+        <h3>No eval, ever</h3>
+        <p>Filter expressions are parsed rather than executed — pasting one can never run code in your browser.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">04</div>
+        <h3>Match paths</h3>
+        <p>Optionally return the path to each match, not just the value, so you can see where it came from.</p>
+      </div>
+    </div>
+
     <div class="seo-grid">
       <div class="seo-main">
-        <h2>About the JSONPath tester</h2>
-        <p>JSONPath is to JSON what XPath is to XML: a compact way to reach into a document and pull out the parts you want. This tester evaluates an expression against your payload as you type, so you can build a path incrementally instead of guessing. Notably, filter expressions are parsed rather than handed to eval() — a pasted expression can never execute code in your browser.</p>
-
-        <h3>How to use it</h3>
+        <h3 id="how">How to use it</h3>
         <ol class="seo-steps">
           <li>Paste your JSON on the left.</li>
           <li>Type a path in the Path box — start with $ and build up, for example $.store.book[?(@.price &lt; 10)].title.</li>
           <li>Read the matches on the right; tick "Show match paths" to see where each one came from.</li>
         </ol>
 
-        <h3>Questions</h3>
+        <h3 id="faq">Questions</h3>
         <div class="faq">
           <details>
             <summary>Which JSONPath syntax is supported?</summary>
@@ -175,6 +215,11 @@
       </div>
 
       <aside class="seo-side">
+        <div class="seo-card" id="share">
+          <h3>Share this tool</h3>
+          <p>Send it to a colleague — the link only, never anything you have pasted in.</p>
+          <div data-share data-share-title="JSONPath tester — JSON Studio"></div>
+        </div>
         <div class="seo-card">
           <h3>Present this tool</h3>
           <p>Demoing to a client or a class? Press <kbd>Shift</kbd><kbd>P</kbd> for full-screen presentation mode — chrome hidden, type scaled up, laser pointer included.</p>
@@ -205,5 +250,6 @@
 <script src="assets/js/jsonpath.js"></script>
 <script src="assets/js/present.js"></script>
 <script src="assets/js/workbench.js"></script>
+<script src="assets/js/share.js"></script>
 </body>
 </html>

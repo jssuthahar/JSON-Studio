@@ -85,6 +85,7 @@
 <body>
 
 <div id="site-header"></div>
+<span id="top"></span>
 
 <main class="convert-shell">
   <div class="convert-head">
@@ -92,6 +93,13 @@
       <div class="kicker">Generator</div>
       <h1>JSON to SQL</h1>
       <p>Point it at an array of objects and get a <code>CREATE TABLE</code> with inferred column types plus the <code>INSERT</code> statements to load it. Nested objects and arrays are stored as JSON text columns.</p>
+
+      <nav class="th-jump">
+        <a href="#about">What it does</a>
+        <a href="#how">How to use it</a>
+        <a href="#faq">FAQ</a>
+        <a href="#share">Share</a>
+      </nav>
 
       <div class="opt-bar">
         <div class="opt">
@@ -157,21 +165,53 @@
 
 
 
-<section class="tool-seo">
+
+
+<section class="tool-home" id="about">
   <div class="container">
+    <header class="th-head">
+      <div class="kicker">JSON to SQL</div>
+      <h2>About the JSON to SQL generator</h2>
+      <p>Getting a JSON export into a database usually means writing the DDL by hand. This infers column types from every row rather than the first — a column holding 1, 2 and 3.5 becomes decimal, and a column that is ever missing or null becomes nullable — then emits a CREATE TABLE and the INSERT statements to load it, quoted correctly for your dialect.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="#top">Use the tool ↑</a>
+        <a class="btn-secondary" href="presentation.html">Present it →</a>
+      </div>
+    </header>
+
+    <div class="th-features">
+      <div class="th-feature">
+        <div class="fi">01</div>
+        <h3>Four dialects</h3>
+        <p>PostgreSQL, MySQL, SQL Server and SQLite, each with correct quoting, types and boolean literals.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">02</div>
+        <h3>Types from every row</h3>
+        <p>A column holding 1, 2 and 3.5 becomes decimal; a column ever missing becomes nullable.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">03</div>
+        <h3>CREATE plus INSERT</h3>
+        <p>Table definition and the statements to load it, chunked for large sets.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">04</div>
+        <h3>Nested data handled</h3>
+        <p>Objects and arrays are stored as JSON text columns, which is what these databases want anyway.</p>
+      </div>
+    </div>
+
     <div class="seo-grid">
       <div class="seo-main">
-        <h2>About the JSON to SQL generator</h2>
-        <p>Getting a JSON export into a database usually means writing the DDL by hand. This infers column types from every row rather than the first — a column holding 1, 2 and 3.5 becomes decimal, and a column that is ever missing or null becomes nullable — then emits a CREATE TABLE and the INSERT statements to load it, quoted correctly for your dialect.</p>
-
-        <h3>How to use it</h3>
+        <h3 id="how">How to use it</h3>
         <ol class="seo-steps">
           <li>Paste an array of JSON objects.</li>
           <li>Pick the dialect and table name, and whether columns are converted to snake_case.</li>
           <li>Copy the SQL, or download it as a .sql file.</li>
         </ol>
 
-        <h3>Questions</h3>
+        <h3 id="faq">Questions</h3>
         <div class="faq">
           <details>
             <summary>Which databases are supported?</summary>
@@ -189,6 +229,11 @@
       </div>
 
       <aside class="seo-side">
+        <div class="seo-card" id="share">
+          <h3>Share this tool</h3>
+          <p>Send it to a colleague — the link only, never anything you have pasted in.</p>
+          <div data-share data-share-title="JSON to SQL — JSON Studio"></div>
+        </div>
         <div class="seo-card">
           <h3>Present this tool</h3>
           <p>Demoing to a client or a class? Press <kbd>Shift</kbd><kbd>P</kbd> for full-screen presentation mode — chrome hidden, type scaled up, laser pointer included.</p>
@@ -219,5 +264,6 @@
 <script src="assets/js/sql.js"></script>
 <script src="assets/js/present.js"></script>
 <script src="assets/js/workbench.js"></script>
+<script src="assets/js/share.js"></script>
 </body>
 </html>

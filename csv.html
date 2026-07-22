@@ -85,6 +85,7 @@
 <body>
 
 <div id="site-header"></div>
+<span id="top"></span>
 
 <main class="convert-shell">
   <div class="convert-head">
@@ -92,6 +93,13 @@
       <div class="kicker">Converter</div>
       <h1>JSON ⇄ CSV</h1>
       <p>Turn an array of JSON objects into a spreadsheet-ready CSV, or a CSV back into JSON. Nested objects flatten to dot-notation columns and the header is the union of every row&rsquo;s keys.</p>
+
+      <nav class="th-jump">
+        <a href="#about">What it does</a>
+        <a href="#how">How to use it</a>
+        <a href="#faq">FAQ</a>
+        <a href="#share">Share</a>
+      </nav>
 
       <div class="opt-bar">
         <div class="opt">
@@ -163,21 +171,53 @@
 
 
 
-<section class="tool-seo">
+
+
+<section class="tool-home" id="about">
   <div class="container">
+    <header class="th-head">
+      <div class="kicker">JSON ⇄ CSV</div>
+      <h2>About the JSON ⇄ CSV converter</h2>
+      <p>Spreadsheets are still how most of the world looks at data. This converts an array of JSON objects into a CSV whose header is the union of every row's keys — so a field that only appears in later rows still gets a column — and converts CSV back to JSON, rebuilding nested objects from dot-notation headers. Quoting, escaped quotes and embedded newlines follow RFC 4180 in both directions.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="#top">Use the tool ↑</a>
+        <a class="btn-secondary" href="presentation.html">Present it →</a>
+      </div>
+    </header>
+
+    <div class="th-features">
+      <div class="th-feature">
+        <div class="fi">01</div>
+        <h3>Both directions</h3>
+        <p>JSON to a spreadsheet-ready CSV, and CSV back to JSON, with the direction detected automatically.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">02</div>
+        <h3>Nested keys flattened</h3>
+        <p>Nested objects become dot-notation columns, and rebuild into objects on the way back.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">03</div>
+        <h3>Header is a union</h3>
+        <p>Columns cover every key in every row, so a field that appears late still gets one.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">04</div>
+        <h3>RFC 4180 quoting</h3>
+        <p>Commas, quotes and newlines inside values survive the round trip in both directions.</p>
+      </div>
+    </div>
+
     <div class="seo-grid">
       <div class="seo-main">
-        <h2>About the JSON ⇄ CSV converter</h2>
-        <p>Spreadsheets are still how most of the world looks at data. This converts an array of JSON objects into a CSV whose header is the union of every row's keys — so a field that only appears in later rows still gets a column — and converts CSV back to JSON, rebuilding nested objects from dot-notation headers. Quoting, escaped quotes and embedded newlines follow RFC 4180 in both directions.</p>
-
-        <h3>How to use it</h3>
+        <h3 id="how">How to use it</h3>
         <ol class="seo-steps">
           <li>Paste a JSON array (or a CSV table — the direction is detected automatically).</li>
           <li>Choose the delimiter, and whether nested keys are flattened and CSV values type-inferred.</li>
           <li>Copy the output or download it. Tick "Excel BOM" if Excel mangles your accented characters.</li>
         </ol>
 
-        <h3>Questions</h3>
+        <h3 id="faq">Questions</h3>
         <div class="faq">
           <details>
             <summary>My JSON is nested — what happens to it?</summary>
@@ -195,6 +235,11 @@
       </div>
 
       <aside class="seo-side">
+        <div class="seo-card" id="share">
+          <h3>Share this tool</h3>
+          <p>Send it to a colleague — the link only, never anything you have pasted in.</p>
+          <div data-share data-share-title="JSON ⇄ CSV — JSON Studio"></div>
+        </div>
         <div class="seo-card">
           <h3>Present this tool</h3>
           <p>Demoing to a client or a class? Press <kbd>Shift</kbd><kbd>P</kbd> for full-screen presentation mode — chrome hidden, type scaled up, laser pointer included.</p>
@@ -225,5 +270,6 @@
 <script src="assets/js/csv.js"></script>
 <script src="assets/js/present.js"></script>
 <script src="assets/js/workbench.js"></script>
+<script src="assets/js/share.js"></script>
 </body>
 </html>

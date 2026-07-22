@@ -85,6 +85,7 @@
 <body>
 
 <div id="site-header"></div>
+<span id="top"></span>
 
 <main class="convert-shell">
   <div class="convert-head">
@@ -92,6 +93,13 @@
       <div class="kicker">Converter</div>
       <h1>JSONL ⇄ JSON</h1>
       <p>JSON Lines is how logs, exports and LLM fine-tuning datasets travel. Convert a <code>.jsonl</code> file into a proper JSON array to inspect it, or flatten an array back into one record per line — with bad lines reported by line number.</p>
+
+      <nav class="th-jump">
+        <a href="#about">What it does</a>
+        <a href="#how">How to use it</a>
+        <a href="#faq">FAQ</a>
+        <a href="#share">Share</a>
+      </nav>
 
       <div class="opt-bar">
         <div class="opt">
@@ -150,21 +158,53 @@
 
 
 
-<section class="tool-seo">
+
+
+<section class="tool-home" id="about">
   <div class="container">
+    <header class="th-head">
+      <div class="kicker">JSONL ⇄ JSON</div>
+      <h2>About the JSONL ⇄ JSON converter</h2>
+      <p>JSON Lines is how logs, data exports and LLM fine-tuning datasets travel: one JSON document per line, appendable and streamable. It is also awkward to inspect, because no ordinary JSON tool will parse the file as a whole. This converts a .jsonl file into a proper array you can read, search and feed to the other tools here, and flattens an array back to one record per line.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="#top">Use the tool ↑</a>
+        <a class="btn-secondary" href="presentation.html">Present it →</a>
+      </div>
+    </header>
+
+    <div class="th-features">
+      <div class="th-feature">
+        <div class="fi">01</div>
+        <h3>Logs and datasets</h3>
+        <p>Built for the NDJSON that log exports and LLM fine-tuning files actually ship as.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">02</div>
+        <h3>Bad lines by number</h3>
+        <p>One corrupt record in fifty thousand is named, not hidden behind a generic failure.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">03</div>
+        <h3>Skip and continue</h3>
+        <p>Convert everything that parses and get a count of what was skipped.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">04</div>
+        <h3>Both directions</h3>
+        <p>Array to one-record-per-line, or a .jsonl file into an array you can actually read.</p>
+      </div>
+    </div>
+
     <div class="seo-grid">
       <div class="seo-main">
-        <h2>About the JSONL ⇄ JSON converter</h2>
-        <p>JSON Lines is how logs, data exports and LLM fine-tuning datasets travel: one JSON document per line, appendable and streamable. It is also awkward to inspect, because no ordinary JSON tool will parse the file as a whole. This converts a .jsonl file into a proper array you can read, search and feed to the other tools here, and flattens an array back to one record per line.</p>
-
-        <h3>How to use it</h3>
+        <h3 id="how">How to use it</h3>
         <ol class="seo-steps">
           <li>Paste JSONL (one object per line) or a JSON array — the direction is detected.</li>
           <li>Invalid lines are named by line number; tick "Skip invalid lines" to ignore them and convert the rest.</li>
           <li>Copy or download the result as .json or .jsonl.</li>
         </ol>
 
-        <h3>Questions</h3>
+        <h3 id="faq">Questions</h3>
         <div class="faq">
           <details>
             <summary>What is the difference between JSONL and NDJSON?</summary>
@@ -182,6 +222,11 @@
       </div>
 
       <aside class="seo-side">
+        <div class="seo-card" id="share">
+          <h3>Share this tool</h3>
+          <p>Send it to a colleague — the link only, never anything you have pasted in.</p>
+          <div data-share data-share-title="JSONL ⇄ JSON — JSON Studio"></div>
+        </div>
         <div class="seo-card">
           <h3>Present this tool</h3>
           <p>Demoing to a client or a class? Press <kbd>Shift</kbd><kbd>P</kbd> for full-screen presentation mode — chrome hidden, type scaled up, laser pointer included.</p>
@@ -212,5 +257,6 @@
 <script src="assets/js/jsonl.js"></script>
 <script src="assets/js/present.js"></script>
 <script src="assets/js/workbench.js"></script>
+<script src="assets/js/share.js"></script>
 </body>
 </html>

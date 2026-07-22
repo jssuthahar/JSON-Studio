@@ -85,6 +85,7 @@
 <body>
 
 <div id="site-header"></div>
+<span id="top"></span>
 
 <main class="convert-shell">
   <div class="convert-head">
@@ -92,6 +93,13 @@
       <div class="kicker">Validator</div>
       <h1>JSON Schema validator</h1>
       <p>Check a payload against a schema and get every failure with its instance path and the keyword that rejected it. Pairs with the schema generator — generate one, then test it against real payloads.</p>
+
+      <nav class="th-jump">
+        <a href="#about">What it does</a>
+        <a href="#how">How to use it</a>
+        <a href="#faq">FAQ</a>
+        <a href="#share">Share</a>
+      </nav>
 
       <div class="opt-bar">
         <div class="opt">
@@ -148,21 +156,53 @@
 
 
 
-<section class="tool-seo">
+
+
+<section class="tool-home" id="about">
   <div class="container">
+    <header class="th-head">
+      <div class="kicker">Schema validator</div>
+      <h2>About the JSON Schema validator</h2>
+      <p>Paste a payload and a schema and get a precise list of what fails, each error naming the exact path inside the document and the keyword that rejected it — the two things you need to fix it. It pairs with the schema generator: infer a schema from one payload, then test it against the awkward ones.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="#top">Use the tool ↑</a>
+        <a class="btn-secondary" href="presentation.html">Present it →</a>
+      </div>
+    </header>
+
+    <div class="th-features">
+      <div class="th-feature">
+        <div class="fi">01</div>
+        <h3>Errors with paths</h3>
+        <p>Every failure names the instance path and the keyword that rejected it — the two things you need.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">02</div>
+        <h3>The keywords you meet</h3>
+        <p>Types, required, enum, const, bounds, items, uniqueItems, combinators, patternProperties and local $ref.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">03</div>
+        <h3>All errors or the first</h3>
+        <p>See everything that is wrong at once, or stop at the first failure while iterating.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">04</div>
+        <h3>Format checking, optional</h3>
+        <p>Enforce email, uri, uuid and date formats, or treat them as annotations like the spec does.</p>
+      </div>
+    </div>
+
     <div class="seo-grid">
       <div class="seo-main">
-        <h2>About the JSON Schema validator</h2>
-        <p>Paste a payload and a schema and get a precise list of what fails, each error naming the exact path inside the document and the keyword that rejected it — the two things you need to fix it. It pairs with the schema generator: infer a schema from one payload, then test it against the awkward ones.</p>
-
-        <h3>How to use it</h3>
+        <h3 id="how">How to use it</h3>
         <ol class="seo-steps">
           <li>Paste the JSON document into the first pane.</li>
           <li>Paste the JSON Schema into the second.</li>
           <li>Read the errors, each with its instance path. Switch off format checking if you only want structural validation.</li>
         </ol>
 
-        <h3>Questions</h3>
+        <h3 id="faq">Questions</h3>
         <div class="faq">
           <details>
             <summary>Which keywords are supported?</summary>
@@ -180,6 +220,11 @@
       </div>
 
       <aside class="seo-side">
+        <div class="seo-card" id="share">
+          <h3>Share this tool</h3>
+          <p>Send it to a colleague — the link only, never anything you have pasted in.</p>
+          <div data-share data-share-title="Schema validator — JSON Studio"></div>
+        </div>
         <div class="seo-card">
           <h3>Present this tool</h3>
           <p>Demoing to a client or a class? Press <kbd>Shift</kbd><kbd>P</kbd> for full-screen presentation mode — chrome hidden, type scaled up, laser pointer included.</p>
@@ -210,5 +255,6 @@
 <script src="assets/js/validate.js"></script>
 <script src="assets/js/present.js"></script>
 <script src="assets/js/workbench.js"></script>
+<script src="assets/js/share.js"></script>
 </body>
 </html>

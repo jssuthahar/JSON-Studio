@@ -85,6 +85,7 @@
 <body>
 
 <div id="site-header"></div>
+<span id="top"></span>
 
 <main class="convert-shell">
   <div class="convert-head">
@@ -92,6 +93,13 @@
       <div class="kicker">Converter</div>
       <h1>JSON ⇄ XML</h1>
       <p>Convert either direction with attributes preserved: XML attributes become <code>@</code>-prefixed keys and text content becomes <code>#text</code>, so the round trip keeps its meaning.</p>
+
+      <nav class="th-jump">
+        <a href="#about">What it does</a>
+        <a href="#how">How to use it</a>
+        <a href="#faq">FAQ</a>
+        <a href="#share">Share</a>
+      </nav>
 
       <div class="opt-bar">
         <div class="opt">
@@ -158,21 +166,53 @@
 
 
 
-<section class="tool-seo">
+
+
+<section class="tool-home" id="about">
   <div class="container">
+    <header class="th-head">
+      <div class="kicker">JSON ⇄ XML</div>
+      <h2>About the JSON ⇄ XML converter</h2>
+      <p>SOAP services, RSS feeds and older enterprise systems still speak XML. Converting between the two formats is lossy unless attributes are handled properly, so this maps XML attributes to @-prefixed keys and text content to #text, which means the round trip keeps its meaning. XML parsing uses the browser's own DOMParser rather than a hand-rolled parser.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="#top">Use the tool ↑</a>
+        <a class="btn-secondary" href="presentation.html">Present it →</a>
+      </div>
+    </header>
+
+    <div class="th-features">
+      <div class="th-feature">
+        <div class="fi">01</div>
+        <h3>Attributes preserved</h3>
+        <p>XML attributes become @-prefixed keys and text becomes #text, so the round trip keeps meaning.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">02</div>
+        <h3>Repeats become arrays</h3>
+        <p>Repeated sibling elements collapse into a JSON array, and expand back into elements.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">03</div>
+        <h3>The browser's own parser</h3>
+        <p>DOMParser does the reading — no third-party XML library, no hand-rolled parser.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">04</div>
+        <h3>Formatting control</h3>
+        <p>Root element name, indentation, and whether to emit the XML declaration.</p>
+      </div>
+    </div>
+
     <div class="seo-grid">
       <div class="seo-main">
-        <h2>About the JSON ⇄ XML converter</h2>
-        <p>SOAP services, RSS feeds and older enterprise systems still speak XML. Converting between the two formats is lossy unless attributes are handled properly, so this maps XML attributes to @-prefixed keys and text content to #text, which means the round trip keeps its meaning. XML parsing uses the browser's own DOMParser rather than a hand-rolled parser.</p>
-
-        <h3>How to use it</h3>
+        <h3 id="how">How to use it</h3>
         <ol class="seo-steps">
           <li>Paste JSON or XML — the direction is detected from the first character.</li>
           <li>Set the root element name (used when your JSON has more than one top-level key) and the indentation.</li>
           <li>Copy or download the converted document.</li>
         </ol>
 
-        <h3>Questions</h3>
+        <h3 id="faq">Questions</h3>
         <div class="faq">
           <details>
             <summary>How are XML attributes represented in JSON?</summary>
@@ -190,6 +230,11 @@
       </div>
 
       <aside class="seo-side">
+        <div class="seo-card" id="share">
+          <h3>Share this tool</h3>
+          <p>Send it to a colleague — the link only, never anything you have pasted in.</p>
+          <div data-share data-share-title="JSON ⇄ XML — JSON Studio"></div>
+        </div>
         <div class="seo-card">
           <h3>Present this tool</h3>
           <p>Demoing to a client or a class? Press <kbd>Shift</kbd><kbd>P</kbd> for full-screen presentation mode — chrome hidden, type scaled up, laser pointer included.</p>
@@ -220,5 +265,6 @@
 <script src="assets/js/xml.js"></script>
 <script src="assets/js/present.js"></script>
 <script src="assets/js/workbench.js"></script>
+<script src="assets/js/share.js"></script>
 </body>
 </html>

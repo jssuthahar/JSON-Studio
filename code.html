@@ -85,6 +85,7 @@
 <body>
 
 <div id="site-header"></div>
+<span id="top"></span>
 
 <main class="convert-shell">
   <div class="convert-head">
@@ -92,6 +93,13 @@
       <div class="kicker">Generator</div>
       <h1>JSON to code</h1>
       <p>Paste a payload and get typed classes for your language. Array elements are merged before generating, so a key missing from some elements becomes an optional field instead of being lost.</p>
+
+      <nav class="th-jump">
+        <a href="#about">What it does</a>
+        <a href="#how">How to use it</a>
+        <a href="#faq">FAQ</a>
+        <a href="#share">Share</a>
+      </nav>
 
       <div class="opt-bar">
         <div class="opt">
@@ -160,21 +168,53 @@
 
 
 
-<section class="tool-seo">
+
+
+<section class="tool-home" id="about">
   <div class="container">
+    <header class="th-head">
+      <div class="kicker">JSON to code</div>
+      <h2>About the JSON to code generator</h2>
+      <p>Turning an API response into model classes by hand is busywork. Paste the payload and get types for your language, with the serialisation attributes that language expects. Array elements are merged before generating, so a key that appears in only some elements becomes an optional field rather than being lost — the mistake most generators make when they read only the first element.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="#top">Use the tool ↑</a>
+        <a class="btn-secondary" href="presentation.html">Present it →</a>
+      </div>
+    </header>
+
+    <div class="th-features">
+      <div class="th-feature">
+        <div class="fi">01</div>
+        <h3>Seven languages</h3>
+        <p>C#, TypeScript, Dart, Kotlin, Java, Python and Go, each with idiomatic naming.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">02</div>
+        <h3>Serialisation attributes</h3>
+        <p>JsonPropertyName, SerialName, JsonProperty, json tags — the annotation your stack expects.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">03</div>
+        <h3>Optionality preserved</h3>
+        <p>A key missing from some array elements becomes an optional or nullable field, not a lost one.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">04</div>
+        <h3>Nested types named</h3>
+        <p>Nested objects become their own classes, singularised from the property that held them.</p>
+      </div>
+    </div>
+
     <div class="seo-grid">
       <div class="seo-main">
-        <h2>About the JSON to code generator</h2>
-        <p>Turning an API response into model classes by hand is busywork. Paste the payload and get types for your language, with the serialisation attributes that language expects. Array elements are merged before generating, so a key that appears in only some elements becomes an optional field rather than being lost — the mistake most generators make when they read only the first element.</p>
-
-        <h3>How to use it</h3>
+        <h3 id="how">How to use it</h3>
         <ol class="seo-steps">
           <li>Paste a representative payload — include elements with optional fields present and absent.</li>
           <li>Pick the language, name the root type, and choose whether to emit serialisation annotations and nullable optionals.</li>
           <li>Copy the code, or download it as a file named after the root type.</li>
         </ol>
 
-        <h3>Questions</h3>
+        <h3 id="faq">Questions</h3>
         <div class="faq">
           <details>
             <summary>Which languages are supported?</summary>
@@ -192,6 +232,11 @@
       </div>
 
       <aside class="seo-side">
+        <div class="seo-card" id="share">
+          <h3>Share this tool</h3>
+          <p>Send it to a colleague — the link only, never anything you have pasted in.</p>
+          <div data-share data-share-title="JSON to code — JSON Studio"></div>
+        </div>
         <div class="seo-card">
           <h3>Present this tool</h3>
           <p>Demoing to a client or a class? Press <kbd>Shift</kbd><kbd>P</kbd> for full-screen presentation mode — chrome hidden, type scaled up, laser pointer included.</p>
@@ -223,5 +268,6 @@
 <script src="assets/js/code.js"></script>
 <script src="assets/js/present.js"></script>
 <script src="assets/js/workbench.js"></script>
+<script src="assets/js/share.js"></script>
 </body>
 </html>

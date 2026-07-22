@@ -72,6 +72,7 @@
 <body>
 
 <div id="site-header"></div>
+<span id="top"></span>
 
 <main class="convert-shell">
   <div class="convert-head">
@@ -79,6 +80,13 @@
       <div class="kicker">Converter</div>
       <h1>YAML ⇄ JSON</h1>
       <p>Paste YAML or JSON on the left and get the other format on the right, with validation as you type. Runs entirely in your browser — nothing is uploaded.</p>
+
+      <nav class="th-jump">
+        <a href="#about">What it does</a>
+        <a href="#how">How to use it</a>
+        <a href="#faq">FAQ</a>
+        <a href="#share">Share</a>
+      </nav>
 
       <div class="opt-bar">
         <div class="opt">
@@ -146,21 +154,53 @@
 
 
 
-<section class="tool-seo">
+
+
+<section class="tool-home" id="about">
   <div class="container">
+    <header class="th-head">
+      <div class="kicker">YAML ⇄ JSON</div>
+      <h2>About the YAML ⇄ JSON converter</h2>
+      <p>Kubernetes manifests, CI pipelines, OpenAPI specs and application configs are YAML; APIs and tooling speak JSON. This converts either way as you type, detecting the direction from what you paste — JSON is valid YAML, so it tries JSON first. Multi-document YAML separated by --- round-trips to a JSON array.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="#top">Use the tool ↑</a>
+        <a class="btn-secondary" href="presentation.html">Present it →</a>
+      </div>
+    </header>
+
+    <div class="th-features">
+      <div class="th-feature">
+        <div class="fi">01</div>
+        <h3>Either direction, live</h3>
+        <p>Converts as you type, detecting which way round you pasted.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">02</div>
+        <h3>Multi-document YAML</h3>
+        <p>Kubernetes manifests separated by --- become a JSON array, and back again.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">03</div>
+        <h3>Errors by line and column</h3>
+        <p>YAML parse failures point at the exact spot rather than failing silently.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">04</div>
+        <h3>Safe parsing</h3>
+        <p>js-yaml's safe schema only — no tag can construct arbitrary types or run code.</p>
+      </div>
+    </div>
+
     <div class="seo-grid">
       <div class="seo-main">
-        <h2>About the YAML ⇄ JSON converter</h2>
-        <p>Kubernetes manifests, CI pipelines, OpenAPI specs and application configs are YAML; APIs and tooling speak JSON. This converts either way as you type, detecting the direction from what you paste — JSON is valid YAML, so it tries JSON first. Multi-document YAML separated by --- round-trips to a JSON array.</p>
-
-        <h3>How to use it</h3>
+        <h3 id="how">How to use it</h3>
         <ol class="seo-steps">
           <li>Paste YAML or JSON, or drop a .yaml, .yml or .json file.</li>
           <li>The direction is detected automatically, or pin it with the Direction control.</li>
           <li>Adjust indentation and key sorting, then copy or download the result.</li>
         </ol>
 
-        <h3>Questions</h3>
+        <h3 id="faq">Questions</h3>
         <div class="faq">
           <details>
             <summary>Can it convert a Kubernetes manifest?</summary>
@@ -178,6 +218,11 @@
       </div>
 
       <aside class="seo-side">
+        <div class="seo-card" id="share">
+          <h3>Share this tool</h3>
+          <p>Send it to a colleague — the link only, never anything you have pasted in.</p>
+          <div data-share data-share-title="YAML ⇄ JSON — JSON Studio"></div>
+        </div>
         <div class="seo-card">
           <h3>Present this tool</h3>
           <p>Demoing to a client or a class? Press <kbd>Shift</kbd><kbd>P</kbd> for full-screen presentation mode — chrome hidden, type scaled up, laser pointer included.</p>
@@ -208,5 +253,6 @@
 <script src="assets/js/yaml-json.js"></script>
 <script src="assets/js/present.js"></script>
 <script src="assets/js/workbench.js"></script>
+<script src="assets/js/share.js"></script>
 </body>
 </html>

@@ -85,6 +85,7 @@
 <body>
 
 <div id="site-header"></div>
+<span id="top"></span>
 
 <main class="convert-shell">
   <div class="convert-head">
@@ -92,6 +93,13 @@
       <div class="kicker">Formatter</div>
       <h1>JSON formatter &amp; validator</h1>
       <p>Beautify, minify, sort keys, or escape and unescape JSON strings — with parse errors reported down to the line and column. Runs entirely in your browser.</p>
+
+      <nav class="th-jump">
+        <a href="#about">What it does</a>
+        <a href="#how">How to use it</a>
+        <a href="#faq">FAQ</a>
+        <a href="#share">Share</a>
+      </nav>
 
       <div class="opt-bar">
         <div class="opt">
@@ -156,21 +164,53 @@
 
 
 
-<section class="tool-seo">
+
+
+<section class="tool-home" id="about">
   <div class="container">
+    <header class="th-head">
+      <div class="kicker">Formatter & validator</div>
+      <h2>About the JSON formatter</h2>
+      <p>A JSON formatter is the tool you reach for when an API hands you 40KB on one line. This one beautifies it with 2-space, 4-space or tab indentation, minifies it back down when you need it small, sorts keys so two payloads can be compared, and escapes or unescapes JSON that has been embedded inside another string. If the document will not parse, it tells you the line and column and quotes the offending line, instead of the usual "Unexpected token".</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="#top">Use the tool ↑</a>
+        <a class="btn-secondary" href="presentation.html">Present it →</a>
+      </div>
+    </header>
+
+    <div class="th-features">
+      <div class="th-feature">
+        <div class="fi">01</div>
+        <h3>Beautify or minify</h3>
+        <p>Two-space, four-space or tab indentation, or strip it all out and see how much smaller it got.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">02</div>
+        <h3>Errors you can act on</h3>
+        <p>Parse failures name the line and column and quote the offending line, instead of "Unexpected token".</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">03</div>
+        <h3>Relaxed input</h3>
+        <p>Optionally accept comments, trailing commas, single quotes and unquoted keys — real config files, in other words.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">04</div>
+        <h3>Sort, escape, unescape</h3>
+        <p>Order keys for comparison, escape JSON into a string literal, or pull one back out.</p>
+      </div>
+    </div>
+
     <div class="seo-grid">
       <div class="seo-main">
-        <h2>About the JSON formatter</h2>
-        <p>A JSON formatter is the tool you reach for when an API hands you 40KB on one line. This one beautifies it with 2-space, 4-space or tab indentation, minifies it back down when you need it small, sorts keys so two payloads can be compared, and escapes or unescapes JSON that has been embedded inside another string. If the document will not parse, it tells you the line and column and quotes the offending line, instead of the usual "Unexpected token".</p>
-
-        <h3>How to use it</h3>
+        <h3 id="how">How to use it</h3>
         <ol class="seo-steps">
           <li>Paste, drop or upload your JSON on the left.</li>
           <li>Pick a mode — beautify, minify, escape or unescape — and an indent width.</li>
           <li>Copy the result, or download it as a .json file.</li>
         </ol>
 
-        <h3>Questions</h3>
+        <h3 id="faq">Questions</h3>
         <div class="faq">
           <details>
             <summary>Is my JSON uploaded to a server?</summary>
@@ -188,6 +228,11 @@
       </div>
 
       <aside class="seo-side">
+        <div class="seo-card" id="share">
+          <h3>Share this tool</h3>
+          <p>Send it to a colleague — the link only, never anything you have pasted in.</p>
+          <div data-share data-share-title="Formatter & validator — JSON Studio"></div>
+        </div>
         <div class="seo-card">
           <h3>Present this tool</h3>
           <p>Demoing to a client or a class? Press <kbd>Shift</kbd><kbd>P</kbd> for full-screen presentation mode — chrome hidden, type scaled up, laser pointer included.</p>
@@ -218,5 +263,6 @@
 <script src="assets/js/format.js"></script>
 <script src="assets/js/present.js"></script>
 <script src="assets/js/workbench.js"></script>
+<script src="assets/js/share.js"></script>
 </body>
 </html>

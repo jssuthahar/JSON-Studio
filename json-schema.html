@@ -71,6 +71,7 @@
 <body>
 
 <div id="site-header"></div>
+<span id="top"></span>
 
 <main class="convert-shell">
   <div class="convert-head">
@@ -78,6 +79,13 @@
       <div class="kicker">Generator</div>
       <h1>JSON Schema generator</h1>
       <p>Paste a sample payload and get a JSON Schema inferred from it — types, nested objects, array items merged across elements, plus optional format and enum detection. All in your browser.</p>
+
+      <nav class="th-jump">
+        <a href="#about">What it does</a>
+        <a href="#how">How to use it</a>
+        <a href="#faq">FAQ</a>
+        <a href="#share">Share</a>
+      </nav>
 
       <div class="opt-bar">
         <div class="opt">
@@ -150,21 +158,53 @@
 
 
 
-<section class="tool-seo">
+
+
+<section class="tool-home" id="about">
   <div class="container">
+    <header class="th-head">
+      <div class="kicker">Schema generator</div>
+      <h2>About the JSON Schema generator</h2>
+      <p>Writing a schema by hand for an existing API is tedious and error-prone. This infers one from a sample: types, nested objects, arrays, formats such as date-time, uuid and email, and closed sets of strings as enums. Array elements are merged rather than sampled, so the items schema describes every element — the union of their properties, with only the always-present keys marked required.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="#top">Use the tool ↑</a>
+        <a class="btn-secondary" href="presentation.html">Present it →</a>
+      </div>
+    </header>
+
+    <div class="th-features">
+      <div class="th-feature">
+        <div class="fi">01</div>
+        <h3>Draft 2020-12 or draft-07</h3>
+        <p>Pick the draft your tooling expects; the output is ready to drop into a repository.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">02</div>
+        <h3>Arrays merged, not sampled</h3>
+        <p>Every element shapes the result, so optional keys stay optional instead of vanishing.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">03</div>
+        <h3>Format detection</h3>
+        <p>date-time, date, time, uuid, email, ipv4 and uri are recognised and annotated.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">04</div>
+        <h3>Enum detection</h3>
+        <p>A string field that repeats a small set of values can be emitted as an enum.</p>
+      </div>
+    </div>
+
     <div class="seo-grid">
       <div class="seo-main">
-        <h2>About the JSON Schema generator</h2>
-        <p>Writing a schema by hand for an existing API is tedious and error-prone. This infers one from a sample: types, nested objects, arrays, formats such as date-time, uuid and email, and closed sets of strings as enums. Array elements are merged rather than sampled, so the items schema describes every element — the union of their properties, with only the always-present keys marked required.</p>
-
-        <h3>How to use it</h3>
+        <h3 id="how">How to use it</h3>
         <ol class="seo-steps">
           <li>Paste a representative payload — the more variation it contains, the better the schema.</li>
           <li>Choose the draft, and switch on the detections you want: formats, enums, examples, additionalProperties: false.</li>
           <li>Copy the schema, or download it as schema.json.</li>
         </ol>
 
-        <h3>Questions</h3>
+        <h3 id="faq">Questions</h3>
         <div class="faq">
           <details>
             <summary>Which drafts can it emit?</summary>
@@ -182,6 +222,11 @@
       </div>
 
       <aside class="seo-side">
+        <div class="seo-card" id="share">
+          <h3>Share this tool</h3>
+          <p>Send it to a colleague — the link only, never anything you have pasted in.</p>
+          <div data-share data-share-title="Schema generator — JSON Studio"></div>
+        </div>
         <div class="seo-card">
           <h3>Present this tool</h3>
           <p>Demoing to a client or a class? Press <kbd>Shift</kbd><kbd>P</kbd> for full-screen presentation mode — chrome hidden, type scaled up, laser pointer included.</p>
@@ -213,5 +258,6 @@
 <script src="assets/js/json-schema.js"></script>
 <script src="assets/js/present.js"></script>
 <script src="assets/js/workbench.js"></script>
+<script src="assets/js/share.js"></script>
 </body>
 </html>

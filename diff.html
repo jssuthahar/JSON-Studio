@@ -85,6 +85,7 @@
 <body>
 
 <div id="site-header"></div>
+<span id="top"></span>
 
 <main class="convert-shell">
   <div class="convert-head">
@@ -92,6 +93,13 @@
       <div class="kicker">Compare</div>
       <h1>JSON diff</h1>
       <p>Paste two payloads and get a precise, path-by-path list of what changed. Key order is ignored, so reordered objects are correctly reported as identical.</p>
+
+      <nav class="th-jump">
+        <a href="#about">What it does</a>
+        <a href="#how">How to use it</a>
+        <a href="#faq">FAQ</a>
+        <a href="#share">Share</a>
+      </nav>
 
       <div class="opt-bar">
         <div class="opt">
@@ -152,21 +160,53 @@
 
 
 
-<section class="tool-seo">
+
+
+<section class="tool-home" id="about">
   <div class="container">
+    <header class="th-head">
+      <div class="kicker">JSON diff</div>
+      <h2>About the JSON diff tool</h2>
+      <p>A text diff on two payloads is nearly useless: reformat one of them and every line changes. This compares them structurally, so key order is irrelevant and only real differences are reported, each with the path that reached it. The same comparison can be exported as an RFC 6902 JSON Patch to send to a PATCH endpoint, or an RFC 7386 Merge Patch.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="#top">Use the tool ↑</a>
+        <a class="btn-secondary" href="presentation.html">Present it →</a>
+      </div>
+    </header>
+
+    <div class="th-features">
+      <div class="th-feature">
+        <div class="fi">01</div>
+        <h3>Structural, not textual</h3>
+        <p>Key order is ignored, so reformatting or reordering a payload is correctly reported as no change.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">02</div>
+        <h3>Every change has a path</h3>
+        <p>Each difference names the exact location inside the document, so you know where to look.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">03</div>
+        <h3>Array strategies</h3>
+        <p>Compare arrays by index, or as unordered bags where a reordered list counts as identical.</p>
+      </div>
+      <div class="th-feature">
+        <div class="fi">04</div>
+        <h3>Patch output</h3>
+        <p>Export the comparison as an RFC 6902 JSON Patch or an RFC 7386 Merge Patch, ready to send.</p>
+      </div>
+    </div>
+
     <div class="seo-grid">
       <div class="seo-main">
-        <h2>About the JSON diff tool</h2>
-        <p>A text diff on two payloads is nearly useless: reformat one of them and every line changes. This compares them structurally, so key order is irrelevant and only real differences are reported, each with the path that reached it. The same comparison can be exported as an RFC 6902 JSON Patch to send to a PATCH endpoint, or an RFC 7386 Merge Patch.</p>
-
-        <h3>How to use it</h3>
+        <h3 id="how">How to use it</h3>
         <ol class="seo-steps">
           <li>Paste the original into the first pane and the changed version into the second.</li>
           <li>Choose whether arrays are compared by index or treated as unordered sets.</li>
           <li>Read the change list, or switch the output to JSON Patch or Merge Patch and copy it.</li>
         </ol>
 
-        <h3>Questions</h3>
+        <h3 id="faq">Questions</h3>
         <div class="faq">
           <details>
             <summary>Does key order count as a difference?</summary>
@@ -184,6 +224,11 @@
       </div>
 
       <aside class="seo-side">
+        <div class="seo-card" id="share">
+          <h3>Share this tool</h3>
+          <p>Send it to a colleague — the link only, never anything you have pasted in.</p>
+          <div data-share data-share-title="JSON diff — JSON Studio"></div>
+        </div>
         <div class="seo-card">
           <h3>Present this tool</h3>
           <p>Demoing to a client or a class? Press <kbd>Shift</kbd><kbd>P</kbd> for full-screen presentation mode — chrome hidden, type scaled up, laser pointer included.</p>
@@ -214,5 +259,6 @@
 <script src="assets/js/diff.js"></script>
 <script src="assets/js/present.js"></script>
 <script src="assets/js/workbench.js"></script>
+<script src="assets/js/share.js"></script>
 </body>
 </html>
