@@ -4,8 +4,8 @@ Free, client-side JSON tooling from [MSDEVBUILD](https://www.msdevbuild.com/).
 Fourteen tools, no account, no backend — everything you paste stays in your
 browser.
 
-**Live site:** open `index.html` directly, or host this folder anywhere that
-serves static files. `tools.html` is the launcher — every tool on one page,
+**Live site:** <https://jsonstudio.msdevbuild.com/> — or open `index.html`
+directly, or host this folder anywhere that serves static files. `tools.html` is the launcher — every tool on one page,
 with search — and <kbd>⌘K</kbd> / <kbd>Ctrl+K</kbd> opens the same switcher
 from anywhere on the site.
 
@@ -33,6 +33,17 @@ Plus `tools.html` — all of them in one searchable page.
 Every page: light and dark mode (following your OS until you choose),
 drag-and-drop file input, copy and download, ⌘/Ctrl + Enter to re-run, and
 ⌘/Ctrl + K to jump to another tool.
+
+## Design
+
+The identity is violet (`--brand`) and teal (`--accent`) on faintly cool
+paper, deliberately not the corporate blue every developer tool defaults to.
+Colours live in three slots at the top of `assets/css/styles.css` — `--brand`,
+`--accent`, `--ink` — and everything else derives from them, so re-theming the
+whole site is a five-line edit. The `--blue*` names are kept as aliases.
+
+Dark mode follows your OS until you pick a side, and is applied before first
+paint so there is no white flash.
 
 ## The workbench
 
@@ -142,12 +153,34 @@ PWA install and offline caching only kick in when it's served.) The only
 external dependency is js-yaml (CDN, used by the YAML page); every other tool
 is self-contained.
 
+## SEO
+
+The site is built to be found, since that is the only distribution a free tool
+gets:
+
+- **One page per tool**, each with a keyword-led `<title>`, a written
+  description, and a content section below the app: what the tool does, three
+  how-to steps, three FAQs, and links to related tools.
+- **Structured data** on every page — `SoftwareApplication`, `BreadcrumbList`,
+  `FAQPage` and `HowTo` per tool; `WebSite` with a `SearchAction`,
+  `Organization` and `FAQPage` on the home page; `ItemList` on the hub.
+- **Social cards** — `assets/img/og-cover.png` (1200×630) on every page, with
+  matching `og:` and `twitter:` tags.
+- **Internal linking** — every tool links to three related tools, the hub and
+  the presentation page; the rail and footer link everything to everything.
+- `sitemap.xml` lists all 17 pages; `robots.txt` points at it.
+
+When adding a tool, add its copy to the SEO catalog too — a tool page without
+that section will not rank for anything.
+
 ## Deploying
 
-This is a static site. Point any static host (Cloudflare Pages, Netlify,
+This is a static site. The repository includes a `CNAME` for
+`jsonstudio.msdevbuild.com` (GitHub Pages); other hosts configure the domain
+in their own dashboard. Point any static host (Cloudflare Pages, Netlify,
 Vercel, GitHub Pages, S3 + CloudFront, or a plain nginx box) at the project root
 and it works as-is. Update `robots.txt` and `sitemap.xml` if you deploy under a
-different domain than `json.msdevbuild.com`.
+different domain than `jsonstudio.msdevbuild.com`.
 
 ## Project structure & contributing
 

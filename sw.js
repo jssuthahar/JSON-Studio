@@ -10,12 +10,13 @@
   activate, so a stale tool can't linger.
 */
 
-const CACHE = 'json-studio-v3';
+const CACHE = 'json-studio-v4';
 
 const PRECACHE = [
   './',
   'index.html',
   'tools.html',
+  'presentation.html',
   'format.html',
   'tool.html',
   'diff.html',
@@ -59,6 +60,7 @@ const PRECACHE = [
   'assets/js/jsonl.js',
   'assets/js/sql.js',
   'assets/img/favicon.svg',
+  'assets/img/og-cover.png',
   'assets/img/icon-192.png',
   'assets/img/icon-512.png',
   'assets/img/apple-touch-icon.png'

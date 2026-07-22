@@ -40,10 +40,8 @@
 .code-area.drop-active{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-tint);}
 
 .pane-status{padding:0 22px 16px;font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.5;color:var(--text-faint);word-break:break-word;}
-.pane-status.err{color:#c2410f;}
-.pane-status.ok{color:#0e8f6f;}
-html[data-theme="dark"] .pane-status.err{color:#ff8f6b;}
-html[data-theme="dark"] .pane-status.ok{color:#3ed6ab;}
+.pane-status.err{color:var(--bool);}
+.pane-status.ok{color:var(--accent);}
 
 /* direction pill used by the YAML page */
 .dir-pill{display:inline-flex;border:1px solid var(--border-strong);border-radius:999px;overflow:hidden;background:var(--panel);}
@@ -61,7 +59,5 @@ html[data-theme="dark"] .pane-status.ok{color:#3ed6ab;}
 .result-row .k{font-family:'JetBrains Mono',monospace;color:var(--text-faint);min-width:90px;flex-shrink:0;}
 .result-row .v{color:var(--text-dim);word-break:break-word;}
 .pill{display:inline-block;font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--panel-2);color:var(--text-faint);border:1px solid var(--border);}
-.pill.good{background:#e6f6ef;color:#0e8f6f;border-color:transparent;}
-.pill.bad{background:#fdece6;color:#c2410f;border-color:transparent;}
-html[data-theme="dark"] .pill.good{background:#123527;color:#3ed6ab;}
-html[data-theme="dark"] .pill.bad{background:#3a1f16;color:#ff8f6b;}
+.pill.good{background:var(--accent-tint);color:var(--accent);border-color:transparent;}
+.pill.bad{background:rgba(190,18,60,.10);color:var(--bool);border-color:transparent;}

@@ -5,11 +5,11 @@
 <title>JSON Studio — 14 free online JSON tools | MSDEVBUILD</title>
 <meta name="description" content="14 free JSON tools that run entirely in your browser: formatter, diagram viewer, diff, JSONPath, schema generator and validator, code generator, CSV, YAML, XML, SQL and JWT. No signup, nothing uploaded.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://json.msdevbuild.com/">
+<link rel="canonical" href="https://jsonstudio.msdevbuild.com/">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#0078d4" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#12151c" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#6d4aff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f0d1a" media="(prefers-color-scheme: dark)">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JSON Studio">
@@ -18,11 +18,16 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="JSON Studio — 14 free online JSON tools">
 <meta property="og:description" content="Format, diagram, diff, query, validate and convert JSON — entirely in your browser. No signup, nothing uploaded.">
-<meta property="og:url" content="https://json.msdevbuild.com/">
+<meta property="og:url" content="https://jsonstudio.msdevbuild.com/">
+<meta property="og:image" content="https://jsonstudio.msdevbuild.com/assets/img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="JSON Studio — every JSON tool, in your browser">
 <meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jsonstudio.msdevbuild.com/assets/img/og-cover.png">
 <meta name="twitter:title" content="JSON Studio — 14 free online JSON tools">
 <meta name="twitter:description" content="Format, diagram, diff, query, validate and convert JSON — entirely in your browser.">
 
@@ -34,12 +39,47 @@
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "JSON Studio",
-  "url": "https://json.msdevbuild.com/",
+  "url": "https://jsonstudio.msdevbuild.com/",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Any (runs in browser)",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   "creator": { "@type": "Person", "name": "Suthahar Jegatheesan", "url": "https://www.msdevbuild.com/" },
   "description": "14 free, client-side JSON tools: formatter, diagram viewer, diff, JSONPath, schema generator and validator, mock data, code generation, CSV, YAML, XML, SQL and JWT decoding."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://jsonstudio.msdevbuild.com/#website",
+      "url": "https://jsonstudio.msdevbuild.com/",
+      "name": "JSON Studio",
+      "alternateName": ["JSON Studio by MSDEVBUILD", "jsonstudio.msdevbuild.com"],
+      "description": "Free online JSON tools that run entirely in your browser.",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://jsonstudio.msdevbuild.com/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://jsonstudio.msdevbuild.com/tools.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://jsonstudio.msdevbuild.com/#org",
+      "name": "MSDEVBUILD",
+      "url": "https://www.msdevbuild.com/",
+      "logo": "https://jsonstudio.msdevbuild.com/assets/img/icon-512.png",
+      "founder": { "@type": "Person", "name": "Suthahar Jegatheesan", "url": "https://www.msdevbuild.com/p/about-me.html" },
+      "sameAs": [
+        "https://github.com/jssuthahar",
+        "https://my.linkedin.com/in/jssuthahar",
+        "https://www.youtube.com/@MSDEVBUILD"
+      ]
+    }
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -77,7 +117,7 @@
           <span>✓ No signup</span>
           <span>✓ Works offline</span>
           <span>✓ Open source</span>
-          <span>✓ Installable app</span>
+          <span>✓ Presentation mode</span>
         </div>
       </div>
 
@@ -236,6 +276,35 @@
           <p>Generate CREATE TABLE and INSERT statements for Postgres, MySQL, SQL Server or SQLite.</p>
           <div class="link-row">Open tool →</div>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="presentation">
+    <div class="container">
+      <div class="split">
+        <div>
+          <div class="kicker">Presentation mode</div>
+          <h2>Built to be shown, not just used</h2>
+          <p class="muted">Every tool goes full screen with one keystroke: navigation, headers and options disappear, type scales up for the back of the room, and a presenter toolbar gives you zoom, fit, panel toggles and a laser pointer. Diagrams are SVG, so they stay sharp on any projector.</p>
+          <div class="cta-row">
+            <a class="btn-primary" href="presentation.html">See how it works →</a>
+            <a class="btn-secondary" href="tool.html">Present a diagram</a>
+          </div>
+          <p class="fineprint">Open any tool and press <kbd>Shift</kbd><kbd>P</kbd>.</p>
+        </div>
+        <div class="present-preview" aria-hidden="true">
+          <div class="pp-screen">
+            <div class="pp-node pp-root">root</div>
+            <div class="pp-node pp-a">customer</div>
+            <div class="pp-node pp-b">items</div>
+            <div class="pp-node pp-c">total</div>
+            <svg class="pp-wires" viewBox="0 0 300 170" preserveAspectRatio="none">
+              <path d="M36 85 C 104 85, 104 30, 172 30" /><path d="M36 85 C 104 85, 104 85, 172 85" /><path d="M36 85 C 104 85, 104 140, 172 140" />
+            </svg>
+          </div>
+          <div class="pp-bar"><span>✕ Exit</span><i></i><span>−</span><span>64%</span><span>+</span><span>Fit</span><i></i><span>Panels</span><span class="on">Focus</span><span class="laser">Laser</span></div>
+        </div>
       </div>
     </div>
   </section>

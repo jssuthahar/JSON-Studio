@@ -12,7 +12,7 @@
   the browser reports as the current selection.
 */
 
-const BASE = 'https://json.msdevbuild.com/';
+const BASE = 'https://jsonstudio.msdevbuild.com/';
 
 const TARGETS = [
   { id: 'format', title: 'Format & validate', page: 'format.html' },

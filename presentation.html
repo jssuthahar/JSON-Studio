@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Presentation Mode — show JSON diagrams full screen, no clutter | JSON Studio</title>
+<meta name="description" content="Present JSON diagrams, schemas and generated code full screen: chrome hidden, type scaled up, laser pointer, zoom and fit, on every JSON Studio tool. Free, in your browser.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://jsonstudio.msdevbuild.com/presentation.html">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#6d4aff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f0d1a" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="JSON Studio">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Presentation Mode — show JSON diagrams full screen, no clutter">
+<meta property="og:description" content="Present JSON diagrams, schemas and generated code full screen: chrome hidden, type scaled up, laser pointer, zoom and fit, on every JSON Studio tool. Free, in your browser.">
+<meta property="og:url" content="https://jsonstudio.msdevbuild.com/presentation.html">
+<meta property="og:image" content="https://jsonstudio.msdevbuild.com/assets/img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jsonstudio.msdevbuild.com/assets/img/og-cover.png">
+<meta name="twitter:title" content="Presentation Mode — show JSON diagrams full screen, no clutter">
+<meta name="twitter:description" content="Present JSON diagrams, schemas and generated code full screen: chrome hidden, type scaled up, laser pointer, zoom and fit, on every JSON Studio tool. Free, in your browser.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "JSON Studio", "item": "https://jsonstudio.msdevbuild.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Presentation mode", "item": "https://jsonstudio.msdevbuild.com/presentation.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Which tools support presentation mode?", "acceptedAnswer": { "@type": "Answer", "text": "All fourteen. Every tool page has a Present button in the header, and the behaviour adapts to the tool: the diagram page gives the canvas the whole screen, while the converters scale their type up and can show only the result." } },
+        { "@type": "Question", "name": "Do I need to install anything?", "acceptedAnswer": { "@type": "Answer", "text": "No. Presentation mode is part of the site and works in any modern browser. Installing JSON Studio as an app is optional, and useful mainly for presenting somewhere with no connection." } },
+        { "@type": "Question", "name": "Will my diagram stay sharp on a projector?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Diagrams are SVG, so they are resolution-independent — zooming in on a 4K projector or a 1080p meeting-room screen keeps the edges crisp, and the diagram re-fits automatically when the window changes." } },
+        { "@type": "Question", "name": "Is the laser pointer visible to people watching a screen share?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. It is drawn into the page itself rather than being an operating-system cursor effect, so it is captured by Zoom, Teams, Meet and any other screen sharing." } },
+        { "@type": "Question", "name": "Can I hide the input and show only the result?", "acceptedAnswer": { "@type": "Answer", "text": "That is Focus mode — press O, or use the Focus button. Everything except the result disappears, edge to edge. The Panels menu gives finer control if you want to keep one specific pane." } }
+      ]
+    }
+  ]
+}
+</script>
+<script>(function(){try{var t=localStorage.getItem('json-studio-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <section class="feature-hero">
+    <div class="container hero-grid">
+      <div>
+      <div class="eyebrow" style="display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--brand);background:var(--brand-tint);border:1px solid rgba(109,74,255,.18);padding:7px 14px;border-radius:999px;margin-bottom:20px;">Built in &middot; every tool &middot; no install</div>
+      <h1>Present JSON like you <span>meant to</span></h1>
+      <p class="lead">Client demos, training sessions, architecture reviews — the moment you share your screen, half of what is on it is navigation and options nobody needs to see. Presentation mode strips a tool down to the thing you are actually showing, full screen, with the controls a presenter needs and nothing else.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="tool.html">Try it on the diagram tool →</a>
+        <a class="btn-secondary" href="tools.html">Pick another tool</a>
+      </div>
+      <p class="fineprint">Press <kbd>Shift</kbd><kbd>P</kbd> once the tool is open. <kbd>Esc</kbd> leaves.</p>
+      </div>
+      <div class="present-preview" aria-hidden="true">
+        <div class="pp-screen">
+          <div class="pp-node pp-root">root</div>
+          <div class="pp-node pp-a">customer</div>
+          <div class="pp-node pp-b">items</div>
+          <div class="pp-node pp-c">total</div>
+          <svg class="pp-wires" viewBox="0 0 300 170" preserveAspectRatio="none">
+            <path d="M36 85 C 104 85, 104 30, 172 30" /><path d="M36 85 C 104 85, 104 85, 172 85" /><path d="M36 85 C 104 85, 104 140, 172 140" />
+          </svg>
+        </div>
+        <div class="pp-bar"><span>✕ Exit</span><i></i><span>−</span><span>64%</span><span>+</span><span>Fit</span><i></i><span>Panels</span><span class="on">Focus</span><span class="laser">Laser</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">What changes</div>
+        <h2>Everything that isn't the content, gone</h2>
+        <p>One keystroke moves a working page into a presenting page. Nothing about your data changes — it is the same tool, with the furniture removed.</p>
+      </div>
+      <div class="step-list">
+        <div class="step">
+          <div class="n">1</div>
+          <h3>Full screen, properly</h3>
+          <p>Real browser full screen, with the site header, footer, page title and option bar hidden. On the diagram tool the editor pane collapses too, handing the canvas about a third more width.</p>
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          <h3>Readable from the back</h3>
+          <p>Editor type scales up automatically, and the zoom control takes it further. Diagrams are SVG, so they re-fit to the screen and stay sharp at any size.</p>
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          <h3>Show only what matters</h3>
+          <p>Focus mode leaves the result alone on screen, edge to edge. The Panels menu toggles any individual pane if you would rather keep the input visible while you talk through it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div>
+          <div class="kicker">The presenter toolbar</div>
+          <h2>Controls where a presenter expects them</h2>
+          <p class="muted">A floating toolbar sits at the bottom of the screen and fades out when you stop moving the mouse, so it is there when you reach for it and invisible when you don't.</p>
+          <div class="cta-row">
+            <a class="btn-primary" href="tool.html">Open a tool and present →</a>
+          </div>
+        </div>
+        <ul class="check-list">
+          <li><strong>Zoom and fit.</strong> Scale the diagram, or the editor type on text tools. Fit re-frames the whole document in one click.</li>
+          <li><strong>Laser pointer.</strong> A red pointer with a fading trail, and a ripple where you click — visible in screen shares, because it is drawn into the page.</li>
+          <li><strong>Panels.</strong> Show or hide any pane mid-demo without leaving presentation mode.</li>
+          <li><strong>Navigation.</strong> Pan the canvas with the arrow buttons or the arrow keys.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="container narrow">
+      <div class="section-head">
+        <div class="kicker">Keyboard</div>
+        <h2>Shortcuts</h2>
+        <p>Every shortcut works whenever you are not typing in a field.</p>
+      </div>
+      <table class="key-table">
+        <tr><td><kbd>Shift</kbd><kbd>P</kbd> or <kbd>F11</kbd></td><td><strong>Enter or leave</strong> presentation mode</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Leave presentation mode</td></tr>
+        <tr><td><kbd>F</kbd></td><td>Fit the content to the screen</td></tr>
+        <tr><td><kbd>+</kbd> <kbd>−</kbd> <kbd>0</kbd></td><td>Zoom in, out, reset</td></tr>
+        <tr><td><kbd>O</kbd></td><td><strong>Focus mode</strong> — only the result, edge to edge</td></tr>
+        <tr><td><kbd>L</kbd></td><td><strong>Laser pointer</strong> — click for a ripple</td></tr>
+        <tr><td><kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd></td><td>Pan the canvas</td></tr>
+        <tr><td><kbd>?</kbd></td><td>Show the shortcut card</td></tr>
+        <tr><td><kbd>⌘</kbd><kbd>B</kbd></td><td>Hide the side panel (works outside presentation mode too)</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Where it helps</div>
+        <h2>Made for the meeting, not the screenshot</h2>
+      </div>
+      <div class="feature-grid">
+        <div class="feature"><div class="f-icon">🤝</div><h4>Client walkthroughs</h4><p>Show the shape of an API response without a slide deck, and collapse branches live as questions come up.</p></div>
+        <div class="feature"><div class="f-icon">🎓</div><h4>Training and teaching</h4><p>Project a payload, point at it with the laser, and expand structure step by step as you explain it.</p></div>
+        <div class="feature"><div class="f-icon">🏗️</div><h4>Architecture reviews</h4><p>Diff two payloads or show a generated schema at a size the whole room can read.</p></div>
+        <div class="feature"><div class="f-icon">🎥</div><h4>Recording a demo</h4><p>No browser chrome, no menus, no stray tooltips — clean frames straight out of the capture.</p></div>
+        <div class="feature"><div class="f-icon">✈️</div><h4>Offline rooms</h4><p>Install the app and the whole toolkit, presentation mode included, works with no connection at all.</p></div>
+        <div class="feature"><div class="f-icon">🔒</div><h4>Confidential payloads</h4><p>Nothing is uploaded, so a real customer payload can go on the screen without leaving the machine.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="container narrow">
+      <div class="section-head">
+        <div class="kicker">Questions</div>
+        <h2>Frequently asked</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Which tools support presentation mode?</summary>
+          <div class="faq-body"><p>All fourteen. Every tool page has a Present button in the header, and the behaviour adapts to the tool: the diagram page gives the canvas the whole screen, while the converters scale their type up and can show only the result.</p></div>
+        </details>
+        <details>
+          <summary>Do I need to install anything?</summary>
+          <div class="faq-body"><p>No. Presentation mode is part of the site and works in any modern browser. Installing JSON Studio as an app is optional, and useful mainly for presenting somewhere with no connection.</p></div>
+        </details>
+        <details>
+          <summary>Will my diagram stay sharp on a projector?</summary>
+          <div class="faq-body"><p>Yes. Diagrams are SVG, so they are resolution-independent — zooming in on a 4K projector or a 1080p meeting-room screen keeps the edges crisp, and the diagram re-fits automatically when the window changes.</p></div>
+        </details>
+        <details>
+          <summary>Is the laser pointer visible to people watching a screen share?</summary>
+          <div class="faq-body"><p>Yes. It is drawn into the page itself rather than being an operating-system cursor effect, so it is captured by Zoom, Teams, Meet and any other screen sharing.</p></div>
+        </details>
+        <details>
+          <summary>Can I hide the input and show only the result?</summary>
+          <div class="faq-body"><p>That is Focus mode — press O, or use the Focus button. Everything except the result disappears, edge to edge. The Panels menu gives finer control if you want to keep one specific pane.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container">
+      <h2>Open a tool. Press Shift + P.</h2>
+      <p>That is the whole setup.</p>
+      <div class="cta-row center">
+        <a class="btn-primary" href="tool.html">Present a JSON diagram →</a>
+        <a class="btn-secondary ghost-light" href="tools.html">See all 14 tools</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

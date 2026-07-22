@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>JWT decoder &amp; verifier — JSON Studio | MSDEVBUILD</title>
-<meta name="description" content="Decode a JSON Web Token and read its header, claims and expiry. Optional HMAC signature verification, entirely in your browser — your token is never sent anywhere.">
+<title>JWT Decoder — read claims and verify HS256, entirely offline | JSON Studio</title>
+<meta name="description" content="Decode a JSON Web Token in your browser: header, claims, expiry and validity, with optional HS256/384/512 signature verification. Your token is never transmitted — which matters, because a JWT is a live credential.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://json.msdevbuild.com/jwt.html">
+<link rel="canonical" href="https://jsonstudio.msdevbuild.com/jwt.html">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0078d4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#12151c" media="(prefers-color-scheme: dark)">
@@ -15,14 +15,19 @@
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="JWT decoder &amp; verifier — JSON Studio">
-<meta property="og:description" content="Decode a JSON Web Token and read its header, claims and expiry. Optional HMAC signature verification, entirely in your browser — your token is never sent anywhere.">
-<meta property="og:url" content="https://json.msdevbuild.com/jwt.html">
+<meta property="og:title" content="JWT Decoder — read claims and verify HS256, entirely offline">
+<meta property="og:description" content="Decode a JSON Web Token in your browser: header, claims, expiry and validity, with optional HS256/384/512 signature verification. Your token is never transmitted — which matters, because a JWT is a live credential.">
+<meta property="og:url" content="https://jsonstudio.msdevbuild.com/jwt.html">
+<meta property="og:image" content="https://jsonstudio.msdevbuild.com/assets/img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="JSON Studio — every JSON tool, in your browser">
 <meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="JWT decoder &amp; verifier — JSON Studio">
-<meta name="twitter:description" content="Decode a JSON Web Token and read its header, claims and expiry. Optional HMAC signature verification, entirely in your browser — your token is never sent anywhere.">
+<meta name="twitter:image" content="https://jsonstudio.msdevbuild.com/assets/img/og-cover.png">
+<meta name="twitter:title" content="JWT Decoder — read claims and verify HS256, entirely offline">
+<meta name="twitter:description" content="Decode a JSON Web Token in your browser: header, claims, expiry and validity, with optional HS256/384/512 signature verification. Your token is never transmitted — which matters, because a JWT is a live credential.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
@@ -35,7 +40,7 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "JWT decoder & verifier — JSON Studio",
-  "url": "https://json.msdevbuild.com/jwt.html",
+  "url": "https://jsonstudio.msdevbuild.com/jwt.html",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Any (runs in browser)",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -44,6 +49,38 @@
 }
 </script>
 <script>(function(){try{var t=localStorage.getItem('json-studio-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "JSON Studio", "item": "https://jsonstudio.msdevbuild.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://jsonstudio.msdevbuild.com/tools.html" },
+        { "@type": "ListItem", "position": 3, "name": "JWT decoder", "item": "https://jsonstudio.msdevbuild.com/jwt.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is my token sent anywhere?", "acceptedAnswer": { "@type": "Answer", "text": "No, and this is the one page where that matters most. Decoding and verification both happen in your browser. There is no backend to receive it." } },
+        { "@type": "Question", "name": "Can it verify RS256 or ES256 tokens?", "acceptedAnswer": { "@type": "Answer", "text": "No. Those are signed with a private key and verified with the matching public key, which this tool does not ask for. RS/ES tokens are decoded and clearly reported as unverified." } },
+        { "@type": "Question", "name": "Does decoding mean the token is valid?", "acceptedAnswer": { "@type": "Answer", "text": "No. Anyone can read a JWT — the payload is only base64-encoded, not encrypted. Only a signature check with the right key proves it is genuine, which is what the secret field is for." } }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to use the JWT decoder",
+      "step": [
+        { "@type": "HowToStep", "position": 1, "text": "Paste the token (a \"Bearer \" prefix is fine — it gets stripped)." },
+        { "@type": "HowToStep", "position": 2, "text": "Read the header and claims; timestamps are annotated with how long ago or how far ahead they are." },
+        { "@type": "HowToStep", "position": 3, "text": "Optionally paste the signing secret to verify an HS256, HS384 or HS512 signature." }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -106,6 +143,64 @@
     </section>
   </div>
 </main>
+
+
+
+
+<section class="tool-seo">
+  <div class="container">
+    <div class="seo-grid">
+      <div class="seo-main">
+        <h2>About the JWT decoder</h2>
+        <p>A JWT is a credential. Pasting one into a website that decodes it server-side hands someone a session, which is why this decoder runs entirely in the page: the token is split and base64url-decoded locally, and if you supply the signing secret, the HMAC signature is verified with the browser's own WebCrypto. Expiry and not-before claims are worked out for you in plain language.</p>
+
+        <h3>How to use it</h3>
+        <ol class="seo-steps">
+          <li>Paste the token (a "Bearer " prefix is fine — it gets stripped).</li>
+          <li>Read the header and claims; timestamps are annotated with how long ago or how far ahead they are.</li>
+          <li>Optionally paste the signing secret to verify an HS256, HS384 or HS512 signature.</li>
+        </ol>
+
+        <h3>Questions</h3>
+        <div class="faq">
+          <details>
+            <summary>Is my token sent anywhere?</summary>
+            <div class="faq-body"><p>No, and this is the one page where that matters most. Decoding and verification both happen in your browser. There is no backend to receive it.</p></div>
+          </details>
+          <details>
+            <summary>Can it verify RS256 or ES256 tokens?</summary>
+            <div class="faq-body"><p>No. Those are signed with a private key and verified with the matching public key, which this tool does not ask for. RS/ES tokens are decoded and clearly reported as unverified.</p></div>
+          </details>
+          <details>
+            <summary>Does decoding mean the token is valid?</summary>
+            <div class="faq-body"><p>No. Anyone can read a JWT — the payload is only base64-encoded, not encrypted. Only a signature check with the right key proves it is genuine, which is what the secret field is for.</p></div>
+          </details>
+        </div>
+      </div>
+
+      <aside class="seo-side">
+        <div class="seo-card">
+          <h3>Present this tool</h3>
+          <p>Demoing to a client or a class? Press <kbd>Shift</kbd><kbd>P</kbd> for full-screen presentation mode — chrome hidden, type scaled up, laser pointer included.</p>
+          <a class="seo-link" href="presentation.html">How presentation mode works →</a>
+        </div>
+        <div class="seo-card">
+          <h3>Related tools</h3>
+          <ul class="seo-related">
+            <li><a href="format.html"><span class="ri">⌗</span>Formatter & validator</a></li>
+            <li><a href="tool.html"><span class="ri">{ }</span>JSON to diagram</a></li>
+            <li><a href="validate.html"><span class="ri">✓</span>Schema validator</a></li>
+          </ul>
+          <a class="seo-link" href="tools.html">All 14 tools →</a>
+        </div>
+        <div class="seo-card quiet">
+          <h3>Private by construction</h3>
+          <p>No backend exists. Everything on this page runs in your browser, so nothing you paste is uploaded, logged or retained.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
 
 <div id="site-footer"></div>
 

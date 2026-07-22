@@ -1,82 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://json.msdevbuild.com/</loc>
+    <loc>https://jsonstudio.msdevbuild.com/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://json.msdevbuild.com/tools.html</loc>
+    <loc>https://jsonstudio.msdevbuild.com/tools.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://json.msdevbuild.com/format.html</loc>
+    <loc>https://jsonstudio.msdevbuild.com/presentation.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jsonstudio.msdevbuild.com/format.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://json.msdevbuild.com/tool.html</loc>
+    <loc>https://jsonstudio.msdevbuild.com/tool.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://json.msdevbuild.com/diff.html</loc>
+    <loc>https://jsonstudio.msdevbuild.com/diff.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://json.msdevbuild.com/jsonpath.html</loc>
+    <loc>https://jsonstudio.msdevbuild.com/jsonpath.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://json.msdevbuild.com/jwt.html</loc>
+    <loc>https://jsonstudio.msdevbuild.com/jwt.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://json.msdevbuild.com/json-schema.html</loc>
+    <loc>https://jsonstudio.msdevbuild.com/json-schema.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://json.msdevbuild.com/validate.html</loc>
+    <loc>https://jsonstudio.msdevbuild.com/validate.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://json.msdevbuild.com/mock.html</loc>
+    <loc>https://jsonstudio.msdevbuild.com/mock.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://json.msdevbuild.com/code.html</loc>
+    <loc>https://jsonstudio.msdevbuild.com/code.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://json.msdevbuild.com/csv.html</loc>
+    <loc>https://jsonstudio.msdevbuild.com/csv.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://json.msdevbuild.com/yaml-json.html</loc>
+    <loc>https://jsonstudio.msdevbuild.com/yaml-json.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://json.msdevbuild.com/xml.html</loc>
+    <loc>https://jsonstudio.msdevbuild.com/xml.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://json.msdevbuild.com/jsonl.html</loc>
+    <loc>https://jsonstudio.msdevbuild.com/jsonl.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://json.msdevbuild.com/sql.html</loc>
+    <loc>https://jsonstudio.msdevbuild.com/sql.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

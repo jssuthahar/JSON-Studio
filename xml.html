@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>JSON to XML &amp; XML to JSON converter — JSON Studio | MSDEVBUILD</title>
-<meta name="description" content="Convert JSON to XML or XML to JSON in your browser, with attributes preserved. Free, client-side, nothing uploaded.">
+<title>JSON to XML & XML to JSON Converter — attributes preserved | JSON Studio</title>
+<meta name="description" content="Convert JSON to XML and XML to JSON in your browser. Attributes become @-prefixed keys, text content becomes #text, and repeated elements become arrays. Uses the browser's own parser. Free, no upload.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://json.msdevbuild.com/xml.html">
+<link rel="canonical" href="https://jsonstudio.msdevbuild.com/xml.html">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0078d4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#12151c" media="(prefers-color-scheme: dark)">
@@ -15,14 +15,19 @@
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="JSON to XML &amp; XML to JSON converter — JSON Studio">
-<meta property="og:description" content="Convert JSON to XML or XML to JSON in your browser, with attributes preserved. Free, client-side, nothing uploaded.">
-<meta property="og:url" content="https://json.msdevbuild.com/xml.html">
+<meta property="og:title" content="JSON to XML & XML to JSON Converter — attributes preserved">
+<meta property="og:description" content="Convert JSON to XML and XML to JSON in your browser. Attributes become @-prefixed keys, text content becomes #text, and repeated elements become arrays. Uses the browser's own parser. Free, no upload.">
+<meta property="og:url" content="https://jsonstudio.msdevbuild.com/xml.html">
+<meta property="og:image" content="https://jsonstudio.msdevbuild.com/assets/img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="JSON Studio — every JSON tool, in your browser">
 <meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="JSON to XML &amp; XML to JSON converter — JSON Studio">
-<meta name="twitter:description" content="Convert JSON to XML or XML to JSON in your browser, with attributes preserved. Free, client-side, nothing uploaded.">
+<meta name="twitter:image" content="https://jsonstudio.msdevbuild.com/assets/img/og-cover.png">
+<meta name="twitter:title" content="JSON to XML & XML to JSON Converter — attributes preserved">
+<meta name="twitter:description" content="Convert JSON to XML and XML to JSON in your browser. Attributes become @-prefixed keys, text content becomes #text, and repeated elements become arrays. Uses the browser's own parser. Free, no upload.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
@@ -35,7 +40,7 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "JSON to XML & XML to JSON converter — JSON Studio",
-  "url": "https://json.msdevbuild.com/xml.html",
+  "url": "https://jsonstudio.msdevbuild.com/xml.html",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Any (runs in browser)",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -44,6 +49,38 @@
 }
 </script>
 <script>(function(){try{var t=localStorage.getItem('json-studio-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "JSON Studio", "item": "https://jsonstudio.msdevbuild.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://jsonstudio.msdevbuild.com/tools.html" },
+        { "@type": "ListItem", "position": 3, "name": "JSON ⇄ XML", "item": "https://jsonstudio.msdevbuild.com/xml.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How are XML attributes represented in JSON?", "acceptedAnswer": { "@type": "Answer", "text": "As keys prefixed with @ — so <item sku=\"K\"> becomes {\"@sku\": \"K\"}. Element text alongside attributes becomes \"#text\". Converting back turns them into real attributes again." } },
+        { "@type": "Question", "name": "What happens to repeated elements?", "acceptedAnswer": { "@type": "Answer", "text": "Repeated sibling elements with the same name become a JSON array, and an array in JSON becomes repeated elements on the way back." } },
+        { "@type": "Question", "name": "Does my JSON need a single root?", "acceptedAnswer": { "@type": "Answer", "text": "XML does. If your JSON has one top-level key it is used as the root element; otherwise the document is wrapped in the root element you name." } }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to use the JSON ⇄ XML",
+      "step": [
+        { "@type": "HowToStep", "position": 1, "text": "Paste JSON or XML — the direction is detected from the first character." },
+        { "@type": "HowToStep", "position": 2, "text": "Set the root element name (used when your JSON has more than one top-level key) and the indentation." },
+        { "@type": "HowToStep", "position": 3, "text": "Copy or download the converted document." }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -117,6 +154,64 @@
     </section>
   </div>
 </main>
+
+
+
+
+<section class="tool-seo">
+  <div class="container">
+    <div class="seo-grid">
+      <div class="seo-main">
+        <h2>About the JSON ⇄ XML converter</h2>
+        <p>SOAP services, RSS feeds and older enterprise systems still speak XML. Converting between the two formats is lossy unless attributes are handled properly, so this maps XML attributes to @-prefixed keys and text content to #text, which means the round trip keeps its meaning. XML parsing uses the browser's own DOMParser rather than a hand-rolled parser.</p>
+
+        <h3>How to use it</h3>
+        <ol class="seo-steps">
+          <li>Paste JSON or XML — the direction is detected from the first character.</li>
+          <li>Set the root element name (used when your JSON has more than one top-level key) and the indentation.</li>
+          <li>Copy or download the converted document.</li>
+        </ol>
+
+        <h3>Questions</h3>
+        <div class="faq">
+          <details>
+            <summary>How are XML attributes represented in JSON?</summary>
+            <div class="faq-body"><p>As keys prefixed with @ — so &lt;item sku="K"&gt; becomes {"@sku": "K"}. Element text alongside attributes becomes "#text". Converting back turns them into real attributes again.</p></div>
+          </details>
+          <details>
+            <summary>What happens to repeated elements?</summary>
+            <div class="faq-body"><p>Repeated sibling elements with the same name become a JSON array, and an array in JSON becomes repeated elements on the way back.</p></div>
+          </details>
+          <details>
+            <summary>Does my JSON need a single root?</summary>
+            <div class="faq-body"><p>XML does. If your JSON has one top-level key it is used as the root element; otherwise the document is wrapped in the root element you name.</p></div>
+          </details>
+        </div>
+      </div>
+
+      <aside class="seo-side">
+        <div class="seo-card">
+          <h3>Present this tool</h3>
+          <p>Demoing to a client or a class? Press <kbd>Shift</kbd><kbd>P</kbd> for full-screen presentation mode — chrome hidden, type scaled up, laser pointer included.</p>
+          <a class="seo-link" href="presentation.html">How presentation mode works →</a>
+        </div>
+        <div class="seo-card">
+          <h3>Related tools</h3>
+          <ul class="seo-related">
+            <li><a href="yaml-json.html"><span class="ri">Y↔J</span>YAML ⇄ JSON</a></li>
+            <li><a href="csv.html"><span class="ri">J↔C</span>JSON ⇄ CSV</a></li>
+            <li><a href="format.html"><span class="ri">⌗</span>Formatter & validator</a></li>
+          </ul>
+          <a class="seo-link" href="tools.html">All 14 tools →</a>
+        </div>
+        <div class="seo-card quiet">
+          <h3>Private by construction</h3>
+          <p>No backend exists. Everything on this page runs in your browser, so nothing you paste is uploaded, logged or retained.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
 
 <div id="site-footer"></div>
 

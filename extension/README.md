@@ -1,6 +1,6 @@
 # JSON Studio browser extension
 
-A toolbar launcher for [JSON Studio](https://json.msdevbuild.com/): open any of
+A toolbar launcher for [JSON Studio](https://jsonstudio.msdevbuild.com/): open any of
 the 14 tools in one click, or right-click selected text anywhere and send it
 straight into the formatter, diagram, JSONPath tester, schema generator, code
 generator or JWT decoder.
@@ -17,7 +17,7 @@ browser. See [Firefox](#firefox) below.
 
 ## How selected text reaches a tool
 
-The extension opens `https://json.msdevbuild.com/<tool>.html#input=<your text>`.
+The extension opens `https://jsonstudio.msdevbuild.com/<tool>.html#input=<your text>`.
 
 Everything after `#` is a URL *fragment*, and browsers never transmit fragments
 to the server — so the selected text is handed to the page locally, and the

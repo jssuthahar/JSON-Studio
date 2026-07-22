@@ -7,8 +7,8 @@
   "id": "/",
   "display": "standalone",
   "orientation": "any",
-  "theme_color": "#0078d4",
-  "background_color": "#f5f6f8",
+  "theme_color": "#6d4aff",
+  "background_color": "#f6f5fb",
   "lang": "en",
   "dir": "ltr",
   "categories": ["developer", "utilities", "productivity"],
@@ -22,6 +22,6 @@
     { "name": "Formatter & validator", "short_name": "Format", "url": "./format.html", "icons": [{ "src": "assets/img/icon-192.png", "sizes": "192x192" }] },
     { "name": "JSON to diagram", "short_name": "Diagram", "url": "./tool.html", "icons": [{ "src": "assets/img/icon-192.png", "sizes": "192x192" }] },
     { "name": "JSON diff", "short_name": "Diff", "url": "./diff.html", "icons": [{ "src": "assets/img/icon-192.png", "sizes": "192x192" }] },
-    { "name": "All tools", "short_name": "Tools", "url": "./tools.html", "icons": [{ "src": "assets/img/icon-192.png", "sizes": "192x192" }] }
+    { "name": "Presentation mode", "short_name": "Present", "url": "./presentation.html", "icons": [{ "src": "assets/img/icon-192.png", "sizes": "192x192" }] }
   ]
 }

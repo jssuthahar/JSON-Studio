@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>JSON to C#, TypeScript, Dart, Kotlin, Java, Python &amp; Go — JSON Studio | MSDEVBUILD</title>
-<meta name="description" content="Generate typed classes from a JSON sample: C# records, TypeScript interfaces, Dart, Kotlin, Java, Python dataclasses and Go structs. Free, client-side.">
+<title>JSON to C#, TypeScript, Dart, Kotlin, Java, Python & Go classes | JSON Studio</title>
+<meta name="description" content="Generate typed classes from a JSON sample: C# with System.Text.Json attributes, TypeScript interfaces, Dart with fromJson/toJson, Kotlin data classes, Java POJOs, Python dataclasses and Go structs. Free and client-side.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://json.msdevbuild.com/code.html">
+<link rel="canonical" href="https://jsonstudio.msdevbuild.com/code.html">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0078d4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#12151c" media="(prefers-color-scheme: dark)">
@@ -15,14 +15,19 @@
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="JSON to C#, TypeScript, Dart, Kotlin, Java, Python &amp; Go — JSON Studio">
-<meta property="og:description" content="Generate typed classes from a JSON sample: C# records, TypeScript interfaces, Dart, Kotlin, Java, Python dataclasses and Go structs. Free, client-side.">
-<meta property="og:url" content="https://json.msdevbuild.com/code.html">
+<meta property="og:title" content="JSON to C#, TypeScript, Dart, Kotlin, Java, Python & Go classes">
+<meta property="og:description" content="Generate typed classes from a JSON sample: C# with System.Text.Json attributes, TypeScript interfaces, Dart with fromJson/toJson, Kotlin data classes, Java POJOs, Python dataclasses and Go structs. Free and client-side.">
+<meta property="og:url" content="https://jsonstudio.msdevbuild.com/code.html">
+<meta property="og:image" content="https://jsonstudio.msdevbuild.com/assets/img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="JSON Studio — every JSON tool, in your browser">
 <meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="JSON to C#, TypeScript, Dart, Kotlin, Java, Python &amp; Go — JSON Studio">
-<meta name="twitter:description" content="Generate typed classes from a JSON sample: C# records, TypeScript interfaces, Dart, Kotlin, Java, Python dataclasses and Go structs. Free, client-side.">
+<meta name="twitter:image" content="https://jsonstudio.msdevbuild.com/assets/img/og-cover.png">
+<meta name="twitter:title" content="JSON to C#, TypeScript, Dart, Kotlin, Java, Python & Go classes">
+<meta name="twitter:description" content="Generate typed classes from a JSON sample: C# with System.Text.Json attributes, TypeScript interfaces, Dart with fromJson/toJson, Kotlin data classes, Java POJOs, Python dataclasses and Go structs. Free and client-side.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
@@ -35,7 +40,7 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "JSON to C#, TypeScript, Dart, Kotlin, Java, Python & Go — JSON Studio",
-  "url": "https://json.msdevbuild.com/code.html",
+  "url": "https://jsonstudio.msdevbuild.com/code.html",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Any (runs in browser)",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -44,6 +49,38 @@
 }
 </script>
 <script>(function(){try{var t=localStorage.getItem('json-studio-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "JSON Studio", "item": "https://jsonstudio.msdevbuild.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://jsonstudio.msdevbuild.com/tools.html" },
+        { "@type": "ListItem", "position": 3, "name": "JSON to code", "item": "https://jsonstudio.msdevbuild.com/code.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Which languages are supported?", "acceptedAnswer": { "@type": "Answer", "text": "C#, TypeScript, Dart, Kotlin, Java, Python and Go. C# emits [JsonPropertyName], Kotlin @SerialName, Java @JsonProperty, Go json tags with omitempty, and Dart gets fromJson/toJson methods." } },
+        { "@type": "Question", "name": "How are optional fields handled?", "acceptedAnswer": { "@type": "Answer", "text": "A key missing from any element of an array is treated as optional: nullable in C# and Kotlin, `?` in TypeScript, Optional[...] with a default in Python, a pointer in Go." } },
+        { "@type": "Question", "name": "What happens with mixed types?", "acceptedAnswer": { "@type": "Answer", "text": "integer and floating-point values in the same position widen to the language's floating type. Genuinely mixed types (a string and an object, say) fall back to the language's open type — object, unknown, dynamic or interface{}." } }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to use the JSON to code",
+      "step": [
+        { "@type": "HowToStep", "position": 1, "text": "Paste a representative payload — include elements with optional fields present and absent." },
+        { "@type": "HowToStep", "position": 2, "text": "Pick the language, name the root type, and choose whether to emit serialisation annotations and nullable optionals." },
+        { "@type": "HowToStep", "position": 3, "text": "Copy the code, or download it as a file named after the root type." }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -119,6 +156,64 @@
     </section>
   </div>
 </main>
+
+
+
+
+<section class="tool-seo">
+  <div class="container">
+    <div class="seo-grid">
+      <div class="seo-main">
+        <h2>About the JSON to code generator</h2>
+        <p>Turning an API response into model classes by hand is busywork. Paste the payload and get types for your language, with the serialisation attributes that language expects. Array elements are merged before generating, so a key that appears in only some elements becomes an optional field rather than being lost — the mistake most generators make when they read only the first element.</p>
+
+        <h3>How to use it</h3>
+        <ol class="seo-steps">
+          <li>Paste a representative payload — include elements with optional fields present and absent.</li>
+          <li>Pick the language, name the root type, and choose whether to emit serialisation annotations and nullable optionals.</li>
+          <li>Copy the code, or download it as a file named after the root type.</li>
+        </ol>
+
+        <h3>Questions</h3>
+        <div class="faq">
+          <details>
+            <summary>Which languages are supported?</summary>
+            <div class="faq-body"><p>C#, TypeScript, Dart, Kotlin, Java, Python and Go. C# emits [JsonPropertyName], Kotlin @SerialName, Java @JsonProperty, Go json tags with omitempty, and Dart gets fromJson/toJson methods.</p></div>
+          </details>
+          <details>
+            <summary>How are optional fields handled?</summary>
+            <div class="faq-body"><p>A key missing from any element of an array is treated as optional: nullable in C# and Kotlin, `?` in TypeScript, Optional[...] with a default in Python, a pointer in Go.</p></div>
+          </details>
+          <details>
+            <summary>What happens with mixed types?</summary>
+            <div class="faq-body"><p>integer and floating-point values in the same position widen to the language's floating type. Genuinely mixed types (a string and an object, say) fall back to the language's open type — object, unknown, dynamic or interface{}.</p></div>
+          </details>
+        </div>
+      </div>
+
+      <aside class="seo-side">
+        <div class="seo-card">
+          <h3>Present this tool</h3>
+          <p>Demoing to a client or a class? Press <kbd>Shift</kbd><kbd>P</kbd> for full-screen presentation mode — chrome hidden, type scaled up, laser pointer included.</p>
+          <a class="seo-link" href="presentation.html">How presentation mode works →</a>
+        </div>
+        <div class="seo-card">
+          <h3>Related tools</h3>
+          <ul class="seo-related">
+            <li><a href="json-schema.html"><span class="ri">Sχ</span>Schema generator</a></li>
+            <li><a href="format.html"><span class="ri">⌗</span>Formatter & validator</a></li>
+            <li><a href="csv.html"><span class="ri">J↔C</span>JSON ⇄ CSV</a></li>
+          </ul>
+          <a class="seo-link" href="tools.html">All 14 tools →</a>
+        </div>
+        <div class="seo-card quiet">
+          <h3>Private by construction</h3>
+          <p>No backend exists. Everything on this page runs in your browser, so nothing you paste is uploaded, logged or retained.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
 
 <div id="site-footer"></div>
 

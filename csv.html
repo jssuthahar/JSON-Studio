@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>JSON to CSV &amp; CSV to JSON converter — JSON Studio | MSDEVBUILD</title>
-<meta name="description" content="Convert JSON to CSV or CSV to JSON in your browser. Nested objects flatten to dot-notation columns. Free, client-side, no upload.">
+<title>JSON to CSV & CSV to JSON Converter — free, in your browser | JSON Studio</title>
+<meta name="description" content="Convert JSON to CSV for Excel or Google Sheets, and CSV back to JSON. Nested objects flatten to dot-notation columns, quoting follows RFC 4180, and nothing is uploaded.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://json.msdevbuild.com/csv.html">
+<link rel="canonical" href="https://jsonstudio.msdevbuild.com/csv.html">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0078d4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#12151c" media="(prefers-color-scheme: dark)">
@@ -15,14 +15,19 @@
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="JSON to CSV &amp; CSV to JSON converter — JSON Studio">
-<meta property="og:description" content="Convert JSON to CSV or CSV to JSON in your browser. Nested objects flatten to dot-notation columns. Free, client-side, no upload.">
-<meta property="og:url" content="https://json.msdevbuild.com/csv.html">
+<meta property="og:title" content="JSON to CSV & CSV to JSON Converter — free, in your browser">
+<meta property="og:description" content="Convert JSON to CSV for Excel or Google Sheets, and CSV back to JSON. Nested objects flatten to dot-notation columns, quoting follows RFC 4180, and nothing is uploaded.">
+<meta property="og:url" content="https://jsonstudio.msdevbuild.com/csv.html">
+<meta property="og:image" content="https://jsonstudio.msdevbuild.com/assets/img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="JSON Studio — every JSON tool, in your browser">
 <meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="JSON to CSV &amp; CSV to JSON converter — JSON Studio">
-<meta name="twitter:description" content="Convert JSON to CSV or CSV to JSON in your browser. Nested objects flatten to dot-notation columns. Free, client-side, no upload.">
+<meta name="twitter:image" content="https://jsonstudio.msdevbuild.com/assets/img/og-cover.png">
+<meta name="twitter:title" content="JSON to CSV & CSV to JSON Converter — free, in your browser">
+<meta name="twitter:description" content="Convert JSON to CSV for Excel or Google Sheets, and CSV back to JSON. Nested objects flatten to dot-notation columns, quoting follows RFC 4180, and nothing is uploaded.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
@@ -35,7 +40,7 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "JSON to CSV & CSV to JSON converter — JSON Studio",
-  "url": "https://json.msdevbuild.com/csv.html",
+  "url": "https://jsonstudio.msdevbuild.com/csv.html",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Any (runs in browser)",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -44,6 +49,38 @@
 }
 </script>
 <script>(function(){try{var t=localStorage.getItem('json-studio-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "JSON Studio", "item": "https://jsonstudio.msdevbuild.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://jsonstudio.msdevbuild.com/tools.html" },
+        { "@type": "ListItem", "position": 3, "name": "JSON ⇄ CSV", "item": "https://jsonstudio.msdevbuild.com/csv.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "My JSON is nested — what happens to it?", "acceptedAnswer": { "@type": "Answer", "text": "Nested objects flatten to dot-notation columns such as address.city, and convert back into nested objects on the way in. Arrays inside a row are kept as JSON text in the cell." } },
+        { "@type": "Question", "name": "Will it open correctly in Excel?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. If accented or non-Latin characters look wrong, tick \"Excel BOM\" — that adds the byte-order mark Excel looks for." } },
+        { "@type": "Question", "name": "Does it handle commas and quotes inside values?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, in both directions: fields containing a delimiter, quote or newline are quoted and escaped per RFC 4180, and parsed back the same way." } }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to use the JSON ⇄ CSV",
+      "step": [
+        { "@type": "HowToStep", "position": 1, "text": "Paste a JSON array (or a CSV table — the direction is detected automatically)." },
+        { "@type": "HowToStep", "position": 2, "text": "Choose the delimiter, and whether nested keys are flattened and CSV values type-inferred." },
+        { "@type": "HowToStep", "position": 3, "text": "Copy the output or download it. Tick \"Excel BOM\" if Excel mangles your accented characters." }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -122,6 +159,64 @@
     </section>
   </div>
 </main>
+
+
+
+
+<section class="tool-seo">
+  <div class="container">
+    <div class="seo-grid">
+      <div class="seo-main">
+        <h2>About the JSON ⇄ CSV converter</h2>
+        <p>Spreadsheets are still how most of the world looks at data. This converts an array of JSON objects into a CSV whose header is the union of every row's keys — so a field that only appears in later rows still gets a column — and converts CSV back to JSON, rebuilding nested objects from dot-notation headers. Quoting, escaped quotes and embedded newlines follow RFC 4180 in both directions.</p>
+
+        <h3>How to use it</h3>
+        <ol class="seo-steps">
+          <li>Paste a JSON array (or a CSV table — the direction is detected automatically).</li>
+          <li>Choose the delimiter, and whether nested keys are flattened and CSV values type-inferred.</li>
+          <li>Copy the output or download it. Tick "Excel BOM" if Excel mangles your accented characters.</li>
+        </ol>
+
+        <h3>Questions</h3>
+        <div class="faq">
+          <details>
+            <summary>My JSON is nested — what happens to it?</summary>
+            <div class="faq-body"><p>Nested objects flatten to dot-notation columns such as address.city, and convert back into nested objects on the way in. Arrays inside a row are kept as JSON text in the cell.</p></div>
+          </details>
+          <details>
+            <summary>Will it open correctly in Excel?</summary>
+            <div class="faq-body"><p>Yes. If accented or non-Latin characters look wrong, tick "Excel BOM" — that adds the byte-order mark Excel looks for.</p></div>
+          </details>
+          <details>
+            <summary>Does it handle commas and quotes inside values?</summary>
+            <div class="faq-body"><p>Yes, in both directions: fields containing a delimiter, quote or newline are quoted and escaped per RFC 4180, and parsed back the same way.</p></div>
+          </details>
+        </div>
+      </div>
+
+      <aside class="seo-side">
+        <div class="seo-card">
+          <h3>Present this tool</h3>
+          <p>Demoing to a client or a class? Press <kbd>Shift</kbd><kbd>P</kbd> for full-screen presentation mode — chrome hidden, type scaled up, laser pointer included.</p>
+          <a class="seo-link" href="presentation.html">How presentation mode works →</a>
+        </div>
+        <div class="seo-card">
+          <h3>Related tools</h3>
+          <ul class="seo-related">
+            <li><a href="jsonl.html"><span class="ri">≡</span>JSONL ⇄ JSON</a></li>
+            <li><a href="sql.html"><span class="ri">SQL</span>JSON to SQL</a></li>
+            <li><a href="format.html"><span class="ri">⌗</span>Formatter & validator</a></li>
+          </ul>
+          <a class="seo-link" href="tools.html">All 14 tools →</a>
+        </div>
+        <div class="seo-card quiet">
+          <h3>Private by construction</h3>
+          <p>No backend exists. Everything on this page runs in your browser, so nothing you paste is uploaded, logged or retained.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
 
 <div id="site-footer"></div>
 

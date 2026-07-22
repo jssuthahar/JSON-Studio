@@ -15,8 +15,8 @@
 #editor{flex:1;width:100%;resize:none;background:var(--panel-2);border:1px solid var(--border);border-radius:10px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.6;padding:14px;outline:none;min-height:220px;}
 #editor:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-tint);}
 #status{padding:12px 22px 18px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--text-faint);border-top:1px solid var(--border);}
-#status.err{color:#c2410f;}
-#status.ok{color:#0e8f6f;}
+#status.err{color:var(--bool);}
+#status.ok{color:var(--accent);}
 
 /* AI assist panel */
 .ai-panel{border-top:1px solid var(--border);padding:16px 22px;background:var(--panel-2);}

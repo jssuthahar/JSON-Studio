@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>JSON diff &amp; compare — JSON Studio | MSDEVBUILD</title>
-<meta name="description" content="Compare two JSON documents and see exactly what was added, removed or changed. Key-order independent, array-aware. Free and client-side.">
+<title>JSON Diff & Compare — structural, key-order independent | JSON Studio</title>
+<meta name="description" content="Compare two JSON documents online and see exactly what was added, removed or changed. Key order is ignored, arrays are compared by index or as sets, and the result exports as an RFC 6902 JSON Patch. Free and client-side.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://json.msdevbuild.com/diff.html">
+<link rel="canonical" href="https://jsonstudio.msdevbuild.com/diff.html">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0078d4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#12151c" media="(prefers-color-scheme: dark)">
@@ -15,14 +15,19 @@
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="JSON diff &amp; compare — JSON Studio">
-<meta property="og:description" content="Compare two JSON documents and see exactly what was added, removed or changed. Key-order independent, array-aware. Free and client-side.">
-<meta property="og:url" content="https://json.msdevbuild.com/diff.html">
+<meta property="og:title" content="JSON Diff & Compare — structural, key-order independent">
+<meta property="og:description" content="Compare two JSON documents online and see exactly what was added, removed or changed. Key order is ignored, arrays are compared by index or as sets, and the result exports as an RFC 6902 JSON Patch. Free and client-side.">
+<meta property="og:url" content="https://jsonstudio.msdevbuild.com/diff.html">
+<meta property="og:image" content="https://jsonstudio.msdevbuild.com/assets/img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="JSON Studio — every JSON tool, in your browser">
 <meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="JSON diff &amp; compare — JSON Studio">
-<meta name="twitter:description" content="Compare two JSON documents and see exactly what was added, removed or changed. Key-order independent, array-aware. Free and client-side.">
+<meta name="twitter:image" content="https://jsonstudio.msdevbuild.com/assets/img/og-cover.png">
+<meta name="twitter:title" content="JSON Diff & Compare — structural, key-order independent">
+<meta name="twitter:description" content="Compare two JSON documents online and see exactly what was added, removed or changed. Key order is ignored, arrays are compared by index or as sets, and the result exports as an RFC 6902 JSON Patch. Free and client-side.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
@@ -35,7 +40,7 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "JSON diff & compare — JSON Studio",
-  "url": "https://json.msdevbuild.com/diff.html",
+  "url": "https://jsonstudio.msdevbuild.com/diff.html",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Any (runs in browser)",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -44,6 +49,38 @@
 }
 </script>
 <script>(function(){try{var t=localStorage.getItem('json-studio-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "JSON Studio", "item": "https://jsonstudio.msdevbuild.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://jsonstudio.msdevbuild.com/tools.html" },
+        { "@type": "ListItem", "position": 3, "name": "JSON diff", "item": "https://jsonstudio.msdevbuild.com/diff.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Does key order count as a difference?", "acceptedAnswer": { "@type": "Answer", "text": "No. Two objects with the same keys and values are identical regardless of the order they were written in, which is what the JSON specification says and what a text diff gets wrong." } },
+        { "@type": "Question", "name": "What is the difference between JSON Patch and Merge Patch?", "acceptedAnswer": { "@type": "Answer", "text": "JSON Patch (RFC 6902) is a list of add/remove/replace operations with pointers — precise, and able to target array elements. Merge Patch (RFC 7386) is a partial document where null means \"delete this key\" — simpler, but it replaces arrays wholesale." } },
+        { "@type": "Question", "name": "Can I compare two API responses?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, and it is the common case: paste yesterday's response and today's to see exactly what a deployment changed." } }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to use the JSON diff",
+      "step": [
+        { "@type": "HowToStep", "position": 1, "text": "Paste the original into the first pane and the changed version into the second." },
+        { "@type": "HowToStep", "position": 2, "text": "Choose whether arrays are compared by index or treated as unordered sets." },
+        { "@type": "HowToStep", "position": 3, "text": "Read the change list, or switch the output to JSON Patch or Merge Patch and copy it." }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -111,6 +148,64 @@
     </section>
   </div>
 </main>
+
+
+
+
+<section class="tool-seo">
+  <div class="container">
+    <div class="seo-grid">
+      <div class="seo-main">
+        <h2>About the JSON diff tool</h2>
+        <p>A text diff on two payloads is nearly useless: reformat one of them and every line changes. This compares them structurally, so key order is irrelevant and only real differences are reported, each with the path that reached it. The same comparison can be exported as an RFC 6902 JSON Patch to send to a PATCH endpoint, or an RFC 7386 Merge Patch.</p>
+
+        <h3>How to use it</h3>
+        <ol class="seo-steps">
+          <li>Paste the original into the first pane and the changed version into the second.</li>
+          <li>Choose whether arrays are compared by index or treated as unordered sets.</li>
+          <li>Read the change list, or switch the output to JSON Patch or Merge Patch and copy it.</li>
+        </ol>
+
+        <h3>Questions</h3>
+        <div class="faq">
+          <details>
+            <summary>Does key order count as a difference?</summary>
+            <div class="faq-body"><p>No. Two objects with the same keys and values are identical regardless of the order they were written in, which is what the JSON specification says and what a text diff gets wrong.</p></div>
+          </details>
+          <details>
+            <summary>What is the difference between JSON Patch and Merge Patch?</summary>
+            <div class="faq-body"><p>JSON Patch (RFC 6902) is a list of add/remove/replace operations with pointers — precise, and able to target array elements. Merge Patch (RFC 7386) is a partial document where null means "delete this key" — simpler, but it replaces arrays wholesale.</p></div>
+          </details>
+          <details>
+            <summary>Can I compare two API responses?</summary>
+            <div class="faq-body"><p>Yes, and it is the common case: paste yesterday's response and today's to see exactly what a deployment changed.</p></div>
+          </details>
+        </div>
+      </div>
+
+      <aside class="seo-side">
+        <div class="seo-card">
+          <h3>Present this tool</h3>
+          <p>Demoing to a client or a class? Press <kbd>Shift</kbd><kbd>P</kbd> for full-screen presentation mode — chrome hidden, type scaled up, laser pointer included.</p>
+          <a class="seo-link" href="presentation.html">How presentation mode works →</a>
+        </div>
+        <div class="seo-card">
+          <h3>Related tools</h3>
+          <ul class="seo-related">
+            <li><a href="format.html"><span class="ri">⌗</span>Formatter & validator</a></li>
+            <li><a href="validate.html"><span class="ri">✓</span>Schema validator</a></li>
+            <li><a href="tool.html"><span class="ri">{ }</span>JSON to diagram</a></li>
+          </ul>
+          <a class="seo-link" href="tools.html">All 14 tools →</a>
+        </div>
+        <div class="seo-card quiet">
+          <h3>Private by construction</h3>
+          <p>No backend exists. Everything on this page runs in your browser, so nothing you paste is uploaded, logged or retained.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
 
 <div id="site-footer"></div>
 

@@ -10,6 +10,7 @@ here's how everything fits together and how to add to it.
 json-studio/
 ├── index.html              Home page — hero, tool grid, FAQ, SEO tags
 ├── tools.html                All tools in one searchable page
+├── presentation.html         Presentation mode — feature page
 ├── tool.html                 JSON → diagram
 ├── format.html               Formatter / validator / minifier
 ├── diff.html                 JSON diff
@@ -122,14 +123,17 @@ already built — reuse it instead of rewriting the plumbing.
    `validate.js`) wire their own listeners but still use the `TK.*` helpers.
 5. Add the page to the `TOOLS` array in `assets/js/site.js` — that one array
    feeds the nav dropdown, the mobile nav, the footer and the ⌘K palette.
-6. Add a card for it in `index.html` and `tools.html` (give the card a
+6. Write its SEO copy — the explainer, three how-to steps, three FAQs and
+   three related tools that appear below the app shell. A tool page without
+   that section will not rank for anything.
+7. Add a card for it in `index.html` and `tools.html` (give the card a
    `data-keys` attribute with search synonyms — that is what makes searching
    "kubernetes" find the YAML tool), add it to `sitemap.xml`, add its page and
    script to `PRECACHE` in `sw.js`, and add it to the `TOOLS` list in
    `extension/popup.js`.
-7. If the tool should accept text handed over by the extension, nothing extra
+8. If the tool should accept text handed over by the extension, nothing extra
    is needed: `TK.tool()` already reads `#input=` from the URL fragment.
-8. Presentation mode needs nothing either, as long as the page uses the
+9. Presentation mode needs nothing either, as long as the page uses the
    standard structure. `present.js` finds `.pane` elements by itself, treats
    the last one as the result being demonstrated, and builds the Panels menu
    from their `.pane-title` text. Load `present.css` and `present.js` — see any

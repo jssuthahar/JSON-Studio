@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>JSONPath tester &amp; evaluator — JSON Studio | MSDEVBUILD</title>
-<meta name="description" content="Test JSONPath expressions against your JSON and see matches instantly, with filters, wildcards, slices and recursive descent. Free, client-side.">
+<title>JSONPath Tester & Evaluator — filters, slices, recursive descent | JSON Studio</title>
+<meta name="description" content="Test JSONPath expressions against your own JSON and see matches update as you type. Supports wildcards, array slices, recursive descent and filter expressions. Free, client-side, and filters are parsed rather than eval()-ed.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://json.msdevbuild.com/jsonpath.html">
+<link rel="canonical" href="https://jsonstudio.msdevbuild.com/jsonpath.html">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0078d4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#12151c" media="(prefers-color-scheme: dark)">
@@ -15,14 +15,19 @@
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="JSONPath tester &amp; evaluator — JSON Studio">
-<meta property="og:description" content="Test JSONPath expressions against your JSON and see matches instantly, with filters, wildcards, slices and recursive descent. Free, client-side.">
-<meta property="og:url" content="https://json.msdevbuild.com/jsonpath.html">
+<meta property="og:title" content="JSONPath Tester & Evaluator — filters, slices, recursive descent">
+<meta property="og:description" content="Test JSONPath expressions against your own JSON and see matches update as you type. Supports wildcards, array slices, recursive descent and filter expressions. Free, client-side, and filters are parsed rather than eval()-ed.">
+<meta property="og:url" content="https://jsonstudio.msdevbuild.com/jsonpath.html">
+<meta property="og:image" content="https://jsonstudio.msdevbuild.com/assets/img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="JSON Studio — every JSON tool, in your browser">
 <meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="JSONPath tester &amp; evaluator — JSON Studio">
-<meta name="twitter:description" content="Test JSONPath expressions against your JSON and see matches instantly, with filters, wildcards, slices and recursive descent. Free, client-side.">
+<meta name="twitter:image" content="https://jsonstudio.msdevbuild.com/assets/img/og-cover.png">
+<meta name="twitter:title" content="JSONPath Tester & Evaluator — filters, slices, recursive descent">
+<meta name="twitter:description" content="Test JSONPath expressions against your own JSON and see matches update as you type. Supports wildcards, array slices, recursive descent and filter expressions. Free, client-side, and filters are parsed rather than eval()-ed.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
@@ -35,7 +40,7 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "JSONPath tester & evaluator — JSON Studio",
-  "url": "https://json.msdevbuild.com/jsonpath.html",
+  "url": "https://jsonstudio.msdevbuild.com/jsonpath.html",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Any (runs in browser)",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -44,6 +49,38 @@
 }
 </script>
 <script>(function(){try{var t=localStorage.getItem('json-studio-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "JSON Studio", "item": "https://jsonstudio.msdevbuild.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://jsonstudio.msdevbuild.com/tools.html" },
+        { "@type": "ListItem", "position": 3, "name": "JSONPath tester", "item": "https://jsonstudio.msdevbuild.com/jsonpath.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Which JSONPath syntax is supported?", "acceptedAnswer": { "@type": "Answer", "text": "Root ($), child access (.key and ['key']), array indices including negatives, wildcards ([*] and .*), slices ([1:5]), unions ([0,2]), recursive descent (..), and filters with ==, !=, <, <=, >, >=, =~ combined with && and ||." } },
+        { "@type": "Question", "name": "Is it safe to paste a filter expression?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Most JSONPath libraries implement filters by calling eval() or new Function(); this one parses the comparison itself, so no part of your expression is executed as code." } },
+        { "@type": "Question", "name": "Why does my path return nothing?", "acceptedAnswer": { "@type": "Answer", "text": "The status line says \"No matches\" rather than failing, which usually means a key name is misspelled or you are filtering on a value type that does not match — for example comparing a string to a number." } }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to use the JSONPath tester",
+      "step": [
+        { "@type": "HowToStep", "position": 1, "text": "Paste your JSON on the left." },
+        { "@type": "HowToStep", "position": 2, "text": "Type a path in the Path box — start with $ and build up, for example $.store.book[?(@.price < 10)].title." },
+        { "@type": "HowToStep", "position": 3, "text": "Read the matches on the right; tick \"Show match paths\" to see where each one came from." }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -102,6 +139,64 @@
     </section>
   </div>
 </main>
+
+
+
+
+<section class="tool-seo">
+  <div class="container">
+    <div class="seo-grid">
+      <div class="seo-main">
+        <h2>About the JSONPath tester</h2>
+        <p>JSONPath is to JSON what XPath is to XML: a compact way to reach into a document and pull out the parts you want. This tester evaluates an expression against your payload as you type, so you can build a path incrementally instead of guessing. Notably, filter expressions are parsed rather than handed to eval() — a pasted expression can never execute code in your browser.</p>
+
+        <h3>How to use it</h3>
+        <ol class="seo-steps">
+          <li>Paste your JSON on the left.</li>
+          <li>Type a path in the Path box — start with $ and build up, for example $.store.book[?(@.price &lt; 10)].title.</li>
+          <li>Read the matches on the right; tick "Show match paths" to see where each one came from.</li>
+        </ol>
+
+        <h3>Questions</h3>
+        <div class="faq">
+          <details>
+            <summary>Which JSONPath syntax is supported?</summary>
+            <div class="faq-body"><p>Root ($), child access (.key and ['key']), array indices including negatives, wildcards ([*] and .*), slices ([1:5]), unions ([0,2]), recursive descent (..), and filters with ==, !=, &lt;, &lt;=, &gt;, &gt;=, =~ combined with &amp;&amp; and ||.</p></div>
+          </details>
+          <details>
+            <summary>Is it safe to paste a filter expression?</summary>
+            <div class="faq-body"><p>Yes. Most JSONPath libraries implement filters by calling eval() or new Function(); this one parses the comparison itself, so no part of your expression is executed as code.</p></div>
+          </details>
+          <details>
+            <summary>Why does my path return nothing?</summary>
+            <div class="faq-body"><p>The status line says "No matches" rather than failing, which usually means a key name is misspelled or you are filtering on a value type that does not match — for example comparing a string to a number.</p></div>
+          </details>
+        </div>
+      </div>
+
+      <aside class="seo-side">
+        <div class="seo-card">
+          <h3>Present this tool</h3>
+          <p>Demoing to a client or a class? Press <kbd>Shift</kbd><kbd>P</kbd> for full-screen presentation mode — chrome hidden, type scaled up, laser pointer included.</p>
+          <a class="seo-link" href="presentation.html">How presentation mode works →</a>
+        </div>
+        <div class="seo-card">
+          <h3>Related tools</h3>
+          <ul class="seo-related">
+            <li><a href="tool.html"><span class="ri">{ }</span>JSON to diagram</a></li>
+            <li><a href="format.html"><span class="ri">⌗</span>Formatter & validator</a></li>
+            <li><a href="jsonl.html"><span class="ri">≡</span>JSONL ⇄ JSON</a></li>
+          </ul>
+          <a class="seo-link" href="tools.html">All 14 tools →</a>
+        </div>
+        <div class="seo-card quiet">
+          <h3>Private by construction</h3>
+          <p>No backend exists. Everything on this page runs in your browser, so nothing you paste is uploaded, logged or retained.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
 
 <div id="site-footer"></div>
 

@@ -5,7 +5,7 @@
   fragment, which the browser never transmits; the tool page reads it locally.
 */
 
-const BASE = 'https://json.msdevbuild.com/';
+const BASE = 'https://jsonstudio.msdevbuild.com/';
 
 const TOOLS = [
   { href: 'format.html', label: 'Formatter & validator', group: 'Inspect', keys: 'format beautify pretty minify validate escape' },

@@ -37,6 +37,7 @@
   const NAV_LINKS = [
     { href: 'index.html', label: 'Home' },
     { label: 'Tools', children: TOOLS, allHref: 'tools.html' },
+    { href: 'presentation.html', label: 'Presentation' },
     { href: 'https://www.msdevbuild.com/', label: 'MSDEVBUILD Blog', external: true },
     { href: 'https://github.com/jssuthahar', label: 'GitHub', external: true }
   ];
@@ -101,6 +102,7 @@
         <div id="mobile-nav">
           <a href="index.html">Home</a>
           <a href="tools.html">All tools</a>
+          <a href="presentation.html">Presentation mode</a>
           ${Object.keys(GROUP_NAMES).map((g) => `
             <div class="mobile-nav-head">${GROUP_NAMES[g]}</div>
             ${TOOLS.filter((t) => t.group === g).map((t) => linkHTML(t)).join('')}`).join('')}
@@ -320,6 +322,7 @@
             <h4>Project</h4>
             <ul>
               <li><a href="tools.html">All tools</a></li>
+              <li><a href="presentation.html">Presentation mode</a></li>
               <li><a href="index.html#install">Install the app</a></li>
               <li><a href="CONTRIBUTING.md">Contributing guide</a></li>
               <li><a href="https://github.com/jssuthahar" target="_blank" rel="noopener">Source on GitHub</a></li>
