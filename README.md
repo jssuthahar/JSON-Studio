@@ -34,6 +34,23 @@ Every page: light and dark mode (following your OS until you choose),
 drag-and-drop file input, copy and download, ⌘/Ctrl + Enter to re-run, and
 ⌘/Ctrl + K to jump to another tool.
 
+## The workbench
+
+Tool pages are laid out like an editor, because that is what they are.
+
+**An icon rail** down the left edge switches tools in one click — every tool,
+grouped, with the current one marked and a tooltip on hover. No menu, no trip
+back to the home page. <kbd>Alt</kbd>+<kbd>1…9</kbd> jumps by number.
+
+**Collapsible panels.** <kbd>⌘B</kbd> / <kbd>Ctrl+B</kbd> hides the input side
+and gives the result the whole window — the same shortcut and the same feel as
+hiding an editor sidebar. Each pane also has a collapse button in its header,
+and a slim chevron on the left edge brings a hidden panel back. The last
+visible panel can't be collapsed, so you can never end up with a blank page.
+
+Collapse state is remembered **per tool**, since what you want differs: on the
+diagram page you rarely need the JSON pane, on the diff page you always do.
+
 ## Presentation mode
 
 Every tool can be presented. Hit **Present** in the header (or <kbd>Shift</kbd>

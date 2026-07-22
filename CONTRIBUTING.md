@@ -29,12 +29,14 @@ json-studio/
 │   │   ├── styles.css        Shared design tokens, header, footer, cards
 │   │   ├── tool.css           Styles for the diagram page
 │   │   ├── convert.css        Shared two-pane input→output tool layout
-│   │   └── present.css        Presentation mode
+│   │   ├── present.css        Presentation mode
+│   │   └── workbench.css      Tool rail + collapsible panels
 │   ├── js/
 │   │   ├── site.js            Header/footer, nav, ⌘K palette, theme, PWA install
 │   │   ├── tool-kit.js        Shared tool plumbing (window.TK)
 │   │   ├── tools-hub.js       Search + filtering for tools.html
 │   │   ├── present.js         Presentation mode (all tool pages)
+│   │   ├── workbench.js       Tool rail + collapsible panels
 │   │   ├── infer.js           Type inference shared by the schema + code tools
 │   │   ├── diagram.js         D3 tree rendering, search, collapse/expand
 │   │   ├── export.js          PNG/SVG export
@@ -133,10 +135,16 @@ already built — reuse it instead of rewriting the plumbing.
    from their `.pane-title` text. Load `present.css` and `present.js` — see any
    existing tool page.
 
+The workbench (icon rail, ⌘B panel collapsing) is automatic too — it reads the
+tool list from `window.JSONStudioNav`, which `site.js` exports, and finds the
+panes the same way. Load `workbench.css` and `workbench.js` after the
+presentation ones.
+
 A tool with its own canvas (like the diagram) can opt into the zoom, fit and
 pan controls by exposing `fit`, `zoomBy`, `panBy` and `zoomLevel` on
 `window.JSONStudio`, and re-fitting when the `presentation-change` event
-fires — `assets/js/diagram.js` is the worked example.
+fires — `assets/js/diagram.js` is the worked example. That same event fires
+when a workbench panel is collapsed, so a canvas re-fits then as well.
 
 ## Design tokens quick reference
 

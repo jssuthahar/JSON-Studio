@@ -12,24 +12,27 @@
 (function () {
   const TOOLS = [
     /* TOOLS:start */
-    { href: 'format.html', label: 'Formatter & validator', group: 'inspect' },
-    { href: 'tool.html', label: 'JSON to diagram', group: 'inspect' },
-    { href: 'diff.html', label: 'JSON diff', group: 'inspect' },
-    { href: 'jsonpath.html', label: 'JSONPath tester', group: 'inspect' },
-    { href: 'jwt.html', label: 'JWT decoder', group: 'inspect' },
-    { href: 'json-schema.html', label: 'Schema generator', group: 'schema' },
-    { href: 'validate.html', label: 'Schema validator', group: 'schema' },
-    { href: 'mock.html', label: 'Mock data generator', group: 'schema' },
-    { href: 'code.html', label: 'JSON to code', group: 'convert' },
-    { href: 'csv.html', label: 'JSON ⇄ CSV', group: 'convert' },
-    { href: 'yaml-json.html', label: 'YAML ⇄ JSON', group: 'convert' },
-    { href: 'xml.html', label: 'JSON ⇄ XML', group: 'convert' },
-    { href: 'jsonl.html', label: 'JSONL ⇄ JSON', group: 'convert' },
-    { href: 'sql.html', label: 'JSON to SQL', group: 'convert' }
+    { href: 'format.html', label: 'Formatter & validator', group: 'inspect', icon: '⌗' },
+    { href: 'tool.html', label: 'JSON to diagram', group: 'inspect', icon: '{ }' },
+    { href: 'diff.html', label: 'JSON diff', group: 'inspect', icon: 'A|B' },
+    { href: 'jsonpath.html', label: 'JSONPath tester', group: 'inspect', icon: '$..' },
+    { href: 'jwt.html', label: 'JWT decoder', group: 'inspect', icon: 'JWT' },
+    { href: 'json-schema.html', label: 'Schema generator', group: 'schema', icon: 'Sχ' },
+    { href: 'validate.html', label: 'Schema validator', group: 'schema', icon: '✓' },
+    { href: 'mock.html', label: 'Mock data generator', group: 'schema', icon: '⁂' },
+    { href: 'code.html', label: 'JSON to code', group: 'convert', icon: '</>' },
+    { href: 'csv.html', label: 'JSON ⇄ CSV', group: 'convert', icon: 'J↔C' },
+    { href: 'yaml-json.html', label: 'YAML ⇄ JSON', group: 'convert', icon: 'Y↔J' },
+    { href: 'xml.html', label: 'JSON ⇄ XML', group: 'convert', icon: 'X↔J' },
+    { href: 'jsonl.html', label: 'JSONL ⇄ JSON', group: 'convert', icon: '≡' },
+    { href: 'sql.html', label: 'JSON to SQL', group: 'convert', icon: 'SQL' }
     /* TOOLS:end */
   ];
 
   const GROUP_NAMES = { inspect: 'Inspect & debug', schema: 'Schema & test data', convert: 'Convert & export' };
+
+  // Shared with workbench.js (the tool rail) so the tool list is defined once.
+  window.JSONStudioNav = { TOOLS, GROUP_NAMES };
 
   const NAV_LINKS = [
     { href: 'index.html', label: 'Home' },
