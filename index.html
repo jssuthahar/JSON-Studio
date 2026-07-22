@@ -2,25 +2,31 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>JSON Studio — free online JSON tools | MSDEVBUILD</title>
-<meta name="description" content="Fourteen free JSON tools that run entirely in your browser: formatter, diagram viewer, diff, JSONPath, schema generator and validator, code generator, CSV, YAML, XML, SQL and JWT. No signup, no uploads.">
+<title>JSON Studio — 14 free online JSON tools | MSDEVBUILD</title>
+<meta name="description" content="14 free JSON tools that run entirely in your browser: formatter, diagram viewer, diff, JSONPath, schema generator and validator, code generator, CSV, YAML, XML, SQL and JWT. No signup, nothing uploaded.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="canonical" href="https://json.msdevbuild.com/">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0078d4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12151c" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="JSON Studio">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="JSON Studio — free online JSON tools">
-<meta property="og:description" content="Fourteen free JSON tools that run entirely in your browser — formatter, diagram, diff, schema, code generation and more. Nothing is uploaded.">
+<meta property="og:title" content="JSON Studio — 14 free online JSON tools">
+<meta property="og:description" content="Format, diagram, diff, query, validate and convert JSON — entirely in your browser. No signup, nothing uploaded.">
 <meta property="og:url" content="https://json.msdevbuild.com/">
 <meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="JSON Studio — free online JSON tools">
-<meta name="twitter:description" content="Fourteen free JSON tools that run entirely in your browser. No signup, no uploads.">
+<meta name="twitter:title" content="JSON Studio — 14 free online JSON tools">
+<meta name="twitter:description" content="Format, diagram, diff, query, validate and convert JSON — entirely in your browser.">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
 
 <script type="application/ld+json">
@@ -32,14 +38,25 @@
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Any (runs in browser)",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "creator": {
-    "@type": "Person",
-    "name": "Suthahar Jegatheesan",
-    "url": "https://www.msdevbuild.com/"
-  },
-  "description": "Fourteen free, client-side JSON tools: formatter, diagram viewer, diff, JSONPath, schema generator and validator, mock data, code generation, CSV, YAML, XML, SQL and JWT decoding."
+  "creator": { "@type": "Person", "name": "Suthahar Jegatheesan", "url": "https://www.msdevbuild.com/" },
+  "description": "14 free, client-side JSON tools: formatter, diagram viewer, diff, JSONPath, schema generator and validator, mock data, code generation, CSV, YAML, XML, SQL and JWT decoding."
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is JSON Studio really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — every tool, no account, no trial, no usage cap. It is a static site with no backend, so there is nothing to meter and nothing to charge for." } },
+    { "@type": "Question", "name": "Is my data sent anywhere?", "acceptedAnswer": { "@type": "Answer", "text": "No. Every tool runs as JavaScript inside your own browser tab. Nothing you paste, upload or drag in is transmitted to any server. The one exception is opt-in and clearly marked: the diagram page can call OpenAI with your own API key if you choose to use its \"explain with AI\" panel." } },
+    { "@type": "Question", "name": "Can I use it offline?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Install it as an app (the Install button in the header, or your browser's install option) and every tool is cached for offline use. Even without installing, a page keeps working once loaded." } },
+    { "@type": "Question", "name": "Is it safe for confidential payloads?", "acceptedAnswer": { "@type": "Answer", "text": "The code never transmits your data, and you can verify that: the source is on GitHub, there is no build step, and you can open DevTools' network tab and watch it stay quiet. For maximum assurance, install the app or download the repo and open index.html from your own disk." } },
+    { "@type": "Question", "name": "Which JSON Schema drafts are supported?", "acceptedAnswer": { "@type": "Answer", "text": "The generator emits draft 2020-12 or draft-07. The validator implements the keywords that appear in real-world schemas — types, required, enum, const, numeric and string bounds, items, uniqueItems, contains, additionalProperties, patternProperties, dependentRequired, anyOf/oneOf/allOf/not and local $ref. It is not a full draft implementation." } },
+    { "@type": "Question", "name": "Can I contribute a tool?", "acceptedAnswer": { "@type": "Answer", "text": "Please do. The project is plain HTML, CSS and JavaScript with no build step, and there is a shared toolkit that handles the boilerplate — see the contributing guide on GitHub." } }
+  ]
+}
+</script>
+<script>(function(){try{var t=localStorage.getItem('json-studio-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
 
@@ -47,20 +64,52 @@
 
 <main>
   <section class="hero">
-    <div class="container">
-      <div class="eyebrow">Free &middot; Client-side &middot; No signup</div>
-      <h1>Every JSON tool you need, <span>in your browser</span></h1>
-      <p class="lead">Format, diagram, diff, query, validate and convert JSON — into CSV, YAML, XML, SQL or typed classes for seven languages. Fourteen tools, no account, no uploads: every byte you paste stays on your machine.</p>
-      <div class="cta-row">
-        <a class="button primary" href="format.html" style="background:var(--blue);color:#fff;border:1px solid var(--blue);border-radius:8px;padding:12px 22px;font-weight:600;text-decoration:none;">Open the formatter →</a>
-        <a class="button" href="#tools" style="border:1px solid var(--border-strong);border-radius:8px;padding:12px 22px;text-decoration:none;color:var(--text);">See all tools</a>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="dot-live"></span> 14 tools &middot; free &middot; nothing leaves your browser</div>
+        <h1>Every JSON tool you need, <span>in one place</span></h1>
+        <p class="lead">Format, diagram, diff, query, validate and convert JSON — into CSV, YAML, XML, SQL or typed classes for seven languages. No account, no uploads, no waiting on a server.</p>
+        <div class="cta-row">
+          <a class="btn-primary" href="format.html">Open the formatter →</a>
+          <a class="btn-secondary" href="tools.html">Browse all 14 tools</a>
+        </div>
+        <div class="trust-row">
+          <span>✓ No signup</span>
+          <span>✓ Works offline</span>
+          <span>✓ Open source</span>
+          <span>✓ Installable app</span>
+        </div>
       </div>
 
+      <div class="hero-visual" aria-hidden="true">
+        <div class="mock-window">
+          <div class="mock-bar"><span></span><span></span><span></span><em>order.json → C#</em></div>
+          <div class="mock-body">
+<pre class="mock-code"><span class="c-p">{</span>
+  <span class="c-k">"orderId"</span>: <span class="c-s">"A-1001"</span>,
+  <span class="c-k">"total"</span>: <span class="c-n">249.95</span>,
+  <span class="c-k">"paid"</span>: <span class="c-b">true</span>,
+  <span class="c-k">"items"</span>: <span class="c-p">[</span> <span class="c-m">… 2</span> <span class="c-p">]</span>
+<span class="c-p">}</span></pre>
+<div class="mock-arrow">↓</div>
+<pre class="mock-code"><span class="c-b">public class</span> <span class="c-t">Order</span>
+<span class="c-p">{</span>
+  <span class="c-b">public string</span> OrderId <span class="c-p">{</span> get; set; <span class="c-p">}</span>
+  <span class="c-b">public double</span> Total <span class="c-p">{</span> get; set; <span class="c-p">}</span>
+  <span class="c-b">public bool</span> Paid <span class="c-p">{</span> get; set; <span class="c-p">}</span>
+  <span class="c-b">public</span> <span class="c-t">List</span>&lt;<span class="c-t">Item</span>&gt; Items <span class="c-p">{</span> get; set; <span class="c-p">}</span>
+<span class="c-p">}</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
       <div class="stat-strip">
-        <div class="stat"><div class="num">100%</div><div class="label">Runs client-side</div></div>
-        <div class="stat"><div class="num">0</div><div class="label">Servers your data touches</div></div>
         <div class="stat"><div class="num">14</div><div class="label">Tools, all free</div></div>
-        <div class="stat"><div class="num">Free</div><div class="label">No account required</div></div>
+        <div class="stat"><div class="num">0</div><div class="label">Servers your data touches</div></div>
+        <div class="stat"><div class="num">100%</div><div class="label">Runs client-side</div></div>
+        <div class="stat"><div class="num">∞</div><div class="label">Usage, no limits</div></div>
       </div>
     </div>
   </section>
@@ -68,133 +117,212 @@
   <section class="section" id="tools">
     <div class="container">
       <div class="section-head">
-        <div class="kicker">Tools</div>
+        <div class="kicker">The toolkit</div>
         <h2>Everything you need to work with JSON</h2>
-        <p>Every tool runs client-side, needs no account, and works offline once the page has loaded. Missing one you need? The contributing guide shows how to add it.</p>
+        <p>Grouped by what you are trying to do. Every tool runs client-side, needs no account, and works offline once loaded — or press <kbd>⌘</kbd><kbd>K</kbd> anywhere on the site to jump straight to one.</p>
       </div>
 
+      <div class="group-head">
+        <h3>Inspect &amp; debug</h3>
+        <p>Read, clean and interrogate a payload you were just handed.</p>
+      </div>
       <div class="card-grid">
-        <a href="tool.html" class="tool-card" style="text-decoration:none;">
-          <div class="icon">{ }</div>
-          <h3>JSON to diagram</h3>
-          <p>Paste or upload JSON and get a collapsible, searchable node graph. Export as PNG or SVG, ask an AI assistant to explain the structure.</p>
-          <span class="badge live">Live</span>
-          <div class="link-row">Open tool →</div>
-        </a>
-
-        <a href="format.html" class="tool-card" style="text-decoration:none;">
+        <a href="format.html" class="tool-card" data-keys="formatter & validator format beautify pretty print minify validate lint escape unescape sort" data-group="inspect">
           <div class="icon">⌗</div>
           <h3>Formatter &amp; validator</h3>
-          <p>Beautify, minify, sort and escape JSON, with parse errors pinned to the exact line and column. The one you keep open all day.</p>
-          <span class="badge live">Live</span>
+          <p>Beautify, minify, sort and escape JSON, with parse errors pinned to the exact line and column.</p>
           <div class="link-row">Open tool →</div>
         </a>
 
-        <a href="diff.html" class="tool-card" style="text-decoration:none;">
+        <a href="tool.html" class="tool-card" data-keys="json to diagram diagram visualise visualize graph tree viewer chart png svg export" data-group="inspect">
+          <div class="icon">{ }</div>
+          <h3>JSON to diagram</h3>
+          <p>Turn any payload into a collapsible, searchable node graph. Export as PNG or SVG.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+
+        <a href="diff.html" class="tool-card" data-keys="json diff diff compare difference patch merge rfc6902 rfc7386 changes" data-group="inspect">
           <div class="icon">A|B</div>
           <h3>JSON diff</h3>
-          <p>Compare two payloads structurally — key order ignored — and export the result as an RFC 6902 JSON Patch.</p>
-          <span class="badge live">Live</span>
+          <p>Compare two payloads structurally — key order ignored — and export an RFC 6902 JSON Patch.</p>
           <div class="link-row">Open tool →</div>
         </a>
 
-        <a href="jsonpath.html" class="tool-card" style="text-decoration:none;">
+        <a href="jsonpath.html" class="tool-card" data-keys="jsonpath tester jsonpath query path filter search expression evaluate xpath" data-group="inspect">
           <div class="icon">$..</div>
           <h3>JSONPath tester</h3>
-          <p>Write a JSONPath and watch matches update live. Filters, slices and recursive descent, evaluated without eval().</p>
-          <span class="badge live">Live</span>
+          <p>Write a path and watch matches update live. Filters, slices and recursive descent.</p>
           <div class="link-row">Open tool →</div>
         </a>
 
-        <a href="json-schema.html" class="tool-card" style="text-decoration:none;">
-          <div class="icon">Sχ</div>
-          <h3>JSON Schema generator</h3>
-          <p>Infer a schema straight from a sample payload — draft 2020-12 or draft-07, with format and enum detection.</p>
-          <span class="badge live">Live</span>
-          <div class="link-row">Open tool →</div>
-        </a>
-
-        <a href="validate.html" class="tool-card" style="text-decoration:none;">
-          <div class="icon">✓</div>
-          <h3>JSON Schema validator</h3>
-          <p>Check a payload against a schema and get every failure with its instance path and the keyword that rejected it.</p>
-          <span class="badge live">Live</span>
-          <div class="link-row">Open tool →</div>
-        </a>
-
-        <a href="mock.html" class="tool-card" style="text-decoration:none;">
-          <div class="icon">⁂</div>
-          <h3>Mock data generator</h3>
-          <p>Turn a schema into realistic fake records for tests and demos. Seeded, so the same seed always gives the same data.</p>
-          <span class="badge live">Live</span>
-          <div class="link-row">Open tool →</div>
-        </a>
-
-        <a href="code.html" class="tool-card" style="text-decoration:none;">
-          <div class="icon">&lt;/&gt;</div>
-          <h3>JSON to code</h3>
-          <p>Generate C# classes, TypeScript interfaces, Dart, Kotlin, Java, Python dataclasses or Go structs from a sample payload.</p>
-          <span class="badge live">Live</span>
-          <div class="link-row">Open tool →</div>
-        </a>
-
-        <a href="csv.html" class="tool-card" style="text-decoration:none;">
-          <div class="icon">J↔C</div>
-          <h3>JSON ⇄ CSV</h3>
-          <p>Convert to spreadsheet-ready CSV and back, with nested objects flattened to dot-notation columns.</p>
-          <span class="badge live">Live</span>
-          <div class="link-row">Open tool →</div>
-        </a>
-
-        <a href="yaml-json.html" class="tool-card" style="text-decoration:none;">
-          <div class="icon">Y↔J</div>
-          <h3>YAML ⇄ JSON</h3>
-          <p>Convert either direction with live validation, auto-detected direction and multi-document YAML support.</p>
-          <span class="badge live">Live</span>
-          <div class="link-row">Open tool →</div>
-        </a>
-
-        <a href="xml.html" class="tool-card" style="text-decoration:none;">
-          <div class="icon">X↔J</div>
-          <h3>JSON ⇄ XML</h3>
-          <p>Convert either direction with attributes preserved as @-prefixed keys, using the browser&rsquo;s own XML parser.</p>
-          <span class="badge live">Live</span>
-          <div class="link-row">Open tool →</div>
-        </a>
-
-        <a href="jsonl.html" class="tool-card" style="text-decoration:none;">
-          <div class="icon">≡</div>
-          <h3>JSONL ⇄ JSON</h3>
-          <p>Convert NDJSON logs and LLM datasets to a JSON array and back, with invalid lines reported by line number.</p>
-          <span class="badge live">Live</span>
-          <div class="link-row">Open tool →</div>
-        </a>
-
-        <a href="sql.html" class="tool-card" style="text-decoration:none;">
-          <div class="icon">SQL</div>
-          <h3>JSON to SQL</h3>
-          <p>Generate CREATE TABLE and INSERT statements for PostgreSQL, MySQL, SQL Server or SQLite from a JSON array.</p>
-          <span class="badge live">Live</span>
-          <div class="link-row">Open tool →</div>
-        </a>
-
-        <a href="jwt.html" class="tool-card" style="text-decoration:none;">
+        <a href="jwt.html" class="tool-card" data-keys="jwt decoder jwt token decode claims bearer auth oauth expiry signature hmac" data-group="inspect">
           <div class="icon">JWT</div>
           <h3>JWT decoder</h3>
-          <p>Read a token&rsquo;s header, claims and expiry — and verify HS256 signatures locally. Your token never leaves the page.</p>
-          <span class="badge live">Live</span>
+          <p>Read a token&rsquo;s header, claims and expiry, and verify HS256 signatures locally.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+      </div>
+
+      <div class="group-head">
+        <h3>Schema &amp; test data</h3>
+        <p>Describe the shape of your data, then check and fake it.</p>
+      </div>
+      <div class="card-grid">
+        <a href="json-schema.html" class="tool-card" data-keys="json schema generator schema generator infer draft 2020-12 draft-07 types" data-group="schema">
+          <div class="icon">Sχ</div>
+          <h3>JSON Schema generator</h3>
+          <p>Infer a schema straight from a sample payload — draft 2020-12 or draft-07.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+
+        <a href="validate.html" class="tool-card" data-keys="json schema validator validate validator schema check errors conform assert" data-group="schema">
+          <div class="icon">✓</div>
+          <h3>JSON Schema validator</h3>
+          <p>Check a payload against a schema and get every failure with its instance path.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+
+        <a href="mock.html" class="tool-card" data-keys="mock data generator mock fake sample test data faker seed stub fixtures" data-group="schema">
+          <div class="icon">⁂</div>
+          <h3>Mock data generator</h3>
+          <p>Turn a schema into realistic fake records. Seeded, so the same seed gives the same data.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+      </div>
+
+      <div class="group-head">
+        <h3>Convert &amp; export</h3>
+        <p>Move a payload into whatever format the next system speaks.</p>
+      </div>
+      <div class="card-grid">
+        <a href="code.html" class="tool-card" data-keys="json to code code class csharp c# typescript interface dart kotlin java python go struct poco poso model" data-group="convert">
+          <div class="icon">&lt;/&gt;</div>
+          <h3>JSON to code</h3>
+          <p>Generate C# classes, TypeScript interfaces, Dart, Kotlin, Java, Python or Go types.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+
+        <a href="csv.html" class="tool-card" data-keys="json ⇄ csv csv excel spreadsheet table tsv convert export" data-group="convert">
+          <div class="icon">J↔C</div>
+          <h3>JSON ⇄ CSV</h3>
+          <p>Convert to spreadsheet-ready CSV and back, with nested objects flattened to dot columns.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+
+        <a href="yaml-json.html" class="tool-card" data-keys="yaml ⇄ json yaml yml convert kubernetes k8s docker compose openapi config" data-group="convert">
+          <div class="icon">Y↔J</div>
+          <h3>YAML ⇄ JSON</h3>
+          <p>Convert either direction with live validation and multi-document YAML support.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+
+        <a href="xml.html" class="tool-card" data-keys="json ⇄ xml xml soap convert attributes rss feed" data-group="convert">
+          <div class="icon">X↔J</div>
+          <h3>JSON ⇄ XML</h3>
+          <p>Convert either direction with attributes preserved, using the browser&rsquo;s own parser.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+
+        <a href="jsonl.html" class="tool-card" data-keys="jsonl ⇄ json jsonl ndjson lines logs dataset llm fine-tuning openai training" data-group="convert">
+          <div class="icon">≡</div>
+          <h3>JSONL ⇄ JSON</h3>
+          <p>Convert NDJSON logs and LLM datasets to an array and back, with bad lines flagged.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+
+        <a href="sql.html" class="tool-card" data-keys="json to sql sql insert create table postgres mysql sqlserver mssql sqlite database seed" data-group="convert">
+          <div class="icon">SQL</div>
+          <h3>JSON to SQL</h3>
+          <p>Generate CREATE TABLE and INSERT statements for Postgres, MySQL, SQL Server or SQLite.</p>
           <div class="link-row">Open tool →</div>
         </a>
       </div>
     </div>
   </section>
 
-  <section class="section" style="padding-top:0;">
+  <section class="section band" id="install">
+    <div class="container">
+      <div class="split">
+        <div>
+          <div class="kicker">Install it</div>
+          <h2>Keep it one click away</h2>
+          <p class="muted">Install JSON Studio as an app and it opens in its own window, launches from your dock or start menu, and keeps working with no connection at all. Or add the browser extension to send whatever you have selected on any page straight into a tool.</p>
+          <div class="cta-row">
+            <button class="btn-primary" id="install-cta" type="button">Install as an app</button>
+            <a class="btn-secondary" href="https://github.com/jssuthahar" target="_blank" rel="noopener">Get the extension</a>
+          </div>
+          <p class="fineprint" id="install-hint">On iPhone or iPad: tap Share, then <strong>Add to Home Screen</strong>.</p>
+        </div>
+        <ul class="check-list">
+          <li><strong>Offline first.</strong> Every tool is cached on install — payload wrangling on a plane works fine.</li>
+          <li><strong>Own window.</strong> No tab hunting; it behaves like a native app.</li>
+          <li><strong>Right-click anywhere.</strong> The extension sends selected text into the formatter, diagram or JSONPath tester.</li>
+          <li><strong>Still zero backend.</strong> Installing changes nothing about privacy — the code is the same, just local.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="container">
       <div class="section-head">
         <div class="kicker">Why this exists</div>
-        <h2>Built for architects who live in payloads</h2>
-        <p>MSDEVBUILD focuses on Azure, AI and mobile architecture — this tool exists because reading raw JSON API responses and configs all day gets old. It's free, open, and privacy-first by design: no backend means nothing to leak.</p>
+        <h2>Built for people who live in payloads</h2>
+        <p>MSDEVBUILD focuses on Azure, AI and mobile architecture — this exists because reading raw API responses and config files all day gets old, and because most free JSON tools want your data on their server first.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature"><div class="f-icon">🔒</div><h4>Private by construction</h4><p>No backend exists, so there is nothing to leak, log or subpoena. Watch the network tab — it stays empty.</p></div>
+        <div class="feature"><div class="f-icon">⚡</div><h4>Instant</h4><p>No round trip to a server means results appear as you type, even on a 20 MB payload.</p></div>
+        <div class="feature"><div class="f-icon">⌨️</div><h4>Keyboard-first</h4><p><kbd>⌘</kbd><kbd>K</kbd> jumps between tools, <kbd>⌘</kbd><kbd>↵</kbd> re-runs the current one.</p></div>
+        <div class="feature"><div class="f-icon">🌗</div><h4>Light &amp; dark</h4><p>A proper dark theme, not an inverted filter, remembered across every page.</p></div>
+        <div class="feature"><div class="f-icon">📦</div><h4>No sign-up wall</h4><p>No account, no email capture, no "free tier". Open the page and use it.</p></div>
+        <div class="feature"><div class="f-icon">🧩</div><h4>Open source</h4><p>Plain HTML, CSS and JavaScript with no build step. Read it, fork it, add a tool.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="container narrow">
+      <div class="section-head">
+        <div class="kicker">Questions</div>
+        <h2>Frequently asked</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Is JSON Studio really free?</summary>
+          <div class="faq-body"><p>Yes — every tool, no account, no trial, no usage cap. It is a static site with no backend, so there is nothing to meter and nothing to charge for.</p></div>
+        </details>
+        <details>
+          <summary>Is my data sent anywhere?</summary>
+          <div class="faq-body"><p>No. Every tool runs as JavaScript inside your own browser tab. Nothing you paste, upload or drag in is transmitted to any server. The one exception is opt-in and clearly marked: the diagram page can call OpenAI with your own API key if you choose to use its "explain with AI" panel.</p></div>
+        </details>
+        <details>
+          <summary>Can I use it offline?</summary>
+          <div class="faq-body"><p>Yes. Install it as an app (the Install button in the header, or your browser&rsquo;s install option) and every tool is cached for offline use. Even without installing, a page keeps working once loaded.</p></div>
+        </details>
+        <details>
+          <summary>Is it safe for confidential payloads?</summary>
+          <div class="faq-body"><p>The code never transmits your data, and you can verify that: the source is on GitHub, there is no build step, and you can open DevTools&rsquo; network tab and watch it stay quiet. For maximum assurance, install the app or download the repo and open index.html from your own disk.</p></div>
+        </details>
+        <details>
+          <summary>Which JSON Schema drafts are supported?</summary>
+          <div class="faq-body"><p>The generator emits draft 2020-12 or draft-07. The validator implements the keywords that appear in real-world schemas — types, required, enum, const, numeric and string bounds, items, uniqueItems, contains, additionalProperties, patternProperties, dependentRequired, anyOf/oneOf/allOf/not and local $ref. It is not a full draft implementation.</p></div>
+        </details>
+        <details>
+          <summary>Can I contribute a tool?</summary>
+          <div class="faq-body"><p>Please do. The project is plain HTML, CSS and JavaScript with no build step, and there is a shared toolkit that handles the boilerplate — see the contributing guide on GitHub.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container">
+      <h2>Paste a payload and see</h2>
+      <p>No account, no upload, no catch.</p>
+      <div class="cta-row center">
+        <a class="btn-primary" href="format.html">Open the formatter →</a>
+        <a class="btn-secondary ghost-light" href="tools.html">See all 14 tools</a>
       </div>
     </div>
   </section>

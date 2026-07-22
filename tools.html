@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>All 14 JSON tools — one place | JSON Studio</title>
+<meta name="description" content="Every JSON Studio tool in one place: formatter, diagram, diff, JSONPath, schema generator and validator, mock data, code generation, CSV, YAML, XML, JSONL, SQL and JWT. Search and open any of them instantly.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://json.msdevbuild.com/tools.html">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0078d4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12151c" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="JSON Studio">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="All 14 JSON tools — JSON Studio">
+<meta property="og:description" content="Every JSON Studio tool in one place. Search and open any of them instantly.">
+<meta property="og:url" content="https://json.msdevbuild.com/tools.html">
+<meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="All 14 JSON tools — JSON Studio">
+<meta name="twitter:description" content="Every JSON Studio tool in one place. Search and open any of them instantly.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "JSON Studio tools",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Formatter & validator", "url": "https://json.msdevbuild.com/format.html" },
+    { "@type": "ListItem", "position": 2, "name": "JSON to diagram", "url": "https://json.msdevbuild.com/tool.html" },
+    { "@type": "ListItem", "position": 3, "name": "JSON diff", "url": "https://json.msdevbuild.com/diff.html" },
+    { "@type": "ListItem", "position": 4, "name": "JSONPath tester", "url": "https://json.msdevbuild.com/jsonpath.html" },
+    { "@type": "ListItem", "position": 5, "name": "JWT decoder", "url": "https://json.msdevbuild.com/jwt.html" },
+    { "@type": "ListItem", "position": 6, "name": "JSON Schema generator", "url": "https://json.msdevbuild.com/json-schema.html" },
+    { "@type": "ListItem", "position": 7, "name": "JSON Schema validator", "url": "https://json.msdevbuild.com/validate.html" },
+    { "@type": "ListItem", "position": 8, "name": "Mock data generator", "url": "https://json.msdevbuild.com/mock.html" },
+    { "@type": "ListItem", "position": 9, "name": "JSON to code", "url": "https://json.msdevbuild.com/code.html" },
+    { "@type": "ListItem", "position": 10, "name": "JSON ⇄ CSV", "url": "https://json.msdevbuild.com/csv.html" },
+    { "@type": "ListItem", "position": 11, "name": "YAML ⇄ JSON", "url": "https://json.msdevbuild.com/yaml-json.html" },
+    { "@type": "ListItem", "position": 12, "name": "JSON ⇄ XML", "url": "https://json.msdevbuild.com/xml.html" },
+    { "@type": "ListItem", "position": 13, "name": "JSONL ⇄ JSON", "url": "https://json.msdevbuild.com/jsonl.html" },
+    { "@type": "ListItem", "position": 14, "name": "JSON to SQL", "url": "https://json.msdevbuild.com/sql.html" }
+  ]
+}
+</script>
+<script>(function(){try{var t=localStorage.getItem('json-studio-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <section class="hub-head">
+    <div class="container">
+      <div class="kicker">All tools</div>
+      <h1>14 tools, one page</h1>
+      <p class="lead">Everything JSON Studio does, in one place. Start typing to filter — or press <kbd>⌘</kbd><kbd>K</kbd> from any page on the site to jump straight to a tool.</p>
+
+      <div class="hub-search">
+        <input type="search" id="tool-search" placeholder="Search tools — try &quot;csv&quot;, &quot;schema&quot;, &quot;c#&quot;, &quot;kubernetes&quot;…" autocomplete="off" autofocus>
+        <span id="tool-count"></span>
+      </div>
+
+      <div class="hub-filters" id="hub-filters">
+        <button type="button" class="chip on" data-filter="all">All</button>
+        <button type="button" class="chip" data-filter="inspect">Inspect &amp; debug</button>
+        <button type="button" class="chip" data-filter="schema">Schema &amp; test data</button>
+        <button type="button" class="chip" data-filter="convert">Convert &amp; export</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hub-body">
+    <div class="container">
+      <div class="group-head" data-group-head="inspect">
+        <h2>Inspect &amp; debug</h2>
+        <p>Read, clean and interrogate a payload you were just handed.</p>
+      </div>
+      <div class="card-grid" data-group-grid="inspect">
+        <a href="format.html" class="tool-card" data-keys="formatter & validator format beautify pretty print minify validate lint escape unescape sort" data-group="inspect">
+          <div class="icon">⌗</div>
+          <h3>Formatter &amp; validator</h3>
+          <p>Beautify, minify, sort and escape JSON, with parse errors pinned to the exact line and column.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+
+        <a href="tool.html" class="tool-card" data-keys="json to diagram diagram visualise visualize graph tree viewer chart png svg export" data-group="inspect">
+          <div class="icon">{ }</div>
+          <h3>JSON to diagram</h3>
+          <p>Turn any payload into a collapsible, searchable node graph. Export as PNG or SVG.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+
+        <a href="diff.html" class="tool-card" data-keys="json diff diff compare difference patch merge rfc6902 rfc7386 changes" data-group="inspect">
+          <div class="icon">A|B</div>
+          <h3>JSON diff</h3>
+          <p>Compare two payloads structurally — key order ignored — and export an RFC 6902 JSON Patch.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+
+        <a href="jsonpath.html" class="tool-card" data-keys="jsonpath tester jsonpath query path filter search expression evaluate xpath" data-group="inspect">
+          <div class="icon">$..</div>
+          <h3>JSONPath tester</h3>
+          <p>Write a path and watch matches update live. Filters, slices and recursive descent.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+
+        <a href="jwt.html" class="tool-card" data-keys="jwt decoder jwt token decode claims bearer auth oauth expiry signature hmac" data-group="inspect">
+          <div class="icon">JWT</div>
+          <h3>JWT decoder</h3>
+          <p>Read a token&rsquo;s header, claims and expiry, and verify HS256 signatures locally.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+      </div>
+
+      <div class="group-head" data-group-head="schema">
+        <h2>Schema &amp; test data</h2>
+        <p>Describe the shape of your data, then check and fake it.</p>
+      </div>
+      <div class="card-grid" data-group-grid="schema">
+        <a href="json-schema.html" class="tool-card" data-keys="json schema generator schema generator infer draft 2020-12 draft-07 types" data-group="schema">
+          <div class="icon">Sχ</div>
+          <h3>JSON Schema generator</h3>
+          <p>Infer a schema straight from a sample payload — draft 2020-12 or draft-07.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+
+        <a href="validate.html" class="tool-card" data-keys="json schema validator validate validator schema check errors conform assert" data-group="schema">
+          <div class="icon">✓</div>
+          <h3>JSON Schema validator</h3>
+          <p>Check a payload against a schema and get every failure with its instance path.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+
+        <a href="mock.html" class="tool-card" data-keys="mock data generator mock fake sample test data faker seed stub fixtures" data-group="schema">
+          <div class="icon">⁂</div>
+          <h3>Mock data generator</h3>
+          <p>Turn a schema into realistic fake records. Seeded, so the same seed gives the same data.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+      </div>
+
+      <div class="group-head" data-group-head="convert">
+        <h2>Convert &amp; export</h2>
+        <p>Move a payload into whatever format the next system speaks.</p>
+      </div>
+      <div class="card-grid" data-group-grid="convert">
+        <a href="code.html" class="tool-card" data-keys="json to code code class csharp c# typescript interface dart kotlin java python go struct poco poso model" data-group="convert">
+          <div class="icon">&lt;/&gt;</div>
+          <h3>JSON to code</h3>
+          <p>Generate C# classes, TypeScript interfaces, Dart, Kotlin, Java, Python or Go types.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+
+        <a href="csv.html" class="tool-card" data-keys="json ⇄ csv csv excel spreadsheet table tsv convert export" data-group="convert">
+          <div class="icon">J↔C</div>
+          <h3>JSON ⇄ CSV</h3>
+          <p>Convert to spreadsheet-ready CSV and back, with nested objects flattened to dot columns.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+
+        <a href="yaml-json.html" class="tool-card" data-keys="yaml ⇄ json yaml yml convert kubernetes k8s docker compose openapi config" data-group="convert">
+          <div class="icon">Y↔J</div>
+          <h3>YAML ⇄ JSON</h3>
+          <p>Convert either direction with live validation and multi-document YAML support.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+
+        <a href="xml.html" class="tool-card" data-keys="json ⇄ xml xml soap convert attributes rss feed" data-group="convert">
+          <div class="icon">X↔J</div>
+          <h3>JSON ⇄ XML</h3>
+          <p>Convert either direction with attributes preserved, using the browser&rsquo;s own parser.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+
+        <a href="jsonl.html" class="tool-card" data-keys="jsonl ⇄ json jsonl ndjson lines logs dataset llm fine-tuning openai training" data-group="convert">
+          <div class="icon">≡</div>
+          <h3>JSONL ⇄ JSON</h3>
+          <p>Convert NDJSON logs and LLM datasets to an array and back, with bad lines flagged.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+
+        <a href="sql.html" class="tool-card" data-keys="json to sql sql insert create table postgres mysql sqlserver mssql sqlite database seed" data-group="convert">
+          <div class="icon">SQL</div>
+          <h3>JSON to SQL</h3>
+          <p>Generate CREATE TABLE and INSERT statements for Postgres, MySQL, SQL Server or SQLite.</p>
+          <div class="link-row">Open tool →</div>
+        </a>
+      </div>
+
+      <p class="no-results" id="no-results" hidden>Nothing matches that. <button type="button" class="linkish" id="clear-search">Clear the search</button> to see all 14 tools.</p>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/tools-hub.js"></script>
+</body>
+</html>

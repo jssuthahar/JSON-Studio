@@ -81,7 +81,13 @@
     return { state: ok ? 'valid' : 'invalid' };
   }
 
+  // Typing in the secret field re-runs on every keystroke while signature
+  // verification is async, so an older run could otherwise land after a newer
+  // one and report a stale result.
+  let seq = 0;
+
   async function run() {
+    const mine = ++seq;
     const token = input.value.trim().replace(/^Bearer\s+/i, '');
 
     if (!token) {
@@ -140,6 +146,7 @@
       kind = 'err';
     }
 
+    if (mine !== seq) return; // a newer run has already taken over
     TK.status(outStatus, bits.concat(sig).join(' · '), kind);
   }
 

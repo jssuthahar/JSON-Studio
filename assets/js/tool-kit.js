@@ -79,6 +79,23 @@
     return (n / 1048576).toFixed(2) + ' MB';
   }
 
+  /*
+    Content handed over in the URL fragment (#input=…), used by the browser
+    extension's "send selection to JSON Studio" action. The fragment never
+    leaves the browser — servers don't receive it — so this stays consistent
+    with the no-upload promise. The value only ever reaches a textarea's
+    .value, never innerHTML.
+  */
+  function hashInput() {
+    const m = /[#&]input=([^&]*)/.exec(location.hash || '');
+    if (!m) return null;
+    try {
+      return decodeURIComponent(m[1].replace(/\+/g, ' '));
+    } catch (e) {
+      return null;
+    }
+  }
+
   function parseJSON(text) {
     try {
       return JSON.parse(text);
@@ -169,8 +186,11 @@
       if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') { e.preventDefault(); run(); }
     });
 
+    const handed = hashInput();
+    if (handed) setInput(handed);
+
     return { run, setInput, input, output, inStatus, outStatus };
   }
 
-  window.TK = { $, status, copy, download, readFile, wireDrop, sortDeep, bytes, parseJSON, tool };
+  window.TK = { $, status, copy, download, readFile, wireDrop, sortDeep, bytes, parseJSON, hashInput, tool };
 })();

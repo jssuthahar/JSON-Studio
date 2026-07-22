@@ -6,26 +6,44 @@ here's how everything fits together and how to add to it.
 
 ## Folder structure
 
-```
+```text
 json-studio/
-├── index.html              Home page — hero, tool grid, SEO tags
-├── tool.html                 The JSON → diagram tool page
-├── yaml-json.html            YAML ⇄ JSON converter
+├── index.html              Home page — hero, tool grid, FAQ, SEO tags
+├── tools.html                All tools in one searchable page
+├── tool.html                 JSON → diagram
+├── format.html               Formatter / validator / minifier
+├── diff.html                 JSON diff
+├── jsonpath.html             JSONPath tester
 ├── json-schema.html          JSON Schema generator
+├── validate.html             JSON Schema validator
+├── mock.html                 Mock data generator
+├── code.html                 JSON → typed classes
+├── csv.html                  JSON ⇄ CSV
+├── yaml-json.html            YAML ⇄ JSON
+├── xml.html                  JSON ⇄ XML
+├── jsonl.html                JSONL ⇄ JSON
+├── sql.html                  JSON → SQL
+├── jwt.html                  JWT decoder
 ├── assets/
 │   ├── css/
 │   │   ├── styles.css        Shared design tokens, header, footer, cards
-│   │   ├── tool.css           Styles specific to the diagram tool page
+│   │   ├── tool.css           Styles for the diagram page
 │   │   └── convert.css        Shared two-pane input→output tool layout
 │   ├── js/
-│   │   ├── site.js            Injects header/footer, handles theme + mobile nav
+│   │   ├── site.js            Header/footer, nav, ⌘K palette, theme, PWA install
+│   │   ├── tool-kit.js        Shared tool plumbing (window.TK)
+│   │   ├── tools-hub.js       Search + filtering for tools.html
+│   │   ├── infer.js           Type inference shared by the schema + code tools
 │   │   ├── diagram.js         D3 tree rendering, search, collapse/expand
 │   │   ├── export.js          PNG/SVG export
 │   │   ├── ai-assist.js       Optional "explain with AI" panel (OpenAI API)
-│   │   ├── yaml-json.js       YAML ⇄ JSON conversion (js-yaml from CDN)
-│   │   └── json-schema.js     Schema inference from a sample payload
+│   │   └── <tool>.js          One file per tool page
 │   └── img/
-│       └── favicon.svg
+│       ├── favicon.svg        Also the source for the PNG icons
+│       └── icon-*.png         PWA + extension icons
+├── manifest.webmanifest       PWA manifest
+├── sw.js                      Service worker (offline precache)
+├── extension/                 Manifest V3 browser extension
 ├── robots.txt
 ├── sitemap.xml
 ├── CONTRIBUTING.md            You are here
@@ -43,30 +61,70 @@ json-studio/
 2. **No build step, on purpose.** Plain HTML/CSS/JS, loaded via `<script>`
    and `<link>` tags. If a tool genuinely needs a library, load it from a
    CDN (cdnjs, jsdelivr, unpkg) rather than adding an npm toolchain. Keep
-   the barrier to "clone and open index.html" as low as possible.
-3. **Reuse the design system.** All shared visual tokens (colors, spacing,
+   the barrier to "clone and open index.html" as low as possible. Prefer no
+   dependency at all where the format is small enough to handle directly —
+   the CSV parser and the JSONPath evaluator are hand-written for exactly
+   this reason, and the XML page uses the browser's own `DOMParser`.
+   js-yaml, on the YAML page, is currently the only third-party runtime
+   dependency on the site.
+3. **Everything works offline.** Every page and asset is precached by `sw.js`.
+   If you add a file, add it to `PRECACHE` and bump `CACHE` — otherwise
+   installed copies keep serving the old version.
+4. **Reuse the design system.** All shared visual tokens (colors, spacing,
    card styles, buttons, header/footer) live in `assets/css/styles.css`.
    New pages should link that file first, then a page-specific stylesheet
    for anything unique (see `tool.css` as the pattern to copy).
-4. **Every page gets a header and footer.** Add `<div id="site-header">`
+5. **Every page gets a header and footer.** Add `<div id="site-header">`
    and `<div id="site-footer"></div>` to the page, then include
    `assets/js/site.js` — it injects both automatically and keeps
    navigation links in sync across the whole site from one file.
-5. **SEO isn't optional.** Every new page needs: a unique `<title>`, a
+6. **SEO isn't optional.** Every new page needs: a unique `<title>`, a
    `meta description`, a `canonical` link, and Open Graph tags. Add the
-   page to `sitemap.xml` too.
+   page to `sitemap.xml` too. Pages also need the PWA head block (manifest
+   link, theme-color, apple-touch-icon) and the pre-paint theme script — copy
+   both from any existing page.
 
 ## Adding a new tool
 
-1. Create `your-tool.html` at the project root, copying the `<head>`
-   pattern from `tool.html` (meta tags, `styles.css`, your own
-   `your-tool.css` if needed).
-2. Include `assets/js/site.js` for the shared header/footer.
-3. Add a card for it in `index.html`'s tool grid — flip its badge from
-   `Planned` to `Live` once it's working.
-4. Add the page to `sitemap.xml`.
-5. If it needs its own JS logic, keep it in `assets/js/your-tool.js` —
-   one file per concern, same pattern as `diagram.js` / `export.js`.
+Most tools are "paste something in, get something out", and that shape is
+already built — reuse it instead of rewriting the plumbing.
+
+1. Create `your-tool.html` at the project root, copying the `<head>` and
+   two-pane body from an existing converter page (`csv.html` is a good
+   template). Link `styles.css` then `convert.css`.
+2. Use the standard element ids so the shared toolkit can wire itself up:
+   `#input` `#output` `#in-status` `#out-status` `#btn-run` `#btn-copy`
+   `#btn-download` `#btn-upload` `#btn-clear` `#btn-sample` `#file-input`.
+   All of them are optional — whatever is present gets wired.
+3. Include `assets/js/site.js`, then `assets/js/tool-kit.js`, then your own
+   `assets/js/your-tool.js`.
+4. In your file, call `TK.tool({ ... })` and supply just the transformation:
+
+   ```js
+   TK.tool({
+     sample: '{"hello": "world"}',
+     filename: 'output.txt',
+     options: ['opt-something'],   // ids that re-run the tool when changed
+     run(text) {
+       const data = TK.parseJSON(text);       // throws a readable error
+       return { output: transform(data), inMsg: 'Valid JSON', outMsg: 'Done' };
+     }
+   });
+   ```
+
+   Throwing an `Error` from `run()` shows its message against the input pane.
+   Copy, download, upload, drag-and-drop, ⌘/Ctrl+Enter and the sample button
+   are all handled for you. Tools with two inputs (see `diff.js`,
+   `validate.js`) wire their own listeners but still use the `TK.*` helpers.
+5. Add the page to the `TOOLS` array in `assets/js/site.js` — that one array
+   feeds the nav dropdown, the mobile nav, the footer and the ⌘K palette.
+6. Add a card for it in `index.html` and `tools.html` (give the card a
+   `data-keys` attribute with search synonyms — that is what makes searching
+   "kubernetes" find the YAML tool), add it to `sitemap.xml`, add its page and
+   script to `PRECACHE` in `sw.js`, and add it to the `TOOLS` list in
+   `extension/popup.js`.
+7. If the tool should accept text handed over by the extension, nothing extra
+   is needed: `TK.tool()` already reads `#input=` from the URL fragment.
 
 ## Design tokens quick reference
 
@@ -91,7 +149,8 @@ across every page and every tool.
    (`add-yaml-tool`, `fix-mobile-nav`, etc).
 2. Test by opening `index.html` directly in a browser — no server needed,
    though `python3 -m http.server` in the project root works too if you
-   want clean relative paths.
+   want clean relative paths. Check both light and dark mode, and check the
+   page at a narrow width — the two-pane layout stacks below 900px.
 3. Open a pull request describing what changed and why. Screenshots for
    anything visual are appreciated.
 
