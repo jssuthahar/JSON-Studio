@@ -44,7 +44,9 @@
     const abs = Math.abs(delta);
     const units = [['day', 86400000], ['hour', 3600000], ['minute', 60000], ['second', 1000]];
     for (const [name, ms] of units) {
-      if (abs >= ms) {
+      // 0.95 rather than 1.0 so a token issued "3600 seconds" ago reads as
+      // "1 hour", not "60 minutes".
+      if (abs >= ms * 0.95) {
         const n = Math.round(abs / ms);
         return (delta < 0 ? n + ' ' + name + (n === 1 ? '' : 's') + ' ago' : 'in ' + n + ' ' + name + (n === 1 ? '' : 's'));
       }

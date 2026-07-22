@@ -111,11 +111,16 @@
   /* ---------------- XML → JSON ---------------- */
 
   function xmlToJSON(text) {
-    const doc = new DOMParser().parseFromString(text, 'application/xml');
-    const failure = doc.querySelector('parsererror');
-    if (failure) {
-      throw new Error(failure.textContent.replace(/\s+/g, ' ').trim().slice(0, 220));
+    let doc;
+    try {
+      doc = new DOMParser().parseFromString(text, 'application/xml');
+    } catch (err) {
+      throw new Error('Invalid XML: ' + err.message);
     }
+    // Browsers report failures as a <parsererror> element rather than throwing.
+    const failure = doc.getElementsByTagName('parsererror')[0];
+    if (failure) throw new Error(failure.textContent.replace(/\s+/g, ' ').trim().slice(0, 220));
+    if (!doc.documentElement) throw new Error('Invalid XML: no root element found.');
 
     let elements = 0;
 
