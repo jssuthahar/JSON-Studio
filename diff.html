@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JSON diff &amp; compare — JSON Studio | MSDEVBUILD</title>
+<meta name="description" content="Compare two JSON documents and see exactly what was added, removed or changed. Key-order independent, array-aware. Free and client-side.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://json.msdevbuild.com/diff.html">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="JSON diff &amp; compare — JSON Studio">
+<meta property="og:description" content="Compare two JSON documents and see exactly what was added, removed or changed. Key-order independent, array-aware. Free and client-side.">
+<meta property="og:url" content="https://json.msdevbuild.com/diff.html">
+<meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JSON diff &amp; compare — JSON Studio">
+<meta name="twitter:description" content="Compare two JSON documents and see exactly what was added, removed or changed. Key-order independent, array-aware. Free and client-side.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/convert.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "JSON diff & compare — JSON Studio",
+  "url": "https://json.msdevbuild.com/diff.html",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any (runs in browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "creator": { "@type": "Person", "name": "Suthahar Jegatheesan", "url": "https://www.msdevbuild.com/" },
+  "description": "Compare two JSON documents and see exactly what was added, removed or changed. Key-order independent, array-aware. Free and client-side."
+}
+</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main class="convert-shell">
+  <div class="convert-head">
+    <div class="container">
+      <div class="kicker">Compare</div>
+      <h1>JSON diff</h1>
+      <p>Paste two payloads and get a precise, path-by-path list of what changed. Key order is ignored, so reordered objects are correctly reported as identical.</p>
+
+      <div class="opt-bar">
+        <div class="opt">
+          <label for="opt-view">Output</label>
+          <select id="opt-view">
+            <option value="paths" selected>Change list</option>
+            <option value="patch">JSON Patch (RFC 6902)</option>
+            <option value="merge">Merge Patch (RFC 7386)</option>
+          </select>
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-arr-index" checked>
+          <label for="opt-arr-index" style="cursor:pointer;">Compare arrays by index</label>
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-hide-same" checked>
+          <label for="opt-hide-same" style="cursor:pointer;">Hide unchanged</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="convert-grid three">
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title">Original (A)</div>
+        <button id="btn-sample">Load sample</button>
+        <button id="btn-clear">Clear</button>
+      </div>
+      <div class="pane-body">
+        <textarea id="input-a" class="code-area" spellcheck="false" placeholder="{ "before": true }"></textarea>
+      </div>
+      <div class="pane-status" id="a-status">Waiting for input.</div>
+    </section>
+
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title">Changed (B)</div>
+        <button id="btn-swap">Swap A ⇄ B</button>
+      </div>
+      <div class="pane-body">
+        <textarea id="input-b" class="code-area" spellcheck="false" placeholder="{ "after": true }"></textarea>
+      </div>
+      <div class="pane-status" id="b-status"></div>
+    </section>
+
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title">Differences</div>
+        <button class="primary" id="btn-run">Compare</button>
+        <button id="btn-copy">Copy</button>
+        <button id="btn-download">Download</button>
+      </div>
+      <div class="pane-body">
+        <textarea id="output" class="code-area" spellcheck="false" readonly placeholder="Differences appear here."></textarea>
+        <p class="note">⌘/Ctrl + Enter runs it again. Everything happens in this browser — nothing is uploaded.</p>
+      </div>
+      <div class="pane-status" id="out-status"></div>
+    </section>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/tool-kit.js"></script>
+<script src="assets/js/diff.js"></script>
+</body>
+</html>

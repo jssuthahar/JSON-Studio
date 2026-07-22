@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JWT decoder &amp; verifier — JSON Studio | MSDEVBUILD</title>
+<meta name="description" content="Decode a JSON Web Token and read its header, claims and expiry. Optional HMAC signature verification, entirely in your browser — your token is never sent anywhere.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://json.msdevbuild.com/jwt.html">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="JWT decoder &amp; verifier — JSON Studio">
+<meta property="og:description" content="Decode a JSON Web Token and read its header, claims and expiry. Optional HMAC signature verification, entirely in your browser — your token is never sent anywhere.">
+<meta property="og:url" content="https://json.msdevbuild.com/jwt.html">
+<meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JWT decoder &amp; verifier — JSON Studio">
+<meta name="twitter:description" content="Decode a JSON Web Token and read its header, claims and expiry. Optional HMAC signature verification, entirely in your browser — your token is never sent anywhere.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/convert.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "JWT decoder & verifier — JSON Studio",
+  "url": "https://json.msdevbuild.com/jwt.html",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any (runs in browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "creator": { "@type": "Person", "name": "Suthahar Jegatheesan", "url": "https://www.msdevbuild.com/" },
+  "description": "Decode a JSON Web Token and read its header, claims and expiry. Optional HMAC signature verification, entirely in your browser — your token is never sent anywhere."
+}
+</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main class="convert-shell">
+  <div class="convert-head">
+    <div class="container">
+      <div class="kicker">Decoder</div>
+      <h1>JWT decoder</h1>
+      <p>Paste a token to read its header and claims, with expiry and validity windows worked out for you. Your token never leaves this page — which matters more here than anywhere else on this site, because a JWT <em>is</em> a live credential.</p>
+
+      <div class="opt-bar">
+        <div class="opt" style="flex:1;min-width:260px;">
+          <label for="opt-secret">HMAC secret</label>
+          <input type="text" id="opt-secret" placeholder="optional — verifies HS256/384/512" style="flex:1;font-family:'JetBrains Mono',monospace;">
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-b64">
+          <label for="opt-b64" style="cursor:pointer;">Secret is base64</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="convert-grid three">
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title">Encoded token</div>
+        <button id="btn-sample">Load sample</button>
+        <button id="btn-clear">Clear</button>
+      </div>
+      <div class="pane-body">
+        <textarea id="input" class="code-area" spellcheck="false" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.…"></textarea>
+      </div>
+      <div class="pane-status" id="in-status">Waiting for input.</div>
+    </section>
+
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title">Header</div>
+        <button class="primary" id="btn-run">Decode</button>
+      </div>
+      <div class="pane-body">
+        <textarea id="output-header" class="code-area" spellcheck="false" readonly placeholder="Header appears here."></textarea>
+      </div>
+      <div class="pane-status" id="header-status"></div>
+    </section>
+
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title">Payload / claims</div>
+        <button id="btn-copy">Copy</button>
+        <button id="btn-download">Download</button>
+      </div>
+      <div class="pane-body">
+        <textarea id="output" class="code-area" spellcheck="false" readonly placeholder="Claims appear here."></textarea>
+        <p class="note">Decoding is not verification. Without a secret this only reads the token; with one, HS256/384/512 signatures are checked via WebCrypto in the browser. RS/ES tokens need a public key and are not verified here. ⌘/Ctrl + Enter runs it again. Everything happens in this browser — nothing is uploaded.</p>
+      </div>
+      <div class="pane-status" id="out-status"></div>
+    </section>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/tool-kit.js"></script>
+<script src="assets/js/jwt.js"></script>
+</body>
+</html>

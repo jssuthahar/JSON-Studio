@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JSON Schema generator — JSON Studio | MSDEVBUILD</title>
+<meta name="description" content="Infer a JSON Schema from a sample JSON payload in your browser. Draft 2020-12 or draft-07, with format and enum detection. Free and client-side.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://json.msdevbuild.com/json-schema.html">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="JSON Schema generator — JSON Studio">
+<meta property="og:description" content="Infer a JSON Schema straight from a sample payload. Draft 2020-12 or draft-07, entirely in your browser.">
+<meta property="og:url" content="https://json.msdevbuild.com/json-schema.html">
+<meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JSON Schema generator — JSON Studio">
+<meta name="twitter:description" content="Infer a JSON Schema straight from a sample payload. Free and client-side.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/convert.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main class="convert-shell">
+  <div class="convert-head">
+    <div class="container">
+      <div class="kicker">Generator</div>
+      <h1>JSON Schema generator</h1>
+      <p>Paste a sample payload and get a JSON Schema inferred from it — types, nested objects, array items merged across elements, plus optional format and enum detection. All in your browser.</p>
+
+      <div class="opt-bar">
+        <div class="opt">
+          <label for="opt-draft">Draft</label>
+          <select id="opt-draft">
+            <option value="2020-12" selected>2020-12</option>
+            <option value="07">draft-07</option>
+          </select>
+        </div>
+        <div class="opt">
+          <label for="opt-title">Title</label>
+          <input type="text" id="opt-title" placeholder="Generated schema" value="Generated schema">
+        </div>
+        <div class="opt-sep"></div>
+        <div class="opt">
+          <input type="checkbox" id="opt-required" checked>
+          <label for="opt-required" style="cursor:pointer;">Required keys</label>
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-formats" checked>
+          <label for="opt-formats" style="cursor:pointer;">Detect formats</label>
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-enums">
+          <label for="opt-enums" style="cursor:pointer;">Detect enums</label>
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-examples">
+          <label for="opt-examples" style="cursor:pointer;">Examples</label>
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-noadd">
+          <label for="opt-noadd" style="cursor:pointer;">additionalProperties: false</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="convert-grid">
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title">Sample JSON</div>
+        <button id="btn-sample">Load sample</button>
+        <button id="btn-upload">Upload</button>
+        <button id="btn-clear">Clear</button>
+        <input type="file" id="file-input" accept=".json,application/json" style="display:none;">
+      </div>
+      <div class="pane-body">
+        <textarea id="input" class="code-area" spellcheck="false" placeholder='{"paste a representative payload here": true}'></textarea>
+      </div>
+      <div class="pane-status" id="in-status">Waiting for input.</div>
+    </section>
+
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title">JSON Schema</div>
+        <button class="primary" id="btn-run">Generate</button>
+        <button id="btn-copy">Copy</button>
+        <button id="btn-download">Download</button>
+      </div>
+      <div class="pane-body">
+        <textarea id="output" class="code-area" spellcheck="false" readonly placeholder="The inferred schema appears here."></textarea>
+        <p class="note">Inference from a single sample is a starting point, not a contract — check optional fields, nullable values and numeric bounds before shipping it. ⌘/Ctrl + Enter regenerates.</p>
+      </div>
+      <div class="pane-status" id="out-status"></div>
+    </section>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/tool-kit.js"></script>
+<script src="assets/js/infer.js"></script>
+<script src="assets/js/json-schema.js"></script>
+</body>
+</html>

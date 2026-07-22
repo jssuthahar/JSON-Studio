@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JSONPath tester &amp; evaluator — JSON Studio | MSDEVBUILD</title>
+<meta name="description" content="Test JSONPath expressions against your JSON and see matches instantly, with filters, wildcards, slices and recursive descent. Free, client-side.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://json.msdevbuild.com/jsonpath.html">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="JSONPath tester &amp; evaluator — JSON Studio">
+<meta property="og:description" content="Test JSONPath expressions against your JSON and see matches instantly, with filters, wildcards, slices and recursive descent. Free, client-side.">
+<meta property="og:url" content="https://json.msdevbuild.com/jsonpath.html">
+<meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JSONPath tester &amp; evaluator — JSON Studio">
+<meta name="twitter:description" content="Test JSONPath expressions against your JSON and see matches instantly, with filters, wildcards, slices and recursive descent. Free, client-side.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/convert.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "JSONPath tester & evaluator — JSON Studio",
+  "url": "https://json.msdevbuild.com/jsonpath.html",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any (runs in browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "creator": { "@type": "Person", "name": "Suthahar Jegatheesan", "url": "https://www.msdevbuild.com/" },
+  "description": "Test JSONPath expressions against your JSON and see matches instantly, with filters, wildcards, slices and recursive descent. Free, client-side."
+}
+</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main class="convert-shell">
+  <div class="convert-head">
+    <div class="container">
+      <div class="kicker">Query</div>
+      <h1>JSONPath tester</h1>
+      <p>Write a JSONPath expression and watch the matches update as you type — wildcards, slices, recursive descent and filter expressions all supported.</p>
+
+      <div class="opt-bar">
+        <div class="opt" style="flex:1;min-width:280px;">
+          <label for="opt-path">Path</label>
+          <input type="text" id="opt-path" value="$..*" style="flex:1;font-family:'JetBrains Mono',monospace;">
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-paths">
+          <label for="opt-paths" style="cursor:pointer;">Show match paths</label>
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-first">
+          <label for="opt-first" style="cursor:pointer;">First match only</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="convert-grid">
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title">JSON input</div>
+        <button id="btn-sample">Load sample</button>
+        <button id="btn-upload">Upload</button>
+        <button id="btn-clear">Clear</button>
+        <input type="file" id="file-input" accept=".json,application/json" style="display:none;">
+      </div>
+      <div class="pane-body">
+        <textarea id="input" class="code-area" spellcheck="false" placeholder="{"store": {"book": []}}"></textarea>
+      </div>
+      <div class="pane-status" id="in-status">Waiting for input.</div>
+    </section>
+
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title">Matches</div>
+        <button class="primary" id="btn-run">Run</button>
+        <button id="btn-copy">Copy</button>
+        <button id="btn-download">Download</button>
+      </div>
+      <div class="pane-body">
+        <textarea id="output" class="code-area" spellcheck="false" readonly placeholder="Matches appear here."></textarea>
+        <p class="note">Supports <code>$</code> <code>.key</code> <code>[&#39;key&#39;]</code> <code>[0]</code> <code>[*]</code> <code>[1:5]</code> <code>..</code> and filters like <code>[?(@.price &lt; 10 &amp;&amp; @.inStock)]</code>. ⌘/Ctrl + Enter runs it again. Everything happens in this browser — nothing is uploaded.</p>
+      </div>
+      <div class="pane-status" id="out-status"></div>
+    </section>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/tool-kit.js"></script>
+<script src="assets/js/jsonpath.js"></script>
+</body>
+</html>

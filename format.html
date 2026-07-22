@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JSON formatter, validator &amp; minifier — JSON Studio | MSDEVBUILD</title>
+<meta name="description" content="Format, validate, minify, sort and escape JSON in your browser. Precise error messages with line and column. Free, client-side, nothing uploaded.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://json.msdevbuild.com/format.html">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="JSON formatter, validator &amp; minifier — JSON Studio">
+<meta property="og:description" content="Format, validate, minify, sort and escape JSON in your browser. Precise error messages with line and column. Free, client-side, nothing uploaded.">
+<meta property="og:url" content="https://json.msdevbuild.com/format.html">
+<meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JSON formatter, validator &amp; minifier — JSON Studio">
+<meta name="twitter:description" content="Format, validate, minify, sort and escape JSON in your browser. Precise error messages with line and column. Free, client-side, nothing uploaded.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/convert.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "JSON formatter, validator & minifier — JSON Studio",
+  "url": "https://json.msdevbuild.com/format.html",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any (runs in browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "creator": { "@type": "Person", "name": "Suthahar Jegatheesan", "url": "https://www.msdevbuild.com/" },
+  "description": "Format, validate, minify, sort and escape JSON in your browser. Precise error messages with line and column. Free, client-side, nothing uploaded."
+}
+</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main class="convert-shell">
+  <div class="convert-head">
+    <div class="container">
+      <div class="kicker">Formatter</div>
+      <h1>JSON formatter &amp; validator</h1>
+      <p>Beautify, minify, sort keys, or escape and unescape JSON strings — with parse errors reported down to the line and column. Runs entirely in your browser.</p>
+
+      <div class="opt-bar">
+        <div class="opt">
+          <label for="opt-mode">Mode</label>
+          <select id="opt-mode">
+            <option value="beautify" selected>Beautify</option>
+            <option value="minify">Minify</option>
+            <option value="escape">Escape to string</option>
+            <option value="unescape">Unescape from string</option>
+          </select>
+        </div>
+        <div class="opt">
+          <label for="opt-indent">Indent</label>
+          <select id="opt-indent">
+            <option value="2" selected>2 spaces</option>
+            <option value="4">4 spaces</option>
+            <option value="tab">Tab</option>
+          </select>
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-sort">
+          <label for="opt-sort" style="cursor:pointer;">Sort keys</label>
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-relaxed">
+          <label for="opt-relaxed" style="cursor:pointer;">Accept JSON5-ish input</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="convert-grid">
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title">JSON input</div>
+        <button id="btn-sample">Load sample</button>
+        <button id="btn-upload">Upload</button>
+        <button id="btn-clear">Clear</button>
+        <input type="file" id="file-input" accept=".json,.txt,application/json" style="display:none;">
+      </div>
+      <div class="pane-body">
+        <textarea id="input" class="code-area" spellcheck="false" placeholder="{&quot;paste your JSON here&quot;: true}"></textarea>
+      </div>
+      <div class="pane-status" id="in-status">Waiting for input.</div>
+    </section>
+
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title">Result</div>
+        <button class="primary" id="btn-run">Format</button>
+        <button id="btn-copy">Copy</button>
+        <button id="btn-download">Download</button>
+      </div>
+      <div class="pane-body">
+        <textarea id="output" class="code-area" spellcheck="false" readonly placeholder="Formatted output appears here."></textarea>
+        <p class="note">Relaxed mode tolerates trailing commas, single quotes, unquoted keys and comments — handy for pasting config files. ⌘/Ctrl + Enter runs it again. Everything happens in this browser — nothing is uploaded.</p>
+      </div>
+      <div class="pane-status" id="out-status"></div>
+    </section>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/tool-kit.js"></script>
+<script src="assets/js/format.js"></script>
+</body>
+</html>

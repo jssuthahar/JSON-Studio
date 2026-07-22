@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JSON to SQL — CREATE TABLE and INSERT generator — JSON Studio | MSDEVBUILD</title>
+<meta name="description" content="Turn a JSON array into CREATE TABLE and INSERT statements for PostgreSQL, MySQL, SQL Server or SQLite. Free, client-side.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://json.msdevbuild.com/sql.html">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="JSON to SQL — CREATE TABLE and INSERT generator — JSON Studio">
+<meta property="og:description" content="Turn a JSON array into CREATE TABLE and INSERT statements for PostgreSQL, MySQL, SQL Server or SQLite. Free, client-side.">
+<meta property="og:url" content="https://json.msdevbuild.com/sql.html">
+<meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JSON to SQL — CREATE TABLE and INSERT generator — JSON Studio">
+<meta name="twitter:description" content="Turn a JSON array into CREATE TABLE and INSERT statements for PostgreSQL, MySQL, SQL Server or SQLite. Free, client-side.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/convert.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "JSON to SQL — CREATE TABLE and INSERT generator — JSON Studio",
+  "url": "https://json.msdevbuild.com/sql.html",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any (runs in browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "creator": { "@type": "Person", "name": "Suthahar Jegatheesan", "url": "https://www.msdevbuild.com/" },
+  "description": "Turn a JSON array into CREATE TABLE and INSERT statements for PostgreSQL, MySQL, SQL Server or SQLite. Free, client-side."
+}
+</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main class="convert-shell">
+  <div class="convert-head">
+    <div class="container">
+      <div class="kicker">Generator</div>
+      <h1>JSON to SQL</h1>
+      <p>Point it at an array of objects and get a <code>CREATE TABLE</code> with inferred column types plus the <code>INSERT</code> statements to load it. Nested objects and arrays are stored as JSON text columns.</p>
+
+      <div class="opt-bar">
+        <div class="opt">
+          <label for="opt-dialect">Dialect</label>
+          <select id="opt-dialect">
+            <option value="postgres" selected>PostgreSQL</option>
+            <option value="mysql">MySQL</option>
+            <option value="mssql">SQL Server</option>
+            <option value="sqlite">SQLite</option>
+          </select>
+        </div>
+        <div class="opt">
+          <label for="opt-table">Table</label>
+          <input type="text" id="opt-table" value="my_table" style="min-width:120px;">
+        </div>
+        <div class="opt-sep"></div>
+        <div class="opt">
+          <input type="checkbox" id="opt-create" checked>
+          <label for="opt-create" style="cursor:pointer;">CREATE TABLE</label>
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-multi" checked>
+          <label for="opt-multi" style="cursor:pointer;">Multi-row INSERT</label>
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-snake" checked>
+          <label for="opt-snake" style="cursor:pointer;">snake_case columns</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="convert-grid">
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title">JSON array</div>
+        <button id="btn-sample">Load sample</button>
+        <button id="btn-upload">Upload</button>
+        <button id="btn-clear">Clear</button>
+        <input type="file" id="file-input" accept=".json,application/json" style="display:none;">
+      </div>
+      <div class="pane-body">
+        <textarea id="input" class="code-area" spellcheck="false" placeholder="[{"id": 1, "name": "Ada"}]"></textarea>
+      </div>
+      <div class="pane-status" id="in-status">Waiting for input.</div>
+    </section>
+
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title">SQL</div>
+        <button class="primary" id="btn-run">Generate</button>
+        <button id="btn-copy">Copy</button>
+        <button id="btn-download">Download</button>
+      </div>
+      <div class="pane-body">
+        <textarea id="output" class="code-area" spellcheck="false" readonly placeholder="Generated SQL appears here."></textarea>
+        <p class="note">Values are inlined as literals with quotes escaped — fine for seeding and fixtures, but use parameterised queries for anything driven by untrusted input. ⌘/Ctrl + Enter runs it again. Everything happens in this browser — nothing is uploaded.</p>
+      </div>
+      <div class="pane-status" id="out-status"></div>
+    </section>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/tool-kit.js"></script>
+<script src="assets/js/sql.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JSON to XML &amp; XML to JSON converter — JSON Studio | MSDEVBUILD</title>
+<meta name="description" content="Convert JSON to XML or XML to JSON in your browser, with attributes preserved. Free, client-side, nothing uploaded.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://json.msdevbuild.com/xml.html">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="JSON to XML &amp; XML to JSON converter — JSON Studio">
+<meta property="og:description" content="Convert JSON to XML or XML to JSON in your browser, with attributes preserved. Free, client-side, nothing uploaded.">
+<meta property="og:url" content="https://json.msdevbuild.com/xml.html">
+<meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JSON to XML &amp; XML to JSON converter — JSON Studio">
+<meta name="twitter:description" content="Convert JSON to XML or XML to JSON in your browser, with attributes preserved. Free, client-side, nothing uploaded.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/convert.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "JSON to XML & XML to JSON converter — JSON Studio",
+  "url": "https://json.msdevbuild.com/xml.html",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any (runs in browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "creator": { "@type": "Person", "name": "Suthahar Jegatheesan", "url": "https://www.msdevbuild.com/" },
+  "description": "Convert JSON to XML or XML to JSON in your browser, with attributes preserved. Free, client-side, nothing uploaded."
+}
+</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main class="convert-shell">
+  <div class="convert-head">
+    <div class="container">
+      <div class="kicker">Converter</div>
+      <h1>JSON ⇄ XML</h1>
+      <p>Convert either direction with attributes preserved: XML attributes become <code>@</code>-prefixed keys and text content becomes <code>#text</code>, so the round trip keeps its meaning.</p>
+
+      <div class="opt-bar">
+        <div class="opt">
+          <label>Direction</label>
+          <div class="dir-pill" id="dir-pill">
+            <button type="button" data-dir="auto" class="on">Auto</button>
+            <button type="button" data-dir="j2x">JSON → XML</button>
+            <button type="button" data-dir="x2j">XML → JSON</button>
+          </div>
+        </div>
+        <div class="opt-sep"></div>
+        <div class="opt">
+          <label for="opt-rootname">Root element</label>
+          <input type="text" id="opt-rootname" value="root" style="min-width:110px;">
+        </div>
+        <div class="opt">
+          <label for="opt-indent">Indent</label>
+          <select id="opt-indent">
+            <option value="2" selected>2 spaces</option>
+            <option value="4">4 spaces</option>
+            <option value="0">Minified</option>
+          </select>
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-decl" checked>
+          <label for="opt-decl" style="cursor:pointer;">XML declaration</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="convert-grid">
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title"><span id="in-label">Input</span></div>
+        <button id="btn-sample-json">Sample JSON</button>
+        <button id="btn-sample-xml">Sample XML</button>
+        <button id="btn-upload">Upload</button>
+        <button id="btn-clear">Clear</button>
+        <input type="file" id="file-input" accept=".json,.xml,.txt" style="display:none;">
+      </div>
+      <div class="pane-body">
+        <textarea id="input" class="code-area" spellcheck="false" placeholder="Paste JSON or XML — or drop a file."></textarea>
+      </div>
+      <div class="pane-status" id="in-status">Waiting for input.</div>
+    </section>
+
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title"><span id="out-label">Output</span></div>
+        <button class="primary" id="btn-run">Convert</button>
+        <button id="btn-swap">Use as input ⇄</button>
+        <button id="btn-copy">Copy</button>
+        <button id="btn-download">Download</button>
+      </div>
+      <div class="pane-body">
+        <textarea id="output" class="code-area" spellcheck="false" readonly placeholder="Converted output appears here."></textarea>
+        <p class="note">XML parsing uses the browser&rsquo;s own DOMParser — no external library, and no entity expansion beyond what the browser allows. ⌘/Ctrl + Enter runs it again. Everything happens in this browser — nothing is uploaded.</p>
+      </div>
+      <div class="pane-status" id="out-status"></div>
+    </section>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/tool-kit.js"></script>
+<script src="assets/js/xml.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JSON to C#, TypeScript, Dart, Kotlin, Java, Python &amp; Go — JSON Studio | MSDEVBUILD</title>
+<meta name="description" content="Generate typed classes from a JSON sample: C# records, TypeScript interfaces, Dart, Kotlin, Java, Python dataclasses and Go structs. Free, client-side.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://json.msdevbuild.com/code.html">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="JSON to C#, TypeScript, Dart, Kotlin, Java, Python &amp; Go — JSON Studio">
+<meta property="og:description" content="Generate typed classes from a JSON sample: C# records, TypeScript interfaces, Dart, Kotlin, Java, Python dataclasses and Go structs. Free, client-side.">
+<meta property="og:url" content="https://json.msdevbuild.com/code.html">
+<meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JSON to C#, TypeScript, Dart, Kotlin, Java, Python &amp; Go — JSON Studio">
+<meta name="twitter:description" content="Generate typed classes from a JSON sample: C# records, TypeScript interfaces, Dart, Kotlin, Java, Python dataclasses and Go structs. Free, client-side.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/convert.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "JSON to C#, TypeScript, Dart, Kotlin, Java, Python & Go — JSON Studio",
+  "url": "https://json.msdevbuild.com/code.html",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any (runs in browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "creator": { "@type": "Person", "name": "Suthahar Jegatheesan", "url": "https://www.msdevbuild.com/" },
+  "description": "Generate typed classes from a JSON sample: C# records, TypeScript interfaces, Dart, Kotlin, Java, Python dataclasses and Go structs. Free, client-side."
+}
+</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main class="convert-shell">
+  <div class="convert-head">
+    <div class="container">
+      <div class="kicker">Generator</div>
+      <h1>JSON to code</h1>
+      <p>Paste a payload and get typed classes for your language. Array elements are merged before generating, so a key missing from some elements becomes an optional field instead of being lost.</p>
+
+      <div class="opt-bar">
+        <div class="opt">
+          <label for="opt-lang">Language</label>
+          <select id="opt-lang">
+            <option value="csharp" selected>C#</option>
+            <option value="typescript">TypeScript</option>
+            <option value="dart">Dart</option>
+            <option value="kotlin">Kotlin</option>
+            <option value="java">Java</option>
+            <option value="python">Python</option>
+            <option value="go">Go</option>
+          </select>
+        </div>
+        <div class="opt">
+          <label for="opt-root">Root name</label>
+          <input type="text" id="opt-root" value="Root">
+        </div>
+        <div class="opt-sep"></div>
+        <div class="opt">
+          <input type="checkbox" id="opt-attrs" checked>
+          <label for="opt-attrs" style="cursor:pointer;">Serialization annotations</label>
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-nullable" checked>
+          <label for="opt-nullable" style="cursor:pointer;">Optional fields nullable</label>
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-pascal" checked>
+          <label for="opt-pascal" style="cursor:pointer;">Idiomatic member names</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="convert-grid">
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title">Sample JSON</div>
+        <button id="btn-sample">Load sample</button>
+        <button id="btn-upload">Upload</button>
+        <button id="btn-clear">Clear</button>
+        <input type="file" id="file-input" accept=".json,application/json" style="display:none;">
+      </div>
+      <div class="pane-body">
+        <textarea id="input" class="code-area" spellcheck="false" placeholder="{"paste a representative payload here": true}"></textarea>
+      </div>
+      <div class="pane-status" id="in-status">Waiting for input.</div>
+    </section>
+
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title">Generated code</div>
+        <button class="primary" id="btn-run">Generate</button>
+        <button id="btn-copy">Copy</button>
+        <button id="btn-download">Download</button>
+      </div>
+      <div class="pane-body">
+        <textarea id="output" class="code-area" spellcheck="false" readonly placeholder="Generated classes appear here."></textarea>
+        <p class="note">Generated from one sample, so treat optionality and numeric widths as a first draft. ⌘/Ctrl + Enter runs it again. Everything happens in this browser — nothing is uploaded.</p>
+      </div>
+      <div class="pane-status" id="out-status"></div>
+    </section>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/tool-kit.js"></script>
+<script src="assets/js/infer.js"></script>
+<script src="assets/js/code.js"></script>
+</body>
+</html>

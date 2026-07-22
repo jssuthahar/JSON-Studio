@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JSON Studio — Free JSON to diagram tool | MSDEVBUILD</title>
+<meta name="description" content="Paste or upload JSON and instantly get an interactive, collapsible diagram. Free, client-side, no data leaves your browser. Built by MSDEVBUILD.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://json.msdevbuild.com/">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="JSON Studio — Free JSON to diagram tool">
+<meta property="og:description" content="Paste or upload JSON and instantly get an interactive, collapsible diagram. Free, client-side, no data leaves your browser.">
+<meta property="og:url" content="https://json.msdevbuild.com/">
+<meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JSON Studio — Free JSON to diagram tool">
+<meta name="twitter:description" content="Paste or upload JSON and instantly get an interactive, collapsible diagram. Free and client-side.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "JSON Studio",
+  "url": "https://json.msdevbuild.com/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any (runs in browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "creator": {
+    "@type": "Person",
+    "name": "Suthahar Jegatheesan",
+    "url": "https://www.msdevbuild.com/"
+  },
+  "description": "Free, client-side tool that turns JSON into an interactive, collapsible diagram."
+}
+</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">Free &middot; Client-side &middot; No signup</div>
+      <h1>Turn any JSON into a <span>diagram</span> you can actually read</h1>
+      <p class="lead">Paste, upload, or drag in a JSON file and get an interactive node graph — collapse branches, search keys and values, export as PNG or SVG. Nothing is uploaded anywhere; it all runs in your browser.</p>
+      <div class="cta-row">
+        <a class="button primary" href="tool.html" style="background:var(--blue);color:#fff;border:1px solid var(--blue);border-radius:8px;padding:12px 22px;font-weight:600;text-decoration:none;">Open the diagram tool →</a>
+        <a class="button" href="#tools" style="border:1px solid var(--border-strong);border-radius:8px;padding:12px 22px;text-decoration:none;color:var(--text);">See all tools</a>
+      </div>
+
+      <div class="stat-strip">
+        <div class="stat"><div class="num">100%</div><div class="label">Runs client-side</div></div>
+        <div class="stat"><div class="num">0</div><div class="label">Servers your data touches</div></div>
+        <div class="stat"><div class="num">3</div><div class="label">Export formats</div></div>
+        <div class="stat"><div class="num">Free</div><div class="label">No account required</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="tools">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Tools</div>
+        <h2>Everything you need to work with JSON</h2>
+        <p>Start with the diagram viewer. More tools are on the roadmap — see the contributing guide if you'd like to help build one.</p>
+      </div>
+
+      <div class="card-grid">
+        <a href="tool.html" class="tool-card" style="text-decoration:none;">
+          <div class="icon">{ }</div>
+          <h3>JSON to diagram</h3>
+          <p>Paste or upload JSON and get a collapsible, searchable node graph. Export as PNG or SVG, ask an AI assistant to explain the structure.</p>
+          <span class="badge live">Live</span>
+          <div class="link-row">Open tool →</div>
+        </a>
+
+        <a href="yaml-json.html" class="tool-card" style="text-decoration:none;">
+          <div class="icon">Y↔J</div>
+          <h3>YAML ⇄ JSON</h3>
+          <p>Convert between YAML and JSON with live validation, auto-detected direction, key sorting and multi-document YAML support.</p>
+          <span class="badge live">Live</span>
+          <div class="link-row">Open tool →</div>
+        </a>
+
+        <a href="json-schema.html" class="tool-card" style="text-decoration:none;">
+          <div class="icon">Sχ</div>
+          <h3>JSON Schema generator</h3>
+          <p>Infer a JSON Schema straight from a sample payload — draft 2020-12 or draft-07, with format and enum detection.</p>
+          <span class="badge live">Live</span>
+          <div class="link-row">Open tool →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Why this exists</div>
+        <h2>Built for architects who live in payloads</h2>
+        <p>MSDEVBUILD focuses on Azure, AI and mobile architecture — this tool exists because reading raw JSON API responses and configs all day gets old. It's free, open, and privacy-first by design: no backend means nothing to leak.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

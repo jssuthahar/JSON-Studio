@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JSON Schema validator — JSON Studio | MSDEVBUILD</title>
+<meta name="description" content="Validate a JSON document against a JSON Schema in your browser and get a clear list of errors with the exact failing path. Free and client-side.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://json.msdevbuild.com/validate.html">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="JSON Schema validator — JSON Studio">
+<meta property="og:description" content="Validate a JSON document against a JSON Schema in your browser and get a clear list of errors with the exact failing path. Free and client-side.">
+<meta property="og:url" content="https://json.msdevbuild.com/validate.html">
+<meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JSON Schema validator — JSON Studio">
+<meta name="twitter:description" content="Validate a JSON document against a JSON Schema in your browser and get a clear list of errors with the exact failing path. Free and client-side.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/convert.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "JSON Schema validator — JSON Studio",
+  "url": "https://json.msdevbuild.com/validate.html",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any (runs in browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "creator": { "@type": "Person", "name": "Suthahar Jegatheesan", "url": "https://www.msdevbuild.com/" },
+  "description": "Validate a JSON document against a JSON Schema in your browser and get a clear list of errors with the exact failing path. Free and client-side."
+}
+</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main class="convert-shell">
+  <div class="convert-head">
+    <div class="container">
+      <div class="kicker">Validator</div>
+      <h1>JSON Schema validator</h1>
+      <p>Check a payload against a schema and get every failure with its instance path and the keyword that rejected it. Pairs with the schema generator — generate one, then test it against real payloads.</p>
+
+      <div class="opt-bar">
+        <div class="opt">
+          <input type="checkbox" id="opt-formats" checked>
+          <label for="opt-formats" style="cursor:pointer;">Enforce formats</label>
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-all" checked>
+          <label for="opt-all" style="cursor:pointer;">Report all errors</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="convert-grid three">
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title">JSON data</div>
+        <button id="btn-sample">Load sample</button>
+        <button id="btn-clear">Clear</button>
+      </div>
+      <div class="pane-body">
+        <textarea id="input" class="code-area" spellcheck="false" placeholder="{ "id": 1 }"></textarea>
+      </div>
+      <div class="pane-status" id="in-status">Waiting for input.</div>
+    </section>
+
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title">JSON Schema</div>
+        <button id="btn-upload">Upload</button>
+        <input type="file" id="file-input" accept=".json,application/json" style="display:none;">
+      </div>
+      <div class="pane-body">
+        <textarea id="input-schema" class="code-area" spellcheck="false" placeholder="{ "type": "object" }"></textarea>
+      </div>
+      <div class="pane-status" id="schema-status"></div>
+    </section>
+
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title">Validation result</div>
+        <button class="primary" id="btn-run">Validate</button>
+        <button id="btn-copy">Copy</button>
+      </div>
+      <div class="pane-body">
+        <textarea id="output" class="code-area" spellcheck="false" readonly placeholder="Errors appear here."></textarea>
+        <p class="note">Covers the keywords you actually meet day to day (types, required, enum, const, numeric and string bounds, items, uniqueItems, anyOf/oneOf/allOf/not, $ref to local pointers). Exotic draft corners like dynamic refs and content encoding are not implemented. ⌘/Ctrl + Enter runs it again. Everything happens in this browser — nothing is uploaded.</p>
+      </div>
+      <div class="pane-status" id="out-status"></div>
+    </section>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/tool-kit.js"></script>
+<script src="assets/js/validate.js"></script>
+</body>
+</html>

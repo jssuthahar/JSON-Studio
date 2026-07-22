@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>YAML ⇄ JSON converter — JSON Studio | MSDEVBUILD</title>
+<meta name="description" content="Convert YAML to JSON and JSON to YAML in your browser with live validation. Free, client-side, no data leaves your device.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://json.msdevbuild.com/yaml-json.html">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="YAML ⇄ JSON converter — JSON Studio">
+<meta property="og:description" content="Convert YAML to JSON and JSON to YAML in your browser with live validation. Nothing is uploaded anywhere.">
+<meta property="og:url" content="https://json.msdevbuild.com/yaml-json.html">
+<meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="YAML ⇄ JSON converter — JSON Studio">
+<meta name="twitter:description" content="Convert YAML to JSON and JSON to YAML in your browser. Free and client-side.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/convert.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main class="convert-shell">
+  <div class="convert-head">
+    <div class="container">
+      <div class="kicker">Converter</div>
+      <h1>YAML ⇄ JSON</h1>
+      <p>Paste YAML or JSON on the left and get the other format on the right, with validation as you type. Runs entirely in your browser — nothing is uploaded.</p>
+
+      <div class="opt-bar">
+        <div class="opt">
+          <label>Direction</label>
+          <div class="dir-pill" id="dir-pill">
+            <button type="button" data-dir="auto" class="on">Auto</button>
+            <button type="button" data-dir="y2j">YAML → JSON</button>
+            <button type="button" data-dir="j2y">JSON → YAML</button>
+          </div>
+        </div>
+        <div class="opt-sep"></div>
+        <div class="opt">
+          <label for="opt-indent">Indent</label>
+          <select id="opt-indent">
+            <option value="2" selected>2 spaces</option>
+            <option value="4">4 spaces</option>
+            <option value="tab">Tab (JSON only)</option>
+          </select>
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-sort">
+          <label for="opt-sort" style="cursor:pointer;">Sort keys</label>
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-live" checked>
+          <label for="opt-live" style="cursor:pointer;">Live convert</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="convert-grid">
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title"><span id="in-label">Input</span></div>
+        <button id="btn-sample-yaml">Sample YAML</button>
+        <button id="btn-sample-json">Sample JSON</button>
+        <button id="btn-upload">Upload</button>
+        <button id="btn-clear">Clear</button>
+        <input type="file" id="file-input" accept=".yaml,.yml,.json,.txt,application/json,text/yaml" style="display:none;">
+      </div>
+      <div class="pane-body">
+        <textarea id="input" class="code-area" spellcheck="false" placeholder="Paste YAML or JSON here — or drop a .yaml / .json file."></textarea>
+      </div>
+      <div class="pane-status" id="in-status">Waiting for input.</div>
+    </section>
+
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title"><span id="out-label">Output</span></div>
+        <button class="primary" id="btn-run">Convert</button>
+        <button id="btn-swap">Use as input ⇄</button>
+        <button id="btn-copy">Copy</button>
+        <button id="btn-download">Download</button>
+      </div>
+      <div class="pane-body">
+        <textarea id="output" class="code-area" spellcheck="false" readonly placeholder="Converted output appears here."></textarea>
+        <p class="note">⌘/Ctrl + Enter converts. YAML parsing uses js-yaml's safe schema — no arbitrary tag execution.</p>
+      </div>
+      <div class="pane-status" id="out-status"></div>
+    </section>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/tool-kit.js"></script>
+<script src="assets/js/yaml-json.js"></script>
+</body>
+</html>

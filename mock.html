@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mock JSON data generator from schema — JSON Studio | MSDEVBUILD</title>
+<meta name="description" content="Generate realistic fake JSON from a JSON Schema. Repeatable with a seed, any number of records. Free, client-side, no signup.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://json.msdevbuild.com/mock.html">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mock JSON data generator from schema — JSON Studio">
+<meta property="og:description" content="Generate realistic fake JSON from a JSON Schema. Repeatable with a seed, any number of records. Free, client-side, no signup.">
+<meta property="og:url" content="https://json.msdevbuild.com/mock.html">
+<meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mock JSON data generator from schema — JSON Studio">
+<meta name="twitter:description" content="Generate realistic fake JSON from a JSON Schema. Repeatable with a seed, any number of records. Free, client-side, no signup.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/convert.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Mock JSON data generator from schema — JSON Studio",
+  "url": "https://json.msdevbuild.com/mock.html",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any (runs in browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "creator": { "@type": "Person", "name": "Suthahar Jegatheesan", "url": "https://www.msdevbuild.com/" },
+  "description": "Generate realistic fake JSON from a JSON Schema. Repeatable with a seed, any number of records. Free, client-side, no signup."
+}
+</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main class="convert-shell">
+  <div class="convert-head">
+    <div class="container">
+      <div class="kicker">Generator</div>
+      <h1>Mock data generator</h1>
+      <p>Feed it a JSON Schema and get sample payloads back — useful for seeding tests, demos and API stubs. The seed makes output repeatable, so the same seed always produces the same data.</p>
+
+      <div class="opt-bar">
+        <div class="opt">
+          <label for="opt-count">Records</label>
+          <select id="opt-count">
+            <option value="1" selected>1</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="100">100</option>
+          </select>
+        </div>
+        <div class="opt">
+          <label for="opt-seed">Seed</label>
+          <input type="text" id="opt-seed" value="jsonstudio" style="min-width:120px;">
+        </div>
+        <div class="opt">
+          <label for="opt-arr">Array size</label>
+          <select id="opt-arr">
+            <option value="1">1</option>
+            <option value="3" selected>3</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-optional" checked>
+          <label for="opt-optional" style="cursor:pointer;">Include optional fields</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="convert-grid">
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title">JSON Schema</div>
+        <button id="btn-sample">Load sample</button>
+        <button id="btn-upload">Upload</button>
+        <button id="btn-clear">Clear</button>
+        <input type="file" id="file-input" accept=".json,application/json" style="display:none;">
+      </div>
+      <div class="pane-body">
+        <textarea id="input" class="code-area" spellcheck="false" placeholder="{ "type": "object", "properties": {} }"></textarea>
+      </div>
+      <div class="pane-status" id="in-status">Waiting for input.</div>
+    </section>
+
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title">Mock data</div>
+        <button class="primary" id="btn-run">Generate</button>
+        <button id="btn-copy">Copy</button>
+        <button id="btn-download">Download</button>
+      </div>
+      <div class="pane-body">
+        <textarea id="output" class="code-area" spellcheck="false" readonly placeholder="Generated records appear here."></textarea>
+        <p class="note">Respects enum, const, formats, numeric and length bounds, required vs optional, and $ref to local pointers. ⌘/Ctrl + Enter runs it again. Everything happens in this browser — nothing is uploaded.</p>
+      </div>
+      <div class="pane-status" id="out-status"></div>
+    </section>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/tool-kit.js"></script>
+<script src="assets/js/mock.js"></script>
+</body>
+</html>

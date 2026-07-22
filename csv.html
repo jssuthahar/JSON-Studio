@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JSON to CSV &amp; CSV to JSON converter — JSON Studio | MSDEVBUILD</title>
+<meta name="description" content="Convert JSON to CSV or CSV to JSON in your browser. Nested objects flatten to dot-notation columns. Free, client-side, no upload.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://json.msdevbuild.com/csv.html">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="JSON to CSV &amp; CSV to JSON converter — JSON Studio">
+<meta property="og:description" content="Convert JSON to CSV or CSV to JSON in your browser. Nested objects flatten to dot-notation columns. Free, client-side, no upload.">
+<meta property="og:url" content="https://json.msdevbuild.com/csv.html">
+<meta property="og:site_name" content="JSON Studio by MSDEVBUILD">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JSON to CSV &amp; CSV to JSON converter — JSON Studio">
+<meta name="twitter:description" content="Convert JSON to CSV or CSV to JSON in your browser. Nested objects flatten to dot-notation columns. Free, client-side, no upload.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/convert.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "JSON to CSV & CSV to JSON converter — JSON Studio",
+  "url": "https://json.msdevbuild.com/csv.html",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any (runs in browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "creator": { "@type": "Person", "name": "Suthahar Jegatheesan", "url": "https://www.msdevbuild.com/" },
+  "description": "Convert JSON to CSV or CSV to JSON in your browser. Nested objects flatten to dot-notation columns. Free, client-side, no upload."
+}
+</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main class="convert-shell">
+  <div class="convert-head">
+    <div class="container">
+      <div class="kicker">Converter</div>
+      <h1>JSON ⇄ CSV</h1>
+      <p>Turn an array of JSON objects into a spreadsheet-ready CSV, or a CSV back into JSON. Nested objects flatten to dot-notation columns and the header is the union of every row&rsquo;s keys.</p>
+
+      <div class="opt-bar">
+        <div class="opt">
+          <label>Direction</label>
+          <div class="dir-pill" id="dir-pill">
+            <button type="button" data-dir="auto" class="on">Auto</button>
+            <button type="button" data-dir="j2c">JSON → CSV</button>
+            <button type="button" data-dir="c2j">CSV → JSON</button>
+          </div>
+        </div>
+        <div class="opt-sep"></div>
+        <div class="opt">
+          <label for="opt-delim">Delimiter</label>
+          <select id="opt-delim">
+            <option value="," selected>Comma</option>
+            <option value=";">Semicolon</option>
+            <option value="\t">Tab</option>
+            <option value="|">Pipe</option>
+          </select>
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-flatten" checked>
+          <label for="opt-flatten" style="cursor:pointer;">Flatten nested keys</label>
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-typed" checked>
+          <label for="opt-typed" style="cursor:pointer;">Infer types (CSV → JSON)</label>
+        </div>
+        <div class="opt">
+          <input type="checkbox" id="opt-bom">
+          <label for="opt-bom" style="cursor:pointer;">Excel BOM</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="convert-grid">
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title"><span id="in-label">Input</span></div>
+        <button id="btn-sample-json">Sample JSON</button>
+        <button id="btn-sample-csv">Sample CSV</button>
+        <button id="btn-upload">Upload</button>
+        <button id="btn-clear">Clear</button>
+        <input type="file" id="file-input" accept=".json,.csv,.tsv,.txt" style="display:none;">
+      </div>
+      <div class="pane-body">
+        <textarea id="input" class="code-area" spellcheck="false" placeholder="Paste a JSON array or a CSV table — or drop a file."></textarea>
+      </div>
+      <div class="pane-status" id="in-status">Waiting for input.</div>
+    </section>
+
+    <section class="pane">
+      <div class="pane-head">
+        <div class="pane-title"><span id="out-label">Output</span></div>
+        <button class="primary" id="btn-run">Convert</button>
+        <button id="btn-swap">Use as input ⇄</button>
+        <button id="btn-copy">Copy</button>
+        <button id="btn-download">Download</button>
+      </div>
+      <div class="pane-body">
+        <textarea id="output" class="code-area" spellcheck="false" readonly placeholder="Converted output appears here."></textarea>
+        <p class="note">CSV parsing follows RFC 4180 — quoted fields, escaped quotes and embedded newlines all round-trip. ⌘/Ctrl + Enter runs it again. Everything happens in this browser — nothing is uploaded.</p>
+      </div>
+      <div class="pane-status" id="out-status"></div>
+    </section>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/tool-kit.js"></script>
+<script src="assets/js/csv.js"></script>
+</body>
+</html>

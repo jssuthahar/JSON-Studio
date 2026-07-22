@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JSON to Diagram — JSON Studio | MSDEVBUILD</title>
+<meta name="description" content="Paste, upload, search and export interactive JSON diagrams in your browser. Free, client-side, no data leaves your device.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://json.msdevbuild.com/tool.html">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="JSON to Diagram — JSON Studio">
+<meta property="og:description" content="Paste, upload, search and export interactive JSON diagrams in your browser.">
+<meta property="og:url" content="https://json.msdevbuild.com/tool.html">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/tool.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main class="tool-shell">
+  <div class="tool-left">
+    <div class="tool-controls">
+      <button class="primary" id="btn-render">Render diagram</button>
+      <button id="btn-sample">Load sample</button>
+      <button id="btn-upload">Upload file</button>
+      <button id="btn-format">Format</button>
+      <input type="file" id="file-input" accept=".json,application/json" style="display:none;">
+    </div>
+
+    <div class="tool-search">
+      <input type="text" id="search-input" placeholder="Search keys or values…">
+      <span id="search-count"></span>
+    </div>
+
+    <div class="editor-wrap">
+      <div class="editor-label"><span>JSON input</span><span>⌘/Ctrl + Enter to render</span></div>
+      <textarea id="editor" spellcheck="false" placeholder='{"paste your JSON here": true}'></textarea>
+    </div>
+    <div id="status">Waiting for input.</div>
+
+    <div class="ai-panel">
+      <div class="row">
+        <label for="ai-key" style="min-width:110px;">OpenAI API key</label>
+        <input type="password" id="ai-key" placeholder="sk-…" style="flex:1;">
+      </div>
+      <button id="btn-ai-explain">Explain this JSON with AI</button>
+      <p class="hint">Your key stays in this browser (localStorage) and is sent only to api.openai.com — never to any MSDEVBUILD server. This is a static site with no backend.</p>
+      <div id="ai-output"></div>
+    </div>
+  </div>
+
+  <div class="tool-right">
+    <div class="canvas-toolbar">
+      <button id="btn-expand">Expand all</button>
+      <button id="btn-collapse">Collapse all</button>
+      <button id="btn-fit">Fit to screen</button>
+      <button id="btn-export-svg">Export SVG</button>
+      <button class="primary" id="btn-export-png">Export PNG</button>
+    </div>
+    <div id="empty-hint">
+      <div class="glyph">{ }</div>
+      <p>Your diagram will appear here</p>
+    </div>
+    <svg id="svg"><g id="canvas-g"></g></svg>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/diagram.js"></script>
+<script src="assets/js/export.js"></script>
+<script src="assets/js/ai-assist.js"></script>
+</body>
+</html>
