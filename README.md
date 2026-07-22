@@ -92,6 +92,11 @@ title, so a new tool page gets working sharing with no configuration.
 
 ## Presentation mode
 
+Presentation mode carries its own mark — a screen with a play head — wherever
+it is offered: the highlighted nav link, the Present button in every tool
+header, the tool rail, the landing card on each tool page and the feature page.
+It is a feature, not another link, and it is styled to read that way.
+
 Every tool can be presented. Hit **Present** in the header (or <kbd>Shift</kbd>
 + <kbd>P</kbd>, or <kbd>F11</kbd>) and the page becomes a demo surface: header,
 footer, page title and option bar disappear, the working area takes the whole

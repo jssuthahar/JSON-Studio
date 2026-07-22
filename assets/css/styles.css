@@ -86,18 +86,19 @@ button.ghost:hover{background:var(--panel-2);color:var(--blue);border-color:tran
 
 /* ---------------- header ---------------- */
 .site-header{position:sticky;top:0;z-index:50;background:var(--panel);border-bottom:1px solid var(--border);}
-.site-header .bar{display:flex;align-items:center;gap:20px;height:64px;}
+.site-header .bar{display:flex;align-items:center;gap:14px;height:64px;}
 .brandmark{display:flex;align-items:center;gap:10px;flex-shrink:0;}
 .brandmark .dot{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--blue),var(--navy));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px;font-family:'JetBrains Mono',monospace;}
 .brandmark .word{font-weight:700;font-size:16px;letter-spacing:-0.01em;color:var(--text);}
 .brandmark .word span{color:var(--blue);}
 .site-nav{display:none;gap:4px;align-items:center;}
-.site-nav a{font-size:13.5px;font-weight:500;color:var(--text-dim);padding:8px 12px;border-radius:var(--radius-sm);}
+.site-nav a{font-size:13.5px;font-weight:500;color:var(--text-dim);padding:8px 11px;border-radius:var(--radius-sm);white-space:nowrap;}
 .site-nav a:hover{color:var(--blue);background:var(--blue-tint);text-decoration:none;}
 .site-nav a.active{color:var(--blue);background:var(--blue-tint);}
 @media(min-width:860px){ .site-nav{display:flex;} }
 .header-spacer{flex:1;}
-.header-actions{display:flex;gap:8px;align-items:center;}
+.header-actions{display:flex;gap:6px;align-items:center;}
+.header-actions button{white-space:nowrap;}
 .nav-toggle{display:inline-flex;}
 @media(min-width:860px){ .nav-toggle{display:none;} }
 #mobile-nav{display:none;flex-direction:column;gap:2px;padding:10px 24px 16px;border-top:1px solid var(--border);}
@@ -109,7 +110,7 @@ button.ghost:hover{background:var(--panel-2);color:var(--blue);border-color:tran
 
 /* ---------------- nav dropdown ---------------- */
 .nav-dd{position:relative;}
-.nav-dd-toggle{font-size:13.5px;font-weight:500;color:var(--text-dim);padding:8px 12px;border:1px solid transparent;background:transparent;border-radius:var(--radius-sm);}
+.nav-dd-toggle{font-size:13.5px;font-weight:500;color:var(--text-dim);padding:8px 11px;border:1px solid transparent;background:transparent;border-radius:var(--radius-sm);white-space:nowrap;}
 .nav-dd-toggle:hover, .nav-dd.open .nav-dd-toggle, .nav-dd-toggle.active{color:var(--blue);background:var(--blue-tint);border-color:transparent;}
 .nav-dd-menu{position:absolute;top:calc(100% + 6px);left:0;background:var(--panel);border:1px solid var(--border);border-radius:14px;box-shadow:0 2px 4px rgba(30,20,70,.06), 0 24px 48px -20px rgba(20,30,50,.35);padding:0;display:none;flex-direction:column;z-index:60;overflow:hidden;}
 .nav-dd:hover .nav-dd-menu, .nav-dd.open .nav-dd-menu{display:flex;}
@@ -262,7 +263,7 @@ html[data-theme="dark"] .mock-window{box-shadow:0 2px 4px rgba(0,0,0,.3), 0 24px
 .kbd-hint{display:none;align-items:center;gap:6px;font-size:12.5px;color:var(--text-faint);background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:7px 11px;cursor:pointer;}
 .kbd-hint:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-tint);}
 .kbd-hint kbd{font-size:10.5px;padding:0 4px;border-bottom-width:1px;}
-@media(min-width:1080px){ .kbd-hint{display:inline-flex;} }
+@media(min-width:1280px){ .kbd-hint{display:inline-flex;} }
 
 body.palette-open{overflow:hidden;}
 #palette{position:fixed;inset:0;z-index:200;display:flex;align-items:flex-start;justify-content:center;padding:12vh 20px 20px;}
@@ -400,3 +401,45 @@ body.palette-open{overflow:hidden;}
 .th-jump a{font-size:12.5px;font-weight:500;color:var(--text-dim);padding:5px 11px;border-radius:999px;
   border:1px solid var(--border);background:var(--panel);}
 .th-jump a:hover{color:var(--brand);border-color:var(--brand);background:var(--brand-tint);text-decoration:none;}
+
+/* ---------------- presentation mode: highlighted everywhere it is offered ---------------- */
+.nav-ico{width:15px;height:15px;flex-shrink:0;}
+
+/* nav link, styled as a feature rather than another page */
+.site-nav a.nav-highlight{display:inline-flex;align-items:center;gap:7px;
+  color:var(--brand);background:var(--brand-tint);border:1px solid rgba(109,74,255,.22);font-weight:600;}
+.site-nav a.nav-highlight:hover{background:var(--brand);color:#fff;border-color:var(--brand);}
+.site-nav a.nav-highlight.active{background:var(--brand);color:#fff;border-color:var(--brand);}
+html[data-theme="dark"] .site-nav a.nav-highlight{border-color:rgba(157,134,255,.3);}
+html[data-theme="dark"] .site-nav a.nav-highlight:hover,
+html[data-theme="dark"] .site-nav a.nav-highlight.active{color:#12101f;}
+
+#mobile-nav a.nav-highlight{display:inline-flex;align-items:center;gap:9px;color:var(--brand);
+  background:var(--brand-tint);font-weight:600;}
+.footer-col a.foot-highlight{display:inline-flex;align-items:center;gap:7px;color:var(--brand);font-weight:600;}
+
+/* Below the widest layouts the nav's Presentation link and the header's
+   Present button say the same thing — keep the button, which acts. */
+@media(max-width:1180px){ body.wb .site-nav a.nav-highlight{display:none;} }
+
+/* the Present button on tool pages */
+.present-btn{display:inline-flex;align-items:center;gap:7px;
+  background:var(--brand-tint);color:var(--brand);border:1px solid rgba(109,74,255,.22);
+  font-weight:600;border-radius:var(--radius-sm);padding:8px 13px;font-size:13px;}
+.present-btn:hover{background:var(--brand);color:#fff;border-color:var(--brand);}
+.present-btn.on{background:var(--brand);color:#fff;border-color:var(--brand);}
+html[data-theme="dark"] .present-btn{border-color:rgba(157,134,255,.3);}
+html[data-theme="dark"] .present-btn:hover, html[data-theme="dark"] .present-btn.on{color:#12101f;}
+
+/* the rail button */
+.wb-btn.wb-present{color:var(--brand);background:var(--brand-tint);}
+.wb-btn.wb-present:hover{background:var(--brand);color:#fff;}
+.wb-btn.wb-present .nav-ico{width:17px;height:17px;}
+html[data-theme="dark"] .wb-btn.wb-present:hover{color:#12101f;}
+.btn-present{display:inline-flex;align-items:center;gap:8px;}
+.btn-present .nav-ico{width:16px;height:16px;}
+.kicker-ico{display:inline-flex;align-items:center;gap:7px;}
+.kicker-ico .nav-ico{width:14px;height:14px;}
+.seo-card h3.with-ico{display:flex;align-items:center;gap:7px;color:var(--brand);}
+.seo-card h3.with-ico .nav-ico{width:15px;height:15px;}
+.feature-hero .eyebrow .nav-ico{width:14px;height:14px;}

@@ -31,13 +31,22 @@
 
   const GROUP_NAMES = { inspect: 'Inspect & debug', schema: 'Schema & test data', convert: 'Convert & export' };
 
+  // Presentation mode is the feature worth pointing at, so it gets a mark of
+  // its own — a screen with a play head — reused by the nav, the mobile menu,
+  // the tool rail and the Present button on every tool page.
+  const PRESENT_ICON =
+    '<svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" ' +
+    'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 17v3M9.5 20h5"/>' +
+    '<path d="m10.6 8.8 4 2.7-4 2.7z" fill="currentColor" stroke="none"/></svg>';
+
   // Shared with workbench.js (the tool rail) so the tool list is defined once.
-  window.JSONStudioNav = { TOOLS, GROUP_NAMES };
+  window.JSONStudioNav = { TOOLS, GROUP_NAMES, PRESENT_ICON };
 
   const NAV_LINKS = [
     { href: 'index.html', label: 'Home' },
     { label: 'Tools', children: TOOLS, allHref: 'tools.html' },
-    { href: 'presentation.html', label: 'Presentation' },
+    { href: 'presentation.html', label: 'Presentation', navIcon: PRESENT_ICON, highlight: true },
     { href: 'https://www.msdevbuild.com/', label: 'MSDEVBUILD Blog', external: true },
     { href: 'https://github.com/jssuthahar', label: 'GitHub', external: true }
   ];
@@ -52,7 +61,8 @@
   function linkHTML(link, extraClass) {
     const active = !link.external && link.href === currentFile() ? ' active' : '';
     const target = link.external ? ' target="_blank" rel="noopener"' : '';
-    return `<a class="${extraClass || ''}${active}" href="${link.href}"${target}>${link.label}</a>`;
+    const cls = [extraClass || '', link.highlight ? 'nav-highlight' : '', active.trim()].filter(Boolean).join(' ');
+    return `<a class="${cls}" href="${link.href}"${target}>${link.navIcon || ''}${link.label}</a>`;
   }
 
   function navItemHTML(link) {
@@ -102,7 +112,7 @@
         <div id="mobile-nav">
           <a href="index.html">Home</a>
           <a href="tools.html">All tools</a>
-          <a href="presentation.html">Presentation mode</a>
+          <a class="nav-highlight" href="presentation.html">${PRESENT_ICON}Presentation mode</a>
           ${Object.keys(GROUP_NAMES).map((g) => `
             <div class="mobile-nav-head">${GROUP_NAMES[g]}</div>
             ${TOOLS.filter((t) => t.group === g).map((t) => linkHTML(t)).join('')}`).join('')}
@@ -322,7 +332,7 @@
             <h4>Project</h4>
             <ul>
               <li><a href="tools.html">All tools</a></li>
-              <li><a href="presentation.html">Presentation mode</a></li>
+              <li><a class="foot-highlight" href="presentation.html">${PRESENT_ICON}Presentation mode</a></li>
               <li><a href="index.html#install">Install the app</a></li>
               <li><a href="CONTRIBUTING.md">Contributing guide</a></li>
               <li><a href="https://github.com/jssuthahar" target="_blank" rel="noopener">Source on GitHub</a></li>

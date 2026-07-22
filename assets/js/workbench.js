@@ -142,8 +142,8 @@
       <span class="wb-spacer"></span>
       <span class="wb-sep"></span>
       <a class="wb-btn" href="tools.html" data-label="All tools" aria-label="All tools">⊞</a>
-      <button class="wb-btn" id="wb-present-btn" type="button"
-              data-label="Present &nbsp;<kbd>⇧P</kbd>" aria-label="Presentation mode">▶</button>
+      <button class="wb-btn wb-present" id="wb-present-btn" type="button"
+              data-label="Presentation mode &nbsp;<kbd>⇧P</kbd>" aria-label="Presentation mode">${(nav.PRESENT_ICON || '▶')}</button>
     `;
     document.body.appendChild(rail);
     document.body.classList.add('wb');

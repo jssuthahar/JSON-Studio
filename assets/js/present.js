@@ -437,9 +437,12 @@
 
   let presentBtn = null;
 
+  const ICON = (window.JSONStudioNav && window.JSONStudioNav.PRESENT_ICON) || '';
+
   function updatePresentButton() {
     if (!presentBtn) return;
-    presentBtn.textContent = presenting ? 'Exit present' : 'Present';
+    presentBtn.innerHTML = ICON + '<span>' + (presenting ? 'Exit present' : 'Present') + '</span>';
+    presentBtn.classList.toggle('on', presenting);
     presentBtn.setAttribute('aria-pressed', String(presenting));
   }
 
@@ -447,12 +450,12 @@
     const actions = document.querySelector('.header-actions');
     if (!actions) return;
     presentBtn = document.createElement('button');
-    presentBtn.className = 'ghost present-btn';
+    presentBtn.className = 'present-btn';
     presentBtn.id = 'present-btn';
     presentBtn.type = 'button';
     presentBtn.title = 'Presentation mode (Shift+P)';
-    presentBtn.textContent = 'Present';
     actions.insertBefore(presentBtn, actions.firstChild);
+    updatePresentButton();
     presentBtn.addEventListener('click', toggle);
   }
 
