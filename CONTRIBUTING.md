@@ -28,11 +28,13 @@ json-studio/
 │   ├── css/
 │   │   ├── styles.css        Shared design tokens, header, footer, cards
 │   │   ├── tool.css           Styles for the diagram page
-│   │   └── convert.css        Shared two-pane input→output tool layout
+│   │   ├── convert.css        Shared two-pane input→output tool layout
+│   │   └── present.css        Presentation mode
 │   ├── js/
 │   │   ├── site.js            Header/footer, nav, ⌘K palette, theme, PWA install
 │   │   ├── tool-kit.js        Shared tool plumbing (window.TK)
 │   │   ├── tools-hub.js       Search + filtering for tools.html
+│   │   ├── present.js         Presentation mode (all tool pages)
 │   │   ├── infer.js           Type inference shared by the schema + code tools
 │   │   ├── diagram.js         D3 tree rendering, search, collapse/expand
 │   │   ├── export.js          PNG/SVG export
@@ -125,6 +127,16 @@ already built — reuse it instead of rewriting the plumbing.
    `extension/popup.js`.
 7. If the tool should accept text handed over by the extension, nothing extra
    is needed: `TK.tool()` already reads `#input=` from the URL fragment.
+8. Presentation mode needs nothing either, as long as the page uses the
+   standard structure. `present.js` finds `.pane` elements by itself, treats
+   the last one as the result being demonstrated, and builds the Panels menu
+   from their `.pane-title` text. Load `present.css` and `present.js` — see any
+   existing tool page.
+
+A tool with its own canvas (like the diagram) can opt into the zoom, fit and
+pan controls by exposing `fit`, `zoomBy`, `panBy` and `zoomLevel` on
+`window.JSONStudio`, and re-fitting when the `presentation-change` event
+fires — `assets/js/diagram.js` is the worked example.
 
 ## Design tokens quick reference
 

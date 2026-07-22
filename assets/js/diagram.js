@@ -227,10 +227,23 @@
   }
   searchInput.addEventListener('input', runSearch);
 
-  // Expose for export.js and ai-assist.js
+  // Expose for export.js, ai-assist.js and present.js
   window.JSONStudio = window.JSONStudio || {};
   window.JSONStudio.getCurrentRoot = () => currentRoot;
   window.JSONStudio.getEditorValue = () => editor.value;
   window.JSONStudio.svgEl = () => document.getElementById('svg');
   window.JSONStudio.gEl = () => g;
+
+  /* Canvas controls, used by the presenter toolbar. */
+  window.JSONStudio.fit = fitToScreen;
+  window.JSONStudio.zoomBy = (k) => svg.transition().duration(180).call(zoomBehavior.scaleBy, k);
+  window.JSONStudio.panBy = (dx, dy) => svg.transition().duration(180).call(zoomBehavior.translateBy, dx, dy);
+  window.JSONStudio.zoomLevel = () => d3.zoomTransform(svg.node()).k;
+  window.JSONStudio.hasContent = () => !!currentRoot;
+
+  // Entering or leaving presentation mode resizes the canvas, so re-fit once
+  // the layout has settled.
+  document.addEventListener('presentation-change', () => {
+    if (currentRoot) setTimeout(fitToScreen, 60);
+  });
 })();

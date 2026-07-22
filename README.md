@@ -34,6 +34,30 @@ Every page: light and dark mode (following your OS until you choose),
 drag-and-drop file input, copy and download, ⌘/Ctrl + Enter to re-run, and
 ⌘/Ctrl + K to jump to another tool.
 
+## Presentation mode
+
+Every tool can be presented. Hit **Present** in the header (or <kbd>Shift</kbd>
++ <kbd>P</kbd>, or <kbd>F11</kbd>) and the page becomes a demo surface: header,
+footer, page title and option bar disappear, the working area takes the whole
+screen in real full screen, and editor type scales up so it reads from the back
+of a room. On the diagram page the editor pane collapses and the canvas
+auto-fits — roughly a third more width for the diagram.
+
+A presenter toolbar sits at the bottom and fades out when you stop moving:
+
+| Control | Keys | What it does |
+|---|---|---|
+| Zoom | <kbd>+</kbd> <kbd>−</kbd> <kbd>0</kbd> | Scales the diagram, or the editor type on other tools |
+| Fit | <kbd>F</kbd> | Fits the diagram to the screen |
+| Navigation | <kbd>←↑↓→</kbd> | Pans the canvas |
+| Panels | — | Show or hide any individual pane, plus the option bar |
+| Focus | <kbd>O</kbd> | Only the result — no headers, no chrome, edge to edge |
+| Laser | <kbd>L</kbd> | Laser pointer with a fading trail; click for a ripple |
+| Exit | <kbd>Esc</kbd> | Back to normal |
+
+Diagrams stay crisp at any zoom because they are SVG, and re-fit automatically
+when panels open or close or the window resizes.
+
 ## Install it
 
 **As an app (PWA).** Click *Install app* in the header, or use your browser's
