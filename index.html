@@ -31,8 +31,9 @@
 <meta name="twitter:title" content="JSON Studio — 14 free online JSON tools">
 <meta name="twitter:description" content="Format, diagram, diff, query, validate and convert JSON — entirely in your browser.">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/home.css">
 
 <script type="application/ld+json">
 {
@@ -98,67 +99,74 @@
 </script>
 <script>(function(){try{var t=localStorage.getItem('json-studio-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
-<body>
+<body class="home">
 
 <div id="site-header"></div>
 
 <main>
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <div class="eyebrow"><span class="dot-live"></span> 14 tools &middot; free &middot; nothing leaves your browser</div>
-        <h1>Every JSON tool you need, <span>in one place</span></h1>
-        <p class="lead">Format, diagram, diff, query, validate and convert JSON — into CSV, YAML, XML, SQL or typed classes for seven languages. No account, no uploads, no waiting on a server.</p>
-        <div class="cta-row">
-          <a class="btn-primary" href="format.html">Open the formatter →</a>
-          <a class="btn-secondary" href="tools.html">Browse all 14 tools</a>
-        </div>
-        <div class="trust-row">
-          <span>✓ No signup</span>
-          <span>✓ Works offline</span>
-          <span>✓ Open source</span>
-          <span>✓ Presentation mode</span>
-        </div>
+  <section class="hx-hero">
+    <div class="container">
+      <div class="hx-mark" aria-hidden="true">{ }</div>
+      <div class="hx-kicker"><span class="dot-live"></span> 14 tools · nothing leaves your browser</div>
+      <h1>Every JSON tool you need,<br><span class="grad">in one browser tab</span></h1>
+      <p class="hx-sub">Format, diagram, diff, query, validate and convert JSON — into CSV, YAML, XML, SQL or typed classes for seven languages. No account, no uploads, no waiting on a server.</p>
+      <div class="hx-actions">
+        <a class="btn-primary" href="format.html">Open the formatter →</a>
+        <a class="btn-secondary" href="tools.html">Browse all 14 tools</a>
       </div>
+      <div class="hx-hint">
+        <code>Press <b>⌘K</b> anywhere to jump straight to a tool</code>
+        <span class="hx-hint-keys"><kbd>⌘</kbd><kbd>K</kbd></span>
+      </div>
+      <div class="hx-trust">
+        <span>No signup</span>
+        <span>Works offline</span>
+        <span>Open source</span>
+        <span>Presentation mode</span>
+      </div>
+    </div>
+  </section>
 
-      <div class="hero-visual" aria-hidden="true">
-        <div class="mock-window">
-          <div class="mock-bar"><span></span><span></span><span></span><em>order.json → C#</em></div>
-          <div class="mock-body">
-<pre class="mock-code"><span class="c-p">{</span>
+  <section class="hx-stats">
+    <div class="container">
+      <div class="hx-stats-grid">
+        <div class="hx-stat"><div class="hx-num">14</div><div class="hx-stat-label">Tools, all free</div></div>
+        <div class="hx-stat"><div class="hx-num">0</div><div class="hx-stat-label">Servers your data touches</div></div>
+        <div class="hx-stat"><div class="hx-num">100%</div><div class="hx-stat-label">Runs client-side</div></div>
+        <div class="hx-stat"><div class="hx-num">∞</div><div class="hx-stat-label">Usage, no limits</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hx-peek">
+    <div class="container">
+      <div class="hx-peek-box" aria-hidden="true">
+        <div class="hx-peek-bar"><i></i><i></i><i></i><em>order.json → C#</em></div>
+        <div class="hx-peek-panes">
+<pre><span class="c-p">{</span>
   <span class="c-k">"orderId"</span>: <span class="c-s">"A-1001"</span>,
   <span class="c-k">"total"</span>: <span class="c-n">249.95</span>,
   <span class="c-k">"paid"</span>: <span class="c-b">true</span>,
   <span class="c-k">"items"</span>: <span class="c-p">[</span> <span class="c-m">… 2</span> <span class="c-p">]</span>
 <span class="c-p">}</span></pre>
-<div class="mock-arrow">↓</div>
-<pre class="mock-code"><span class="c-b">public class</span> <span class="c-t">Order</span>
+<div class="hx-peek-sep"></div>
+<pre><span class="c-b">public class</span> <span class="c-t">Order</span>
 <span class="c-p">{</span>
   <span class="c-b">public string</span> OrderId <span class="c-p">{</span> get; set; <span class="c-p">}</span>
   <span class="c-b">public double</span> Total <span class="c-p">{</span> get; set; <span class="c-p">}</span>
   <span class="c-b">public bool</span> Paid <span class="c-p">{</span> get; set; <span class="c-p">}</span>
   <span class="c-b">public</span> <span class="c-t">List</span>&lt;<span class="c-t">Item</span>&gt; Items <span class="c-p">{</span> get; set; <span class="c-p">}</span>
 <span class="c-p">}</span></pre>
-          </div>
         </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="stat-strip">
-        <div class="stat"><div class="num">14</div><div class="label">Tools, all free</div></div>
-        <div class="stat"><div class="num">0</div><div class="label">Servers your data touches</div></div>
-        <div class="stat"><div class="num">100%</div><div class="label">Runs client-side</div></div>
-        <div class="stat"><div class="num">∞</div><div class="label">Usage, no limits</div></div>
       </div>
     </div>
   </section>
 
   <section class="section" id="tools">
     <div class="container">
-      <div class="section-head">
+      <div class="hx-head">
         <div class="kicker">The toolkit</div>
-        <h2>Everything you need to work with JSON</h2>
+        <h2>Everything you need to <span class="grad">work with JSON</span></h2>
         <p>Grouped by what you are trying to do. Every tool runs client-side, needs no account, and works offline once loaded — or press <kbd>⌘</kbd><kbd>K</kbd> anywhere on the site to jump straight to one.</p>
       </div>
 
@@ -174,28 +182,28 @@
           <div class="link-row">Open tool →</div>
         </a>
 
-        <a href="tool.html" class="tool-card" data-keys="json to diagram diagram visualise visualize graph tree viewer chart png svg export" data-group="inspect">
+        <a href="tool.html" class="tool-card t-teal" data-keys="json to diagram diagram visualise visualize graph tree viewer chart png svg export" data-group="inspect">
           <div class="icon">{ }</div>
           <h3>JSON to diagram</h3>
           <p>Turn any payload into a collapsible, searchable node graph. Export as PNG or SVG.</p>
           <div class="link-row">Open tool →</div>
         </a>
 
-        <a href="diff.html" class="tool-card" data-keys="json diff diff compare difference patch merge rfc6902 rfc7386 changes" data-group="inspect">
+        <a href="diff.html" class="tool-card t-amber" data-keys="json diff diff compare difference patch merge rfc6902 rfc7386 changes" data-group="inspect">
           <div class="icon">A|B</div>
           <h3>JSON diff</h3>
           <p>Compare two payloads structurally — key order ignored — and export an RFC 6902 JSON Patch.</p>
           <div class="link-row">Open tool →</div>
         </a>
 
-        <a href="jsonpath.html" class="tool-card" data-keys="jsonpath tester jsonpath query path filter search expression evaluate xpath" data-group="inspect">
+        <a href="jsonpath.html" class="tool-card t-pink" data-keys="jsonpath tester jsonpath query path filter search expression evaluate xpath" data-group="inspect">
           <div class="icon">$..</div>
           <h3>JSONPath tester</h3>
           <p>Write a path and watch matches update live. Filters, slices and recursive descent.</p>
           <div class="link-row">Open tool →</div>
         </a>
 
-        <a href="jwt.html" class="tool-card" data-keys="jwt decoder jwt token decode claims bearer auth oauth expiry signature hmac" data-group="inspect">
+        <a href="jwt.html" class="tool-card t-blue" data-keys="jwt decoder jwt token decode claims bearer auth oauth expiry signature hmac" data-group="inspect">
           <div class="icon">JWT</div>
           <h3>JWT decoder</h3>
           <p>Read a token&rsquo;s header, claims and expiry, and verify HS256 signatures locally.</p>
@@ -208,7 +216,7 @@
         <p>Describe the shape of your data, then check and fake it.</p>
       </div>
       <div class="card-grid">
-        <a href="json-schema.html" class="tool-card" data-keys="json schema generator schema generator infer draft 2020-12 draft-07 types" data-group="schema">
+        <a href="json-schema.html" class="tool-card t-teal" data-keys="json schema generator schema generator infer draft 2020-12 draft-07 types" data-group="schema">
           <div class="icon">Sχ</div>
           <h3>JSON Schema generator</h3>
           <p>Infer a schema straight from a sample payload — draft 2020-12 or draft-07.</p>
@@ -222,7 +230,7 @@
           <div class="link-row">Open tool →</div>
         </a>
 
-        <a href="mock.html" class="tool-card" data-keys="mock data generator mock fake sample test data faker seed stub fixtures" data-group="schema">
+        <a href="mock.html" class="tool-card t-amber" data-keys="mock data generator mock fake sample test data faker seed stub fixtures" data-group="schema">
           <div class="icon">⁂</div>
           <h3>Mock data generator</h3>
           <p>Turn a schema into realistic fake records. Seeded, so the same seed gives the same data.</p>
@@ -235,28 +243,28 @@
         <p>Move a payload into whatever format the next system speaks.</p>
       </div>
       <div class="card-grid">
-        <a href="code.html" class="tool-card" data-keys="json to code code class csharp c# typescript interface dart kotlin java python go struct poco poso model" data-group="convert">
+        <a href="code.html" class="tool-card t-blue" data-keys="json to code code class csharp c# typescript interface dart kotlin java python go struct poco poso model" data-group="convert">
           <div class="icon">&lt;/&gt;</div>
           <h3>JSON to code</h3>
           <p>Generate C# classes, TypeScript interfaces, Dart, Kotlin, Java, Python or Go types.</p>
           <div class="link-row">Open tool →</div>
         </a>
 
-        <a href="csv.html" class="tool-card" data-keys="json ⇄ csv csv excel spreadsheet table tsv convert export" data-group="convert">
+        <a href="csv.html" class="tool-card t-teal" data-keys="json ⇄ csv csv excel spreadsheet table tsv convert export" data-group="convert">
           <div class="icon">J↔C</div>
           <h3>JSON ⇄ CSV</h3>
           <p>Convert to spreadsheet-ready CSV and back, with nested objects flattened to dot columns.</p>
           <div class="link-row">Open tool →</div>
         </a>
 
-        <a href="yaml-json.html" class="tool-card" data-keys="yaml ⇄ json yaml yml convert kubernetes k8s docker compose openapi config" data-group="convert">
+        <a href="yaml-json.html" class="tool-card t-amber" data-keys="yaml ⇄ json yaml yml convert kubernetes k8s docker compose openapi config" data-group="convert">
           <div class="icon">Y↔J</div>
           <h3>YAML ⇄ JSON</h3>
           <p>Convert either direction with live validation and multi-document YAML support.</p>
           <div class="link-row">Open tool →</div>
         </a>
 
-        <a href="xml.html" class="tool-card" data-keys="json ⇄ xml xml soap convert attributes rss feed" data-group="convert">
+        <a href="xml.html" class="tool-card t-pink" data-keys="json ⇄ xml xml soap convert attributes rss feed" data-group="convert">
           <div class="icon">X↔J</div>
           <h3>JSON ⇄ XML</h3>
           <p>Convert either direction with attributes preserved, using the browser&rsquo;s own parser.</p>
@@ -270,7 +278,7 @@
           <div class="link-row">Open tool →</div>
         </a>
 
-        <a href="sql.html" class="tool-card" data-keys="json to sql sql insert create table postgres mysql sqlserver mssql sqlite database seed" data-group="convert">
+        <a href="sql.html" class="tool-card t-blue" data-keys="json to sql sql insert create table postgres mysql sqlserver mssql sqlite database seed" data-group="convert">
           <div class="icon">SQL</div>
           <h3>JSON to SQL</h3>
           <p>Generate CREATE TABLE and INSERT statements for Postgres, MySQL, SQL Server or SQLite.</p>
@@ -280,12 +288,28 @@
     </div>
   </section>
 
+  <section class="section band" id="how">
+    <div class="container">
+      <div class="hx-head">
+        <div class="kicker">How it goes</div>
+        <h2>Paste, look, convert, <span class="grad">get on with it</span></h2>
+        <p>The whole loop happens in the tab you already have open — no upload dialog, no round trip, no account wall in the middle of it.</p>
+      </div>
+      <div class="hx-flow">
+        <div class="hx-step"><div class="n">1</div><h4>Paste or drop</h4><p>Drag a file in, paste a response, or pipe a selection over from the browser extension.</p></div>
+        <div class="hx-step"><div class="n">2</div><h4>Read it properly</h4><p>Format it, walk it as a diagram, diff it against yesterday&rsquo;s payload, or query it with JSONPath.</p></div>
+        <div class="hx-step"><div class="n">3</div><h4>Reshape it</h4><p>Out to CSV, YAML, XML, JSONL, SQL, a JSON Schema, or typed classes for seven languages.</p></div>
+        <div class="hx-step"><div class="n">4</div><h4>Take it with you</h4><p>Copy, download, or hit <kbd>Shift</kbd><kbd>P</kbd> and put it on the projector.</p></div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="share">
     <div class="container narrow" style="text-align:center;">
-      <div class="section-head" style="margin-bottom:22px;">
-        <div class="kicker" style="text-align:center;">Pass it on</div>
-        <h2>Know someone who lives in payloads?</h2>
-        <p style="margin:0 auto;">Send them the toolkit. The link only — nothing you have pasted anywhere on this site is ever included.</p>
+      <div class="hx-head" style="margin-bottom:26px;">
+        <div class="kicker">Pass it on</div>
+        <h2>Know someone who <span class="grad">lives in payloads?</span></h2>
+        <p>Send them the toolkit. The link only — nothing you have pasted anywhere on this site is ever included.</p>
       </div>
       <div data-share data-share-title="JSON Studio — 14 free JSON tools" style="display:flex;flex-direction:column;align-items:center;"></div>
     </div>
@@ -322,7 +346,7 @@
 
   <section class="section band" id="install">
     <div class="container">
-      <div class="split">
+      <div class="split flip">
         <div>
           <div class="kicker">Install it</div>
           <h2>Keep it one click away</h2>
@@ -345,9 +369,9 @@
 
   <section class="section">
     <div class="container">
-      <div class="section-head">
+      <div class="hx-head">
         <div class="kicker">Why this exists</div>
-        <h2>Built for people who live in payloads</h2>
+        <h2>Built for people who <span class="grad">live in payloads</span></h2>
         <p>MSDEVBUILD focuses on Azure, AI and mobile architecture — this exists because reading raw API responses and config files all day gets old, and because most free JSON tools want your data on their server first.</p>
       </div>
       <div class="feature-grid">
@@ -361,9 +385,37 @@
     </div>
   </section>
 
+  <section class="section" id="compare">
+    <div class="container">
+      <div class="hx-head">
+        <div class="kicker">The difference</div>
+        <h2>JSON Studio vs. <span class="grad">the usual online tool</span></h2>
+        <p>Most free JSON tools want your payload on their server before they will help you. This one never asks for it.</p>
+      </div>
+      <div class="hx-compare">
+        <div class="hx-scroll">
+          <table>
+            <thead>
+              <tr><th>&nbsp;</th><th>Typical online tool</th><th>JSON Studio</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Your payload</td><td class="no">Uploaded to their server</td><td class="col-us yes">Never leaves the tab</td></tr>
+              <tr><td>Account</td><td class="no">Sign-up for the good parts</td><td class="col-us yes">None, ever</td></tr>
+              <tr><td>Size limits</td><td class="no">Capped, or paywalled</td><td class="col-us yes">Whatever your machine handles</td></tr>
+              <tr><td>Offline</td><td class="no">Dead without a connection</td><td class="col-us yes">Installs as an app and keeps working</td></tr>
+              <tr><td>Ads &amp; trackers</td><td class="no">Usually both</td><td class="col-us yes">Neither</td></tr>
+              <tr><td>Source</td><td class="no">Closed</td><td class="col-us yes">Plain HTML/CSS/JS on GitHub</td></tr>
+              <tr><td>Showing it to a room</td><td class="no">Zoom in and hope</td><td class="col-us yes">Built-in presentation mode</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section band">
     <div class="container narrow">
-      <div class="section-head">
+      <div class="hx-head">
         <div class="kicker">Questions</div>
         <h2>Frequently asked</h2>
       </div>
