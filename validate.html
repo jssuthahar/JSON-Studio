@@ -34,6 +34,8 @@
 <link rel="stylesheet" href="assets/css/convert.css">
 <link rel="stylesheet" href="assets/css/present.css">
 <link rel="stylesheet" href="assets/css/workbench.css">
+<link rel="stylesheet" href="assets/css/tool-focus.css">
+<link rel="stylesheet" href="assets/css/editor.css">
 
 <script type="application/ld+json">
 {
@@ -89,18 +91,12 @@
 
 <main class="convert-shell">
   <div class="convert-head">
-    <div class="container">
-      <div class="kicker">Validator</div>
+    <div class="container tool-topbar">
       <h1>JSON Schema validator</h1>
-      <p>Check a payload against a schema and get every failure with its instance path and the keyword that rejected it. Pairs with the schema generator — generate one, then test it against real payloads.</p>
-
-      <nav class="th-jump">
-        <a href="#about">What it does</a>
-        <a href="#how">How to use it</a>
-        <a href="#faq">FAQ</a>
-        <a href="#share">Share</a>
-      </nav>
-
+      <p class="tt-sub">Check a payload against a schema — every failure with its instance path.</p>
+      <a class="tt-about" href="#about">About &amp; FAQ ↓</a>
+    </div>
+    <div class="container">
       <div class="opt-bar">
         <div class="opt">
           <input type="checkbox" id="opt-formats" checked>
@@ -146,7 +142,7 @@
       </div>
       <div class="pane-body">
         <textarea id="output" class="code-area" spellcheck="false" readonly placeholder="Errors appear here."></textarea>
-        <p class="note">Covers the keywords you actually meet day to day (types, required, enum, const, numeric and string bounds, items, uniqueItems, anyOf/oneOf/allOf/not, $ref to local pointers). Exotic draft corners like dynamic refs and content encoding are not implemented. ⌘/Ctrl + Enter runs it again. Everything happens in this browser — nothing is uploaded.</p>
+        <p class="note">Covers the keywords you actually meet day to day (types, required, enum, const, numeric and string bounds, items, uniqueItems, anyOf/oneOf/allOf/not, $ref to local pointers). Exotic draft corners like dynamic refs and content encoding are not implemented.</p>
       </div>
       <div class="pane-status" id="out-status"></div>
     </section>
@@ -164,6 +160,7 @@
 
 <section class="tool-home" id="about">
   <div class="container">
+    <div class="th-more">Reference</div>
     <header class="th-head">
       <div class="kicker">Schema validator</div>
       <h2>About the JSON Schema validator</h2>
@@ -263,6 +260,7 @@
 <script src="assets/js/workbench.js"></script>
 <script src="assets/js/history.js"></script>
 <script src="assets/js/gutter.js"></script>
+<script src="assets/js/editor.js"></script>
 <script src="assets/js/share.js"></script>
 </body>
 </html>

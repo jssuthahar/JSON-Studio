@@ -34,6 +34,8 @@
 <link rel="stylesheet" href="assets/css/convert.css">
 <link rel="stylesheet" href="assets/css/present.css">
 <link rel="stylesheet" href="assets/css/workbench.css">
+<link rel="stylesheet" href="assets/css/tool-focus.css">
+<link rel="stylesheet" href="assets/css/editor.css">
 
 <script type="application/ld+json">
 {
@@ -89,18 +91,12 @@
 
 <main class="convert-shell">
   <div class="convert-head">
-    <div class="container">
-      <div class="kicker">Decoder</div>
+    <div class="container tool-topbar">
       <h1>JWT decoder</h1>
-      <p>Paste a token to read its header and claims, with expiry and validity windows worked out for you. Your token never leaves this page — which matters more here than anywhere else on this site, because a JWT <em>is</em> a live credential.</p>
-
-      <nav class="th-jump">
-        <a href="#about">What it does</a>
-        <a href="#how">How to use it</a>
-        <a href="#faq">FAQ</a>
-        <a href="#share">Share</a>
-      </nav>
-
+      <p class="tt-sub">Read a token&rsquo;s header, claims and expiry — and verify HS256 locally.</p>
+      <a class="tt-about" href="#about">About &amp; FAQ ↓</a>
+    </div>
+    <div class="container">
       <div class="opt-bar">
         <div class="opt" style="flex:1;min-width:260px;">
           <label for="opt-secret">HMAC secret</label>
@@ -145,7 +141,7 @@
       </div>
       <div class="pane-body">
         <textarea id="output" class="code-area" spellcheck="false" readonly placeholder="Claims appear here."></textarea>
-        <p class="note">Decoding is not verification. Without a secret this only reads the token; with one, HS256/384/512 signatures are checked via WebCrypto in the browser. RS/ES tokens need a public key and are not verified here. ⌘/Ctrl + Enter runs it again. Everything happens in this browser — nothing is uploaded.</p>
+        <p class="note">Decoding is not verification. Without a secret this only reads the token; with one, HS256/384/512 signatures are checked via WebCrypto in the browser. RS/ES tokens need a public key and are not verified here.</p>
       </div>
       <div class="pane-status" id="out-status"></div>
     </section>
@@ -163,6 +159,7 @@
 
 <section class="tool-home" id="about">
   <div class="container">
+    <div class="th-more">Reference</div>
     <header class="th-head">
       <div class="kicker">JWT decoder</div>
       <h2>About the JWT decoder</h2>
@@ -262,6 +259,7 @@
 <script src="assets/js/workbench.js"></script>
 <script src="assets/js/history.js"></script>
 <script src="assets/js/gutter.js"></script>
+<script src="assets/js/editor.js"></script>
 <script src="assets/js/share.js"></script>
 </body>
 </html>

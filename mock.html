@@ -34,6 +34,8 @@
 <link rel="stylesheet" href="assets/css/convert.css">
 <link rel="stylesheet" href="assets/css/present.css">
 <link rel="stylesheet" href="assets/css/workbench.css">
+<link rel="stylesheet" href="assets/css/tool-focus.css">
+<link rel="stylesheet" href="assets/css/editor.css">
 
 <script type="application/ld+json">
 {
@@ -89,18 +91,12 @@
 
 <main class="convert-shell">
   <div class="convert-head">
-    <div class="container">
-      <div class="kicker">Generator</div>
+    <div class="container tool-topbar">
       <h1>Mock data generator</h1>
-      <p>Feed it a JSON Schema and get sample payloads back — useful for seeding tests, demos and API stubs. The seed makes output repeatable, so the same seed always produces the same data.</p>
-
-      <nav class="th-jump">
-        <a href="#about">What it does</a>
-        <a href="#how">How to use it</a>
-        <a href="#faq">FAQ</a>
-        <a href="#share">Share</a>
-      </nav>
-
+      <p class="tt-sub">Turn a JSON Schema into realistic, seeded sample records.</p>
+      <a class="tt-about" href="#about">About &amp; FAQ ↓</a>
+    </div>
+    <div class="container">
       <div class="opt-bar">
         <div class="opt">
           <label for="opt-count">Records</label>
@@ -155,7 +151,7 @@
       </div>
       <div class="pane-body">
         <textarea id="output" class="code-area" spellcheck="false" readonly placeholder="Generated records appear here."></textarea>
-        <p class="note">Respects enum, const, formats, numeric and length bounds, required vs optional, and $ref to local pointers. ⌘/Ctrl + Enter runs it again. Everything happens in this browser — nothing is uploaded.</p>
+        <p class="note">Respects enum, const, formats, numeric and length bounds, required vs optional, and $ref to local pointers.</p>
       </div>
       <div class="pane-status" id="out-status"></div>
     </section>
@@ -173,6 +169,7 @@
 
 <section class="tool-home" id="about">
   <div class="container">
+    <div class="th-more">Reference</div>
     <header class="th-head">
       <div class="kicker">Mock data generator</div>
       <h2>About the mock data generator</h2>
@@ -272,6 +269,7 @@
 <script src="assets/js/workbench.js"></script>
 <script src="assets/js/history.js"></script>
 <script src="assets/js/gutter.js"></script>
+<script src="assets/js/editor.js"></script>
 <script src="assets/js/share.js"></script>
 </body>
 </html>

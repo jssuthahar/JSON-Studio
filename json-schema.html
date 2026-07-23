@@ -34,6 +34,8 @@
 <link rel="stylesheet" href="assets/css/convert.css">
 <link rel="stylesheet" href="assets/css/present.css">
 <link rel="stylesheet" href="assets/css/workbench.css">
+<link rel="stylesheet" href="assets/css/tool-focus.css">
+<link rel="stylesheet" href="assets/css/editor.css">
 <script>(function(){try{var t=localStorage.getItem('json-studio-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <script type="application/ld+json">
 {
@@ -75,18 +77,12 @@
 
 <main class="convert-shell">
   <div class="convert-head">
-    <div class="container">
-      <div class="kicker">Generator</div>
+    <div class="container tool-topbar">
       <h1>JSON Schema generator</h1>
-      <p>Paste a sample payload and get a JSON Schema inferred from it — types, nested objects, array items merged across elements, plus optional format and enum detection. All in your browser.</p>
-
-      <nav class="th-jump">
-        <a href="#about">What it does</a>
-        <a href="#how">How to use it</a>
-        <a href="#faq">FAQ</a>
-        <a href="#share">Share</a>
-      </nav>
-
+      <p class="tt-sub">Infer a schema from a sample payload — draft 2020-12 or draft-07.</p>
+      <a class="tt-about" href="#about">About &amp; FAQ ↓</a>
+    </div>
+    <div class="container">
       <div class="opt-bar">
         <div class="opt">
           <label for="opt-draft">Draft</label>
@@ -166,6 +162,7 @@
 
 <section class="tool-home" id="about">
   <div class="container">
+    <div class="th-more">Reference</div>
     <header class="th-head">
       <div class="kicker">Schema generator</div>
       <h2>About the JSON Schema generator</h2>
@@ -266,6 +263,7 @@
 <script src="assets/js/workbench.js"></script>
 <script src="assets/js/history.js"></script>
 <script src="assets/js/gutter.js"></script>
+<script src="assets/js/editor.js"></script>
 <script src="assets/js/share.js"></script>
 </body>
 </html>

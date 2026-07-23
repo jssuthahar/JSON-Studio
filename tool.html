@@ -24,6 +24,8 @@
 <link rel="stylesheet" href="assets/css/tool.css">
 <link rel="stylesheet" href="assets/css/present.css">
 <link rel="stylesheet" href="assets/css/workbench.css">
+<link rel="stylesheet" href="assets/css/tool-focus.css">
+<link rel="stylesheet" href="assets/css/editor.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script>(function(){try{var t=localStorage.getItem('json-studio-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <script type="application/ld+json">
@@ -64,13 +66,13 @@
 <div id="site-header"></div>
 <span id="top"></span>
 
-<div class="container" style="padding-top:14px;padding-bottom:2px;">
-      <nav class="th-jump">
-        <a href="#about">What it does</a>
-        <a href="#how">How to use it</a>
-        <a href="#faq">FAQ</a>
-        <a href="#share">Share</a>
-      </nav></div>
+<div class="tool-topbar solo">
+  <div class="container">
+    <h1>JSON to diagram</h1>
+    <p class="tt-sub">Lay a payload out as a node-link tree you can pan, zoom, collapse and search.</p>
+    <a class="tt-about" href="#about">About &amp; FAQ ↓</a>
+  </div>
+</div>
 <main class="tool-shell">
   <div class="tool-left">
     <div class="tool-controls">
@@ -98,7 +100,7 @@
         <input type="password" id="ai-key" placeholder="sk-…" style="flex:1;">
       </div>
       <button id="btn-ai-explain">Explain this JSON with AI</button>
-      <p class="hint">Your key stays in this browser (localStorage) and is sent only to api.openai.com — never to any MSDEVBUILD server. This is a static site with no backend.</p>
+      <p class="hint">Your key stays in this browser and is sent only to api.openai.com.</p>
       <div id="ai-output"></div>
     </div>
   </div>
@@ -130,6 +132,7 @@
 
 <section class="tool-home" id="about">
   <div class="container">
+    <div class="th-more">Reference</div>
     <header class="th-head">
       <div class="kicker">JSON to diagram</div>
       <h2>About the JSON diagram viewer</h2>
@@ -230,6 +233,7 @@
 <script src="assets/js/workbench.js"></script>
 <script src="assets/js/history.js"></script>
 <script src="assets/js/gutter.js"></script>
+<script src="assets/js/editor.js"></script>
 <script src="assets/js/share.js"></script>
 </body>
 </html>

@@ -62,32 +62,6 @@
 .pill.good{background:var(--accent-tint);color:var(--accent);border-color:transparent;}
 .pill.bad{background:rgba(190,18,60,.10);color:var(--bool);border-color:transparent;}
 
-/* ---------------- line-number gutter ---------------- */
-.ca-wrap{position:relative;flex:1;display:flex;min-height:0;min-width:0;
-  --gutter-w:2ch;}
-.ca-wrap .code-area, .ca-wrap #editor{border-radius:0 var(--radius-md) var(--radius-md) 0;border-left:none;}
-.ca-gutter{
-  flex:0 0 auto;width:calc(var(--gutter-w) + 22px);margin:0;overflow:hidden;
-  background:var(--panel-2);border:1px solid var(--border);border-right:none;
-  border-radius:var(--radius-md) 0 0 var(--radius-md);
-  font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.65;
-  padding:14px 8px 14px 10px;text-align:right;color:var(--text-faint);
-  user-select:none;cursor:pointer;white-space:pre;
-}
-.ca-gutter:hover{color:var(--text-dim);}
-.pane:last-child .ca-gutter{background:var(--panel-2);}
-.ca-wrap.no-gutter .ca-gutter{display:none;}
-.ca-wrap.no-gutter .code-area{border-left:1px solid var(--border);border-radius:var(--radius-md);}
-
-/* the line an error points at */
-.ca-mark{position:absolute;left:0;right:0;pointer-events:none;z-index:1;
-  background:rgba(190,18,60,.10);border-left:3px solid var(--bool);}
-html[data-theme="dark"] .ca-mark{background:rgba(255,122,148,.12);}
-
-/* presentation mode scales the type — the gutter has to follow */
-body.presenting .ca-gutter{font-size:calc(12.5px * var(--present-scale, 1.35));padding:16px 8px 16px 10px;}
-body.presenting.focus-mode .ca-gutter{display:none;}
-
 /* ---------------- recent documents ---------------- */
 .hist-menu{position:relative;display:inline-flex;}
 .hist-menu > button{padding:7px 12px;font-size:12.5px;}

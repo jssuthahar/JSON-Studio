@@ -1,0 +1,118 @@
+/* ===========================================================
+   Editor surface.
+
+   The textarea keeps the caret, the selection and the typing; everything
+   you look at is painted around it — a highlight layer behind, a caret-line
+   band, a tab-style header and a readout. Colours come from the JSON syntax
+   tokens already defined in styles.css, so light and dark both work.
+=========================================================== */
+
+/* ---------------- line-number gutter ----------------
+   Lives here rather than in convert.css because the diagram page has its
+   own shell and loads neither convert.css nor the pane layout. */
+.ca-wrap{position:relative;flex:1;display:flex;min-height:0;min-width:0;
+  --gutter-w:2ch;}
+.ca-wrap .code-area, .ca-wrap #editor{border-radius:0 var(--radius-md) var(--radius-md) 0;border-left:none;}
+.ca-gutter{
+  flex:0 0 auto;width:calc(var(--gutter-w) + 22px);margin:0;overflow:hidden;
+  background:var(--panel-2);border:1px solid var(--border);border-right:none;
+  border-radius:var(--radius-md) 0 0 var(--radius-md);
+  font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.65;
+  padding:14px 8px 14px 10px;text-align:right;color:var(--text-faint);
+  user-select:none;cursor:pointer;white-space:pre;
+}
+.ca-gutter:hover{color:var(--text-dim);}
+.pane:last-child .ca-gutter{background:var(--panel-2);}
+.ca-wrap.no-gutter .ca-gutter{display:none;}
+.ca-wrap.no-gutter .code-area{border-left:1px solid var(--border);border-radius:var(--radius-md);}
+
+/* the line an error points at */
+.ca-mark{position:absolute;left:0;right:0;pointer-events:none;z-index:1;
+  background:rgba(190,18,60,.10);border-left:3px solid var(--bool);}
+html[data-theme="dark"] .ca-mark{background:rgba(255,122,148,.12);}
+
+/* presentation mode scales the type — the gutter has to follow */
+body.presenting .ca-gutter{font-size:calc(12.5px * var(--present-scale, 1.35));padding:16px 8px 16px 10px;}
+body.presenting.focus-mode .ca-gutter{display:none;}
+
+
+/* ---------------- the highlight layer ---------------- */
+.ca-hl{
+  position:absolute;z-index:0;margin:0;overflow:hidden;
+  white-space:pre;pointer-events:none;
+  border:1px solid transparent;      /* matches the textarea's border box */
+  color:var(--text-dim);
+}
+.ca-wrap.hl-on .code-area,
+.ca-wrap.hl-on #editor{
+  position:relative;z-index:1;background:transparent;
+  color:transparent;-webkit-text-fill-color:transparent;
+  caret-color:var(--brand);
+}
+/* the surface moves to the wrapper, since the textarea is now see-through */
+.ca-wrap.hl-on{background:var(--panel-2);border-radius:var(--radius-md);}
+.pane:last-child .ca-wrap.hl-on{background:var(--panel);}
+.ca-wrap.hl-on .code-area::placeholder{
+  color:var(--text-faint);-webkit-text-fill-color:var(--text-faint);
+}
+.ca-wrap.hl-on .code-area::selection{background:rgba(109,74,255,.22);}
+html[data-theme="dark"] .ca-wrap.hl-on .code-area::selection{background:rgba(157,134,255,.30);}
+
+/* ---------------- tokens ---------------- */
+.ca-hl .t-k{color:var(--key);}                   /* keys, quoted identifiers */
+.ca-hl .t-s{color:var(--str);}                   /* strings */
+.ca-hl .t-n{color:var(--num);}                   /* numbers */
+.ca-hl .t-b{color:var(--bool);font-style:normal;}/* booleans, keywords */
+.ca-hl .t-z{color:var(--null);}                  /* null */
+.ca-hl .t-p{color:var(--text-faint);}            /* punctuation */
+.ca-hl .t-t{color:var(--obj);}                   /* tags, types */
+.ca-hl .t-a{color:var(--key);}                   /* attributes */
+.ca-hl .t-c{color:var(--text-faint);font-style:italic;} /* comments */
+.ca-hl i{font-style:inherit;}
+
+/* ---------------- caret line ---------------- */
+.ca-line{
+  position:absolute;z-index:0;pointer-events:none;
+  background:rgba(109,74,255,.055);
+  border-left:2px solid rgba(109,74,255,.35);
+}
+html[data-theme="dark"] .ca-line{
+  background:rgba(157,134,255,.08);border-left-color:rgba(157,134,255,.45);
+}
+
+/* ---------------- header: a tab strip, not a title ---------------- */
+.pane-head{background:var(--panel-2);}
+.pane:last-child .pane-head{background:var(--panel);}
+.pane-title{
+  position:relative;font-size:11.5px;letter-spacing:.06em;color:var(--text-dim);
+  padding:6px 12px 6px 24px;border-radius:8px;background:var(--panel);
+  border:1px solid var(--border);
+}
+.pane:last-child .pane-title{background:var(--panel-2);}
+.pane-title::before{
+  content:'';position:absolute;left:10px;top:50%;transform:translateY(-50%);
+  width:7px;height:7px;border-radius:50%;background:var(--brand);opacity:.65;
+}
+.pane:last-child .pane-title::before{background:var(--accent);}
+
+/* ---------------- readout: right end of the status row ---------------- */
+.pane{position:relative;}
+.ed-meta{
+  position:absolute;right:22px;bottom:16px;z-index:2;
+  font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-faint);
+  white-space:nowrap;pointer-events:none;
+  display:flex;align-items:center;gap:8px;
+}
+.ed-meta[data-mode]:not([data-mode=""])::after{
+  content:attr(data-mode);
+  padding:2px 7px;border-radius:5px;
+  background:var(--brand-tint);color:var(--brand);
+  font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+}
+/* keep long status messages clear of the readout */
+@media(min-width:701px){ .pane .pane-status{padding-right:180px;} }
+@media(max-width:700px){ .ed-meta{display:none;} }
+body.presenting .ed-meta{display:none;}
+
+/* the gutter belongs to the same surface */
+.ca-wrap.hl-on .ca-gutter{background:transparent;border-color:var(--border);}
